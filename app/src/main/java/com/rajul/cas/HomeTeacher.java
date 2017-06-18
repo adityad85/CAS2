@@ -1,10 +1,19 @@
 package com.rajul.cas;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeTeacher extends AppCompatActivity {
 
@@ -15,7 +24,11 @@ public class HomeTeacher extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    }
+       }
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

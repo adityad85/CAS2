@@ -11,7 +11,8 @@
         <activity
             android:name=".HomeTeacher"
             android:label="Attendance Portal"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme.NoActionBar" >
+
 
         </activity>
         <activity
@@ -33,36 +34,29 @@
         <activity
             android:name=".asksignup"
             android:theme="@style/AppTheme.NoActionBar" >
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".signup"
             android:theme="@style/AppTheme.NoActionBar" >
-
         </activity>
         <activity
             android:name=".StudentDashboard"
             android:label="Student Attendance Portal"
             android:theme="@style/AppTheme.NoActionBar" >
-
         </activity>
         <activity
             android:name=".Teacherprofileentry"
             android:label="@string/title_activity_teacherprofileentry"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
         <activity
             android:name=".Attendance_update"
             android:label="Attendance Update"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
-
 </manifest>
