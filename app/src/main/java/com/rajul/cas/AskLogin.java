@@ -7,6 +7,7 @@ import android.view.View;
 
 public class AskLogin extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +20,7 @@ public class AskLogin extends AppCompatActivity {
     public void jumptoLoginScreen(View v){
         Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
+
     }
+
 }

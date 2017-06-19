@@ -1,10 +1,12 @@
 package com.rajul.cas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
 public class StudentprofileEntry extends AppCompatActivity {
@@ -23,9 +25,12 @@ public class StudentprofileEntry extends AppCompatActivity {
         e2.setAlpha(.75f);
         e3.setAlpha(.75f);
         e4.setAlpha(.75f);
-
-
     }
+    public void jumptoStudentDashboard(View v){
+        Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -42,7 +47,10 @@ public class StudentprofileEntry extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_home) {
+            Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
+            startActivity(intent);
             return true;
+
         }
 
         return super.onOptionsItemSelected(item);

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.rajul.cas.Attendance_update"
+    tools:context="com.rajul.cas.Attendance_upload"
     tools:showIn="@layout/activity_attendance_update"
     android:orientation="vertical">
 

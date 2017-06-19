@@ -57,6 +57,7 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:textSize="18sp"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="150dp"
+        android:onClick="dashboard"/>
 
 </LinearLayout>
