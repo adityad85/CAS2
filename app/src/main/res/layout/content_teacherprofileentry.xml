@@ -5,7 +5,10 @@
     android:id="@+id/content_teacherprofileentry"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:paddingTop="15dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.rajul.cas.Teacherprofileentry"
     tools:showIn="@layout/activity_teacherprofileentry">
@@ -14,10 +17,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addDetails"
-        android:text="Add Details"
+        android:text="Add Where you teach"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp" />
     <LinearLayout
@@ -28,57 +32,93 @@
         android:layout_below="@id/addDetails"
         android:layout_marginTop="20dp">
 
-         <EditText
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:hint="Enter Sem"
-             android:textColorHint="@color/colorPrimary"
-             android:id="@+id/entersem"
-             android:textSize="18sp" />
-        <EditText
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Branch"
-            android:textColorHint="@color/colorPrimary"
-            android:id="@+id/enterbranch"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp" />
-        <EditText
+            android:id="@+id/adddetailsSpinner1"
+            android:entries="@array/Sem2"
+            android:layout_marginBottom="20dp"
+            >
+
+        </Spinner>
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Sec"
-            android:textColorHint="@color/colorPrimary"
-            android:id="@+id/entersec"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp" />
-        <EditText
+            android:id="@+id/adddetailsSpinner2"
+            android:entries="@array/Branch2"
+            android:layout_marginBottom="20dp">
+
+        </Spinner>
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Sub"
-            android:textColorHint="@color/colorPrimary"
-            android:id="@+id/entersub"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp" />
+            android:id="@+id/adddetailsSpinner3"
+            android:entries="@array/Sec2"
+            android:layout_marginBottom="20dp">
+
+        </Spinner>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/adddetailsSpinner4"
+            android:entries="@array/Sub2"
+            android:layout_marginBottom="30dp">
+
+        </Spinner>
     </LinearLayout>
-
-
-0
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/submitstudentprofiledetail"
-
-        android:layout_marginTop="65dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/teacherdetail1"
+        android:layout_margin="35dp"
+        android:gravity="center"
+        android:id="@+id/teacherdetailbuttons"
+        >
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/moreSubject"
         android:background="@drawable/button_selector"
-        android:text="UPDATE"
+        android:text="More"
         android:textColor="@color/colorAccent"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:onClick="jumpToTeacherDashboard"
-        android:layout_below="@id/teacherdetail1"/>
+        android:onClick="jumpToTeacherProfileEntry"
+        android:layout_below="@id/teacherdetail1"
+        android:layout_toLeftOf="@+id/submitstudentprofiledetail"
+        android:layout_weight="2"
+        />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/submitstudentprofiledetail"
+            android:background="@drawable/button_selector"
+            android:text="UPDATE"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:onClick="jumpToTeacherDashboard"
+            android:layout_below="@id/teacherdetail1"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="More than one assigned classes?, Click MORE button"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:textSize="14sp"
+        />
+
+
 
 </RelativeLayout>

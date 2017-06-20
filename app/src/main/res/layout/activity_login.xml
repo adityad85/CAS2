@@ -4,7 +4,6 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.rajul.cas.Login"
     android:orientation="vertical">
 
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cas"
         android:text="COLLEGE ATTENDANCE SYSTEM"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="140dp"
         android:textColor="@color/colorPrimary"
         android:layout_gravity="center"
         android:textSize="18sp"/>
@@ -54,10 +53,11 @@
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
         android:id="@+id/loginbutton"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:textSize="18sp"
-        android:layout_marginTop="150dp"
-        android:onClick="dashboard"/>
+        android:layout_marginTop="95dp"
+        android:onClick="dashboard"
+        />
 
 </LinearLayout>

@@ -50,6 +50,50 @@
         <item>7</item>
         <item>8</item>
     </string-array>
+    <string-array name="Sem2">
+        <item>Enter Sem</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+    </string-array>
+    <string-array name="Sec2">
+        <item>Enter Sec</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+    <string-array name="Sub2">
+        <item>Enter Sub</item>
+        <item>NCS-601</item>
+        <item>NCS-602</item>
+        <item>NCS-603</item>
+    </string-array>
+    <string-array name="Branch2">
+        <item>Enter Branch</item>
+        <item>CSE</item>
+        <item>IT</item>
+        <item>ME</item>
+        <item>CIVIL</item>
+        <item>ECE</item>
+        <item>EN</item>
+        <item>EI</item>
+    </string-array>
+    <string-array name="Lec2">
+        <item>Enter Lec no</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
     <string name="title_activity_attendance_upload">Attendance_upload</string>
 
 </resources>

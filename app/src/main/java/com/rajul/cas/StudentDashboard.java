@@ -1,5 +1,6 @@
 package com.rajul.cas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -33,8 +34,14 @@ public class StudentDashboard extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_home) {
-            return true;
+            Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
+            startActivity(intent);
         }
+        if (id == R.id.action_profile) {
+            Intent intent = new Intent(getApplicationContext(),StudentprofileEntry.class);
+            startActivity(intent);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
