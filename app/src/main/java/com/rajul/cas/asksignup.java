@@ -11,6 +11,7 @@ public class asksignup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asksignup);
+
     }
     public void signupScreen(View v){
         Intent intent = new Intent(getApplicationContext(), signup.class);

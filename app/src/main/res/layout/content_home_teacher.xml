@@ -25,7 +25,7 @@
         android:textColor="@color/colorAccent"
         android:textSize="16sp"
         android:layout_width="wrap_content"
-        android:onClick="jumptoDiaglog1"/>
+        android:onClick="jumptoDialog1"/>
 
    <LinearLayout
        android:layout_width="match_parent"

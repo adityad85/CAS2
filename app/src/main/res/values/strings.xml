@@ -9,5 +9,47 @@
     <string name="title_activity_student_dashboard">StudentDashboard</string>
     <string name="title_activity_teacherprofileentry">Teacherprofileentry</string>
     <string name="title_activity_attendance_update">Attendance_update</string>
-    <string name="dialog_upload_title">Attendance Uplaod</string>
+    <string name="dialog_upload_title1">Attendance Upload</string>
+    <string name="dialog_upload_title2">Attendance Update</string>
+    <string-array name="Sem">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+    </string-array>
+    <string-array name="Sec">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+    <string-array name="Sub">
+        <item>NCS-601</item>
+        <item>NCS-602</item>
+        <item>NCS-603</item>
+    </string-array>
+    <string-array name="Branch">
+        <item>CSE</item>
+        <item>IT</item>
+        <item>ME</item>
+        <item>CIVIL</item>
+        <item>ECE</item>
+        <item>EN</item>
+        <item>EI</item>
+    </string-array>
+    <string-array name="Lec">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+    <string name="title_activity_attendance_upload">Attendance_upload</string>
+
 </resources>

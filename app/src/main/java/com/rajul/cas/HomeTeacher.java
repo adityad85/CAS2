@@ -1,18 +1,16 @@
 package com.rajul.cas;
-
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
-public class HomeTeacher extends AppCompatActivity {
+
+public class HomeTeacher extends AppCompatActivity  {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,27 +19,29 @@ public class HomeTeacher extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
-
-    public void jumptoDiaglog1(View v){
-
-            final Dialog dialog = new Dialog(this); // Context, this, etc.
-            dialog.setContentView(R.layout.uploadattendancedialogbox);
-            dialog.setTitle(R.string.dialog_upload_title);
-            dialog.show();
-
+    public void jumptoDialog1(View v){
+        final Dialog dialog = new Dialog(this); // Context, this, etc.
+        dialog.setContentView(R.layout.uploadattendancedialogbox);
+        dialog.setTitle(R.string.dialog_upload_title1);
+        dialog.show();
     }
     public void jumptoDialog2(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.
-        dialog.setContentView(R.layout.uploadattendancedialogbox);
-        dialog.setTitle(R.string.dialog_upload_title);
+        dialog.setContentView(R.layout.updateattendancedialogbox);
+        dialog.setTitle(R.string.dialog_upload_title2);
         dialog.show();
     }
 
+    public void jumptoattendanceUpload(View v){
+        Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
+        startActivity(intent);
+    }
 
+    public void jumptoattendanceUpdate(View v){
+        Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
+        startActivity(intent);
 
-
-
-
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
