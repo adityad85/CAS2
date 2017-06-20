@@ -66,6 +66,11 @@ public class HomeTeacher extends AppCompatActivity  {
             Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
             startActivity(intent);
         }
+        if (id == R.id.action_logout) {
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

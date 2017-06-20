@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class StudentDashboard extends AppCompatActivity {
@@ -18,10 +19,14 @@ public class StudentDashboard extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
     }
+    public void jumptoViewAttendance(View v){
+        Intent intent = new Intent(getApplicationContext(),viewAttendance.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menustudent, menu);
+        getMenuInflater().inflate(R.menu.menu_student, menu);
         return true;
     }
 
@@ -38,7 +43,11 @@ public class StudentDashboard extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.action_profile) {
-            Intent intent = new Intent(getApplicationContext(),StudentprofileEntry.class);
+            Intent intent = new Intent(getApplicationContext(),StudentProfile.class);
+            startActivity(intent);
+        }
+        if(id == R.id.action_logout){
+            Intent intent = new Intent(getApplicationContext(),Login.class);
             startActivity(intent);
         }
 

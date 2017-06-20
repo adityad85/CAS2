@@ -95,5 +95,8 @@
         <item>8</item>
     </string-array>
     <string name="title_activity_attendance_upload">Attendance_upload</string>
+    <string name="title_activity_view_attendance">viewAttendance</string>
+    <string name="title_activity_student_profile_entry">StudentProfileEntry</string>
+    <string name="title_activity_student_profile">StudentProfile</string>
 
 </resources>

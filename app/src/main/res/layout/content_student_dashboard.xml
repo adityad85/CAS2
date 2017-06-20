@@ -21,7 +21,8 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:onClick="jumptoViewAttendance"/>
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -34,7 +35,8 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:onClick="jumptoViewAttendance"/>
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -47,6 +49,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:onClick="jumptoViewAttendance"/>
 
 </LinearLayout>
