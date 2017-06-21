@@ -84,7 +84,7 @@ public class AttendanceUpload extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.action_profile) {
-            Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
+            Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
             startActivity(intent);
         }
         if (id == R.id.action_logout) {
