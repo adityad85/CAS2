@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.rajul.cas.asksignup"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingPrefix">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,7 +16,7 @@
         android:layout_marginTop="100dp"
         android:textColor="@color/colorPrimary"
         android:layout_gravity="center"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
     <Button
         android:text="TEACHER"
         android:layout_height="wrap_content"

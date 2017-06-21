@@ -1,5 +1,6 @@
 package com.rajul.cas;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class EditProfile extends AppCompatActivity {
 
@@ -56,5 +59,9 @@ public class EditProfile extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
 }

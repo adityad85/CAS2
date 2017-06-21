@@ -14,6 +14,8 @@ import com.rajul.cas.Students;
 
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Aditya on 6/19/2017.
  */
@@ -60,4 +62,5 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
             toggleButtonAttend = (ToggleButton) itemView.findViewById(R.id.attend);
         }
     }
+
 }

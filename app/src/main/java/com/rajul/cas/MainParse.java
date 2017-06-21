@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.parse.Parse;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 /**
  * Created by RAJUL on 6/20/2017.
  */
@@ -18,5 +20,9 @@ public class MainParse extends Application {
                 .server("https://parseapi.back4app.com/")
                 .build()
         );
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/NovaCut.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
     }
 }

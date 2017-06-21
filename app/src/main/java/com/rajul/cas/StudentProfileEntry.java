@@ -1,5 +1,6 @@
 package com.rajul.cas;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class StudentProfileEntry extends AppCompatActivity {
 
@@ -33,6 +36,9 @@ public class StudentProfileEntry extends AppCompatActivity {
     }
 
 
-
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
 }

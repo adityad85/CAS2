@@ -1,5 +1,6 @@
 package com.rajul.cas;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class HomeTeacher extends AppCompatActivity  {
@@ -21,7 +24,7 @@ public class HomeTeacher extends AppCompatActivity  {
     }
     public void jumptoDialog1(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.
-        dialog.setContentView(R.layout.uploadattendancedialogbox);
+        dialog.setContentView(R.layout.upload_attendance_dialog_box);
         dialog.setTitle(R.string.dialog_upload_title1);
         dialog.show();
     }
@@ -73,5 +76,10 @@ public class HomeTeacher extends AppCompatActivity  {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }
