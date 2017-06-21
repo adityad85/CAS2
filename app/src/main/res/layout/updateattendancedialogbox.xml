@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="365dp"
+    android:layout_height="360dp"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
@@ -168,19 +168,17 @@
         android:id="@+id/LL6"
         android:layout_below="@id/LL5"
         android:layout_marginBottom="15dp">
-        <Button
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/choosedateDialog"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
             android:text="Select Date"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:layout_marginRight="5dp"
             android:textSize="18sp"
-            android:layout_weight="2"
-            android:background="@drawable/button_selector"
-
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:gravity="left"
             />
       <EditText
           android:layout_width="0dp"
@@ -189,9 +187,10 @@
           android:hint="xx/yy/zzzz"
           android:textColorHint="@color/colorPrimary"
           android:layout_weight="2"
-          android:gravity="center"
-          android:textSize="16sp"
+          android:gravity="left"
+          android:textSize="17sp"
           android:focusable="false"
+          android:layout_marginLeft="10dp"
           />
 
 

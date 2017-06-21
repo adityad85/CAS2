@@ -1,35 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="130dp"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_centerHorizontal="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/successTextTickDialog"
+        >
 
     <ImageView
         android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:src="@drawable/checkSquare"
+        android:layout_height="25dp"
+        android:src="@drawable/checksquare"
         android:id="@+id/tick"
-        android:layout_weight="2" />
+        android:layout_weight="2"/>
     <TextView
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
-        android:text="Attendance Uploded"
+        android:text="Attendance Uploaded"
         android:textSize="20sp"
         android:layout_marginBottom="20dp"
         android:layout_weight="8"
-        android:layout_toRightOf="@id/tick"
         android:id="@+id/successText"
-        android:gravity="left"
-        android:layout_gravity="center_horizontal"/>
+        android:gravity="left" />
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textColor="@color/colorAccent"
+        android:background="@drawable/button_selector"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:onClick="jumptoHomeTeacher"/>
 
 </LinearLayout>
