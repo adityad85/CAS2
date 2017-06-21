@@ -66,6 +66,10 @@ public class AttendanceUpload extends AppCompatActivity {
         dialog.setTitle(R.string.dialog_Successful_upload);
         dialog.show();
     }
+    public void jumptoHomeTeacher(View v){
+        Intent intent = new Intent(getApplicationContext(),HomeTeacher.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,7 +84,7 @@ public class AttendanceUpload extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.action_profile) {
-            Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
+            Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
             startActivity(intent);
         }
         if (id == R.id.action_logout) {
