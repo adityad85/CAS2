@@ -21,7 +21,7 @@ public class HomeTeacher extends AppCompatActivity  {
     }
     public void jumptoDialog1(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.
-        dialog.setContentView(R.layout.uploadattendancedialogbox);
+        dialog.setContentView(R.layout.upload_attendance_dialog_box);
         dialog.setTitle(R.string.dialog_upload_title1);
         dialog.show();
     }
