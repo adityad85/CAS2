@@ -20,7 +20,7 @@ public class StudentProfileEntry extends AppCompatActivity {
         EditText e1 = (EditText)findViewById(R.id.univrollno);
         EditText e2 = (EditText)findViewById(R.id.sec);
         EditText e3 = (EditText)findViewById(R.id.sem);
-        EditText e4 = (EditText)findViewById(R.id.contactno);
+        EditText e4 = (EditText)findViewById(R.id.branchinput);
         e1.setAlpha(.75f);
         e2.setAlpha(.75f);
         e3.setAlpha(.75f);

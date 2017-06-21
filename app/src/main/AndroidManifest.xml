@@ -56,7 +56,13 @@
         <activity
             android:name=".StudentProfile"
             android:label="Student Profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditProfile"
+            android:label= "Edit Profile"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
