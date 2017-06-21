@@ -12,6 +12,7 @@
     <string name="dialog_upload_title1">Attendance Upload</string>
     <string name="dialog_upload_title2">Attendance Update</string>
     <string name="dialog_changepassword">Change Password</string>
+    <string name="dialog_Successful_upload">Success</string>
     <string-array name="Sem">
         <item>I</item>
         <item>II</item>
