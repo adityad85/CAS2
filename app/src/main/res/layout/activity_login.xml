@@ -38,7 +38,8 @@
         android:textColorHint="@color/colorPrimary"
         android:textColor="@color/colorPrimary"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:inputType="textPassword" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

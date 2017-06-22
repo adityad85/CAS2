@@ -35,7 +35,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/adddetailsSpinner1"
+            android:id="@+id/adddetailsSpinnerSem"
             android:entries="@array/Sem2"
             android:layout_marginBottom="20dp"
             >
@@ -44,7 +44,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/adddetailsSpinner2"
+            android:id="@+id/adddetailsSpinnerbr"
             android:entries="@array/Branch2"
             android:layout_marginBottom="20dp">
 
@@ -52,7 +52,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/adddetailsSpinner3"
+            android:id="@+id/adddetailsSpinnersec"
             android:entries="@array/Sec2"
             android:layout_marginBottom="20dp">
 
@@ -60,7 +60,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/adddetailsSpinner4"
+            android:id="@+id/adddetailsSpinnersub"
             android:entries="@array/Sub2"
             android:layout_marginBottom="30dp">
 
