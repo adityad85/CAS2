@@ -4,4 +4,35 @@
     <color name="colorPrimaryDark">#475E7F</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorprmarylight">#5877A1</color>
+
+    <color name="bg_screen1">#ffffff</color>
+    <color name="bg_screen2">#ffffff</color>
+    <color name="bg_screen3">#ffffff</color>
+
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#BDBDBD</color>
+    <color name="dot_dark_screen2">#BDBDBD</color>
+    <color name="dot_dark_screen3">#BDBDBD</color>
+
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#4F698D</color>
+    <color name="dot_light_screen2">#4F698D</color>
+    <color name="dot_light_screen3">#4F698D</color>
+
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+
+    </array>
 </resources>

@@ -23,7 +23,6 @@ public class StudentProfile extends AppCompatActivity {
         setContentView(R.layout.activity_student_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
     public void jumptoChangePasswordDialog(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.

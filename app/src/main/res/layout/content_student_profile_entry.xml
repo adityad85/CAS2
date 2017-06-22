@@ -5,10 +5,10 @@ xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/content_studentprofile_entry"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:paddingBottom="@dimen/activity_vertical_margin"
-android:paddingLeft="@dimen/activity_horizontal_margin"
-android:paddingRight="@dimen/activity_horizontal_margin"
-android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="4dp"
+android:paddingLeft="4dp"
+android:paddingRight="4dp"
+android:paddingTop="4dp"
 app:layout_behavior="@string/appbar_scrolling_view_behavior"
 tools:context="com.rajul.cas.StudentProfileEntry"
 tools:showIn="@layout/activity_student_profile_entry"
@@ -17,7 +17,13 @@ android:orientation="vertical"
     android:focusableInTouchMode="true">
 
 
+<View
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    >
 
+</View>
 <EditText
     android:id="@+id/univrollno"
     android:layout_width="match_parent"
@@ -27,6 +33,8 @@ android:orientation="vertical"
     android:textColor="@color/colorPrimary"
     android:layout_marginTop="140dp"
     android:textColorHint="@color/colorPrimary"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
     />
 <LinearLayout
     android:id="@+id/twoedittext"
@@ -34,7 +42,9 @@ android:orientation="vertical"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_below="@id/univrollno"
-    android:layout_marginBottom="30dp">
+    android:layout_marginBottom="30dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp">
     <EditText
         android:id="@+id/sec"
         android:layout_width="0dp"
@@ -63,7 +73,9 @@ android:orientation="vertical"
     android:layout_below="@id/twoedittext"
     android:layout_marginBottom="60dp"
     android:textColor="@color/colorPrimary"
-    android:textColorHint="@color/colorPrimary"/>
+    android:textColorHint="@color/colorPrimary"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"/>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -78,6 +90,8 @@ android:orientation="vertical"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:onClick="jumptoStudentDashboard"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
     />
 
 

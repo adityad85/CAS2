@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cas"
         android:text="COLLEGE ATTENDANCE SYSTEM"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="155dp"
         android:textColor="@color/colorPrimary"
         android:layout_gravity="center"
         android:textSize="18sp"/>

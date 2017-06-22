@@ -12,125 +12,70 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/attendanceUploadLinearLayout"
+        >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/secondarytoolbar">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height= "50dp"
-            android:background="@drawable/back2"
-            android:id="@+id/backgroundSecondryToolbar"/>
+        android:layout_height="0dp"
+        android:id="@+id/secondarytoolbar"
+        android:layout_weight="2"
+        android:background="#5877A1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text=""
+          android:hint="17-Jun-2017"
+          android:textColor="@color/colorAccent"
+          android:textSize="12sp"
+          android:layout_centerVertical="true"
+          android:textColorHint="@color/colorAccent"
+          android:id="@+id/date"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:hint="17"
-            android:id="@+id/date"
-            android:layout_marginLeft="15dp"
-            android:layout_centerVertical="true"
-            android:textColorHint="@color/colorAccent"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:id="@+id/minus1"
-            android:layout_toRightOf="@id/date"
-            android:layout_centerVertical="true"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:hint="JUN"
-            android:layout_toRightOf="@id/minus1"
-            android:layout_centerVertical="true"
+            android:text=""
             android:textColorHint="@color/colorAccent"
-            android:id="@+id/month"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:id="@+id/minus2"
-            android:layout_toRightOf="@id/month"
-            android:layout_centerVertical="true"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="2dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:hint="2017"
-            android:layout_toRightOf="@id/minus2"
-            android:layout_centerVertical="true"
-            android:textColorHint="@color/colorAccent"
-            android:id="@+id/year"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SEC- "
+            android:hint="Sec-A"
             android:id="@+id/secselecthint"
             android:textColor="@color/colorAccent"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/year"
-            android:layout_marginLeft="55dp"/>
+            android:layout_toRightOf="@id/date"
+            android:layout_marginLeft="25dp"
+            android:textSize="12sp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:hint="A"
-            android:textColorHint="@color/colorAccent"
-            android:layout_toRightOf="@id/secselecthint"
-            android:layout_centerVertical="true"
-            android:id="@+id/secnamehint"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LEC- "
+            android:text="Lec-7"
             android:id="@+id/lecturehint"
             android:textColor="@color/colorAccent"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/secnamehint"
-            android:layout_marginLeft="30dp"/>
+            android:layout_toRightOf="@id/secselecthint"
+            android:layout_marginLeft="25dp"
+            android:textSize="12sp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Sub- Ncs-601"
             android:textColor="@color/colorAccent"
-            android:textColorHint="@color/colorAccent"
-            android:hint="7"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/lecturehint"
-            android:id="@+id/lectureno"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SUB- "
-            android:textColor="@color/colorAccent"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/lectureno"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/subhint"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/suncodehint"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="@color/colorAccent"
-            android:hint="NCS-601"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/subhint"/>
-
-
+            android:layout_marginLeft="40dp"
+            android:id="@+id/subhint"
+            android:textSize="12sp"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:id="@+id/abspresentrollno"
+        android:layout_weight="1"
+        android:background="@drawable/back"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -141,44 +86,36 @@
             android:layout_weight="3"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/presenttitle"
-            android:text="Present"
-            android:textSize="16sp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:textColor="@color/colorPrimary"/>
+            android:gravity="left"
+            android:paddingLeft="20dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/absenttitle"
-            android:text="Absent"
+            android:text="Present/Absent"
             android:textSize="16sp"
             android:layout_gravity="center_vertical"
-            android:layout_weight="3"
-            android:gravity="center"
+            android:layout_weight="2"
+            android:gravity="left"
             android:textColor="@color/colorPrimary"
+            android:paddingLeft="20dp"
             />
 
     </LinearLayout>
-    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:id="@+id/recyclerview"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:layout_weight="16"
+        >
     </android.support.v7.widget.RecyclerView>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@drawable/back2"
         android:text="UPLOAD"
         android:textColor="@color/colorAccent"
@@ -188,6 +125,8 @@
         android:paddingBottom="15dp"
         android:gravity="center"
         android:onClick="jumptoSuccessfulUplodDialog"
+        android:layout_weight="2"
+        android:id="@+id/uploadbuttonAttendance"
         />
     </LinearLayout>
 

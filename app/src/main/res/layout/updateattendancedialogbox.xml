@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="360dp"
+    android:layout_height="345dp"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/LL1"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="17dp"
         android:layout_marginTop="10dp">
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
         android:gravity="center"
         android:id="@+id/LL2"
         android:layout_below="@id/LL1"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="17dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         android:gravity="center"
         android:id="@+id/LL3"
         android:layout_below="@id/LL2"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="17dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
         android:gravity="center"
         android:id="@+id/LL4"
         android:layout_below="@id/LL3"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="17dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
         android:gravity="center"
         android:id="@+id/LL5"
         android:layout_below="@id/LL4"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="7dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
           android:textColorHint="@color/colorPrimary"
           android:layout_weight="2"
           android:gravity="left"
-          android:textSize="17sp"
+          android:textSize="16sp"
           android:focusable="false"
           android:layout_marginLeft="10dp"
           />

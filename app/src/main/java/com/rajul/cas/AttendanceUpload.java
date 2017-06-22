@@ -43,7 +43,6 @@ public class AttendanceUpload extends AppCompatActivity {
         setContentView(R.layout.activity_attendance_upload);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(false);
         students = new ArrayList<>();
@@ -51,6 +50,7 @@ public class AttendanceUpload extends AppCompatActivity {
         getData();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         Log.i("as", "see");
+
 
 
     }
@@ -84,7 +84,7 @@ public class AttendanceUpload extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.action_profile) {
-            Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
+            Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
             startActivity(intent);
         }
         if (id == R.id.action_logout) {
@@ -97,7 +97,7 @@ public class AttendanceUpload extends AppCompatActivity {
     }
 
     public void getData() {
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
+  ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
