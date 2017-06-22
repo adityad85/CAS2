@@ -54,7 +54,7 @@ import static android.R.attr.value;
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (objects.size() > 0) {
-                    Toast.makeText(getApplicationContext(), "Already Entered", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Alr+eady Entered", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
                     startActivity(intent);
                 } else {

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,52 +38,85 @@ public class Login extends AppCompatActivity {
         i = getIntent();
         q = i.getExtras().getBoolean("represent");
     }
+
+    boolean cancel = false;
+    View focusView = null;
+
+    public void check(View v) {
+
+
+        if (TextUtils.isEmpty(password.getText().toString()) || password.getText().toString().length() < 6) {
+            password.setError("Hey you,idiot ,who does that .fool");
+            focusView = password;
+            cancel = true;
+        }
+
+        // Check for a valid email address.
+        if (TextUtils.isEmpty(username.getText().toString())) {
+            username.setError("Can't Be Empty");
+            focusView = username;
+            cancel = true;
+
+        }
+
+    }
     public void dashboard(View v){
-        ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
-            @Override
-            public void done(final ParseUser user, ParseException e) {
-                if (user != null) {
-                    //ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("")
-                    if (q == user.getBoolean("decide") && q == true) {
-                        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("TEACHERS");
-                        query.whereEqualTo("id", user.getUsername());
-                        query.findInBackground(new FindCallback<ParseObject>() {
-                            @Override
-                            public void done(List<ParseObject> objects, ParseException e) {
-                                final ParseObject obj = objects.get(0);
-                                Boolean ans = obj.getBoolean("flag");
-                                if (ans) {
-                                    ParseQuery<ParseObject> query1 = new ParseQuery<ParseObject>("Teacher_sub");
-                                    query1.whereEqualTo("id", user.getUsername());
-                                    query1.findInBackground(new FindCallback<ParseObject>() {
-                                        @Override
-                                        public void done(List<ParseObject> objects, ParseException e) {
-                                            if (objects.size() > 0) {
-                                                Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
-                                                startActivity(intent);
-                                            } else {
-                                                Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
-                                                startActivity(intent);
+        check(v);
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // form field with an error.
+            focusView.requestFocus();
+        } else {
+            ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
+                @Override
+                public void done(final ParseUser user, ParseException e) {
+                    if (user != null) {
+                        //ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("")
+                        if (q == user.getBoolean("decide") && q == true) {
+                            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("TEACHERS");
+                            query.whereEqualTo("id", user.getUsername());
+                            query.findInBackground(new FindCallback<ParseObject>() {
+                                @Override
+                                public void done(List<ParseObject> objects, ParseException e) {
+                                    final ParseObject obj = objects.get(0);
+                                    Boolean ans = obj.getBoolean("flag");
+                                    if (ans) {
+                                        ParseQuery<ParseObject> query1 = new ParseQuery<ParseObject>("Teacher_sub");
+                                        query1.whereEqualTo("id", user.getUsername());
+                                        query1.findInBackground(new FindCallback<ParseObject>() {
+                                            @Override
+                                            public void done(List<ParseObject> objects, ParseException e) {
+                                                if (objects.size() > 0) {
+                                                    Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
+                                                    startActivity(intent);
+                                                } else {
+                                                    Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
+                                                    startActivity(intent);
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
                                   /*  Intent i= new Intent(getApplicationContext(),HomeTeacher.class);
                                     startActivity(i);*/
-                                } else
-                                    Toast.makeText(getApplication(), "Get Verified By Contacting Admins", Toast.LENGTH_LONG
-                                    ).show();
+                                    } else
+                                        Toast.makeText(getApplication(), "Get Verified By Contacting Admins", Toast.LENGTH_LONG
+                                        ).show();
 
-                            }
-                        });
-                    } else if (q == user.getBoolean("decide") && q == false) {
-                        Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
-                        startActivity(i);
-                    }
-                } else e.printStackTrace();
-            }
-        });
+                                }
+                            });
+                        } else if (q == user.getBoolean("decide") && q == false) {
+                            Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
+                            startActivity(i);
+                        }
+                    } else if (e != null) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Invalid Email/Password BC-Dekh K Daal", Toast.LENGTH_LONG).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "Verify Your Email First", Toast.LENGTH_LONG).show();
 
+                }
+            });
 
+        }
     }
 
     @Override

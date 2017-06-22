@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +14,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -37,13 +41,59 @@ public class signup extends AppCompatActivity {
         Log.i("here", q.toString());
 
     }
+
+    Boolean cancel = false;
+    View focusView = null;
+
+    public void check(View v) {
+        if (TextUtils.isEmpty(passwordis) || passwordis.length() < 6) {
+            focusView = password;
+
+        }
+        if (TextUtils.isEmpty(fNameis)) {
+            fName.setError("Shameful");
+            focusView = fName;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(lNameis)) {
+            lName.setError("Shameful");
+            focusView = lName;
+            cancel = true;
+        }
+        if (TextUtils.isEmpty(emailis)) {
+            email.setError("Can't Be Empty");
+            focusView = email;
+            cancel = true;
+        } else if (!isEmailValid(emailis)) {
+            email.setError("Not Valid");
+            focusView = email;
+            cancel = true;
+        }
+
+    }
+
+    private boolean isEmailValid(String email) {
+        Pattern pattern;
+        Matcher matcher;
+        // final String emailk = "^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$";
+        pattern = Pattern.compile("^[_A-Za-z0-9-\\\\+]+(\\.[_A-Za-z0-9-]+)*+@kiet.edu$");
+        matcher = pattern.matcher(email);
+        if (matcher.matches())
+            return true;
+        else
+            return false;
+    }
     public void jumptoAskLoginScreen(View v){
         emailis = email.getText().toString();
         userna = emailis.split("@")[0];
         passwordis = password.getText().toString();
         fNameis = fName.getText().toString();
         lNameis = lName.getText().toString();
-
+        check(v);
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
         String se;
         if (q == true)
             se = "TEACHERS";
@@ -73,7 +123,8 @@ public class signup extends AppCompatActivity {
 
 
         Intent intent = new Intent(getApplicationContext(), AskLogin.class);
-        startActivity(intent);
+            startActivity(intent);
+        }
     }
 
     @Override
