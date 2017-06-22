@@ -16,22 +16,22 @@
         android:textColor="@color/colorPrimary"
         android:layout_gravity="center"
         android:textSize="18sp"/>
+
     <Button
-        android:text="TEACHER"
+        android:id="@+id/teacheraskloginbutton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/teacheraskloginbutton"
-        android:paddingTop="20dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/button_selector"
+        android:gravity="center"
         android:paddingBottom="20dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:background="@drawable/button_selector"
+        android:paddingTop="20dp"
+        android:text="TEACHER"
         android:textColor="@color/colorAccent"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="180dp"
-        android:gravity="center"
-        android:onClick="jumptoLoginScreen"/>
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,21 +66,21 @@
             android:layout_weight="1.5"/>
 
     </LinearLayout>
+
     <Button
+        android:id="@+id/studentaskloginbutton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/studentasksignupbutton"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"
+        android:background="@drawable/button_selector"
+        android:gravity="center"
         android:paddingBottom="20dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:background="@drawable/button_selector"
-        android:textColor="@color/colorAccent"
-        android:textSize="16sp"
+        android:paddingTop="20dp"
         android:text="STUDENT"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:onClick="jumptoLoginScreen"/>
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
