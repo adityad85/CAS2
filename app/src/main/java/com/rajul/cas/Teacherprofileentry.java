@@ -8,11 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -38,19 +44,37 @@ import static android.R.attr.value;
        }
 
     public void jumpToTeacherDashboard(View v){
-        ParseObject ob = new ParseObject("Teacher_sub");
-        ob.put("id", ParseUser.getCurrentUser().getUsername());
-        ob.put("subject", sub.getSelectedItem().toString());
-        ob.put("branch", branch.getSelectedItem().toString());
-        ob.put("section", sec.getSelectedItem().toString());
-        ob.saveInBackground(new SaveCallback() {
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Teacher_sub");
+        query.whereEqualTo("id", ParseUser.getCurrentUser().getUsername());
+        query.whereEqualTo("subject", sub.getSelectedItem().toString());
+        query.whereEqualTo("branch", branch.getSelectedItem().toString());
+        query.whereEqualTo("section", sec.getSelectedItem().toString());
+        query.whereEqualTo("sem", sem.getSelectedItem().toString());
+        query.findInBackground(new FindCallback<ParseObject>() {
             @Override
-            public void done(ParseException e) {
-                if (e == null) {
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (objects.size() > 0) {
+                    Toast.makeText(getApplicationContext(), "Already Entered", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
                     startActivity(intent);
-                } else
-                    e.printStackTrace();
+                } else {
+                    ParseObject ob = new ParseObject("Teacher_sub");
+                    ob.put("id", ParseUser.getCurrentUser().getUsername());
+                    ob.put("subject", sub.getSelectedItem().toString());
+                    ob.put("branch", branch.getSelectedItem().toString());
+                    ob.put("section", sec.getSelectedItem().toString());
+                    ob.put("sem", sem.getSelectedItem().toString());
+                    ob.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
+                                startActivity(intent);
+                            } else
+                                e.printStackTrace();
+                        }
+                    });
+                }
             }
         });
 
@@ -63,6 +87,7 @@ import static android.R.attr.value;
         ob.put("subject", sub.getSelectedItem().toString());
         ob.put("branch", branch.getSelectedItem().toString());
         ob.put("section", sec.getSelectedItem().toString());
+        ob.put("sem", sem.getSelectedItem().toString());
         ob.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -72,7 +97,6 @@ import static android.R.attr.value;
                 }
             }
         });
-
 
 
     }
