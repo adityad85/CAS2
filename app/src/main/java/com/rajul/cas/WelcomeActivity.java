@@ -206,7 +206,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
     public void jumptoAskSignupFromSplash(View v){
-        Intent intent = new Intent(getApplicationContext(),asksignup.class);
+        Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
         startActivity(intent);
     }
 }

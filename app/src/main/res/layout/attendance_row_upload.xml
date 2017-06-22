@@ -4,30 +4,58 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:focusable="true"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
     android:clickable="true"
+    android:paddingTop="10dp"
+
     android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:id="@+id/attendance_row_layout">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wrapperRollnoToggle">
 
     <TextView
         android:id="@+id/rollno"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:hint="1402910128"
+        android:layout_weight="6"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/colorPrimary"
+        android:gravity="center_vertical"/>
+
 
     <ToggleButton
         android:id="@+id/attend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        tools:ignore="RelativeOverlap" />
+        tools:ignore="RelativeOverlap"
+        android:layout_weight="2"
+        android:textOff="Absent"
+        android:textOn="Present"
+        android:background="@drawable/button_selector"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        android:layout_marginRight="20dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorprmarylight"
+        android:layout_below="@id/wrapperRollnoToggle"
+        android:layout_marginTop="4dp"
+        />
 
 
 </RelativeLayout>

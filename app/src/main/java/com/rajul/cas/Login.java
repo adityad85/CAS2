@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
         edittext2.setAlpha(.75f);
     }
     public void dashboard(View v){
-       Intent intent = new Intent(getApplicationContext(), StudentProfileEntry.class);
+       Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
         startActivity(intent);
 
     }

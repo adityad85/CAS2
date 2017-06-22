@@ -1,7 +1,11 @@
 package com.rajul.cas;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+
+
 
 /**
  * Created by Aditya on 6/14/2017.
@@ -105,4 +109,6 @@ public class Students implements Parcelable {
     public boolean getAttendState() {
         return attendState;
     }
+
+
 }

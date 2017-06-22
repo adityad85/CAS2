@@ -53,6 +53,7 @@ public class AttendanceUpload extends AppCompatActivity {
         Log.i("as", "see");
 
 
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -97,7 +98,7 @@ public class AttendanceUpload extends AppCompatActivity {
     }
 
     public void getData() {
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
+  ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
