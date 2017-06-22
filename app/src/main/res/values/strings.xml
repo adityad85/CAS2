@@ -101,5 +101,6 @@
     <string name="title_activity_student_profile_entry">StudentProfileEntry</string>
     <string name="title_activity_student_profile">StudentProfile</string>
     <string name="title_activity_edit_profile">EditProfile</string>
+    <string name="title_activity_teacher_update">TeacherUpdate</string>
 
 </resources>
