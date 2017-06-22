@@ -116,8 +116,12 @@ public class signup extends AppCompatActivity {
                     final String message = "Please verify your email before Login";
                     Toast.makeText(getApplicationContext(), title + message, Toast.LENGTH_LONG).show();
                     obj.saveInBackground();
-                } else
+                } else {
+                    if (e.toString() == "com.parse.ParseRequest$ParseRequestException: Account already exists for this username.")
+                        Toast.makeText(getApplication(), "Account already exists for this username.", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
+                }
+
             }
         });
 
