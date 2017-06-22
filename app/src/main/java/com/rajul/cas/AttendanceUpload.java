@@ -43,7 +43,6 @@ public class AttendanceUpload extends AppCompatActivity {
         setContentView(R.layout.activity_attendance_upload);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(false);
         students = new ArrayList<>();

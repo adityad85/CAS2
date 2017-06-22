@@ -6,7 +6,7 @@
     android:focusable="true"
     android:clickable="true"
     android:paddingTop="10dp"
-
+    tools:ignore="MissingPrefix"
     android:background="?android:attr/selectableItemBackground"
     android:orientation="horizontal"
     android:id="@+id/attendance_row_layout">
@@ -27,7 +27,8 @@
         android:layout_weight="6"
         android:paddingLeft="20dp"
         android:textColorHint="@color/colorPrimary"
-        android:gravity="center_vertical"/>
+        android:gravity="center_vertical"
+        fontPath="fonts/NovaCut.ttf"/>
 
 
     <ToggleButton
@@ -54,8 +55,7 @@
         android:layout_height="1dp"
         android:background="@color/colorprmarylight"
         android:layout_below="@id/wrapperRollnoToggle"
-        android:layout_marginTop="4dp"
-        />
+        android:layout_marginTop="4dp" />
 
 
 </RelativeLayout>
