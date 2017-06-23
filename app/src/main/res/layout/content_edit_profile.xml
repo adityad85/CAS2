@@ -48,7 +48,7 @@
         android:textColor="@color/colorPrimary"
         android:layout_marginBottom="30dp"
         android:id="@+id/enterBranch"
-        android:entries="@array/Branch2"/>
+        android:entries="@array/Branch" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         android:text=""
         android:textColor="@color/colorPrimary"
         android:layout_weight="1"
-        android:entries="@array/Sem2"
+        android:entries="@array/Sem"
         android:id="@+id/enterSemEditProfile"/>
         <Spinner
             android:layout_width="0dp"

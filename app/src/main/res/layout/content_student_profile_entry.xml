@@ -33,7 +33,7 @@ android:orientation="vertical"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
     android:textSize="16sp"
-    android:entries="@array/Branch2"
+    android:entries="@array/Branch"
     />
 <LinearLayout
     android:id="@+id/twoedittext"
@@ -60,7 +60,7 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:textColor="@color/colorPrimary"
-        android:entries="@array/Sem2"/>
+        android:entries="@array/Sem" />
 </LinearLayout>
 <EditText
     android:id="@+id/univrollno"
