@@ -7,10 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class viewAttendance extends AppCompatActivity {
+    private ArrayList<ViewAttendanceRow> ViewAttendanceRow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,14 @@ public class viewAttendance extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_student, menu);
         return true;
     }
+
+
+    ListView yourListView = (ListView) findViewById(R.id.viewAttendanceListview);
+
+    // get data from the table by the ListAdapter
+    ListAdapter customAdapter = new ListAdapter(this, R.layout.view_attendance_list_view, );
+
+    yourListView .setAdapter(customAdapter);
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

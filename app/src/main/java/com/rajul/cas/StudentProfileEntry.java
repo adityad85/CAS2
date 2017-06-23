@@ -20,16 +20,10 @@ public class StudentProfileEntry extends AppCompatActivity {
         setContentView(R.layout.activity_student_profile_entry);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        EditText e1 = (EditText)findViewById(R.id.univrollno);
-        EditText e2 = (EditText)findViewById(R.id.sec);
-        EditText e3 = (EditText)findViewById(R.id.sem);
-        EditText e4 = (EditText)findViewById(R.id.branchinput);
+         EditText e1 = (EditText)findViewById(R.id.univrollno);
         e1.setAlpha(.75f);
-        e2.setAlpha(.75f);
-        e3.setAlpha(.75f);
-        e4.setAlpha(.75f);
-
     }
+
     public void jumptoStudentDashboard(View v){
         Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
         startActivity(intent);

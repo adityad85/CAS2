@@ -2,21 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_teacher_update"
+    android:id="@+id/content_teacher_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.rajul.cas.TeacherProfile"
     tools:showIn="@layout/activity_teacher_profile">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/firstlastnameTeacherProfile"
+        android:id="@+id/firstlastnameProfileTeacher"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -26,7 +25,7 @@
             android:textColorHint="@color/colorPrimary"
             android:textColor="@color/colorPrimary"
             android:gravity="right"
-            android:id="@+id/firstnameTeacherprofile"
+            android:id="@+id/firstnameprofileTeacher"
             android:layout_weight="1"
             android:paddingRight="4dp"
             android:textSize="26sp"
@@ -38,7 +37,7 @@
             android:hint="Sharma"
             android:textColorHint="@color/colorPrimary"
             android:textColor="@color/colorPrimary"
-            android:id="@+id/lastnameTeacherprofile"
+            android:id="@+id/lastnameprofileTeacher"
             android:layout_weight="1"
             android:gravity="left"
             android:paddingLeft="4dp"
@@ -51,174 +50,31 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorPrimary"
-        android:layout_below="@id/firstlastnameTeacherProfile"
+        android:layout_below="@id/firstlastnameProfileTeacher"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:id="@+id/dividerTeacherProfile"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/dividerProfileTeacher"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/semTeacherProfile"
-        android:layout_below="@id/dividerTeacherProfile"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="SEMESTER"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:id="@+id/Teachersemester"
-            android:layout_weight="4"
-            android:paddingLeft="20dp"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text=""
-            android:hint="VII"
-            android:paddingLeft="20dp"
-            android:textSize="18sp"
-            android:id="@+id/Teacherecurrentsem"
-            android:textColorHint="@color/colorPrimary"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/branchTeacherProfile"
-        android:layout_below="@id/semTeacherProfile"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="BRANCH"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:id="@+id/Teacherbranch"
-            android:layout_weight="4"
-            android:paddingLeft="20dp"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text=""
-            android:hint="CSE"
-            android:paddingLeft="20dp"
-            android:textSize="18sp"
-            android:id="@+id/Teachercurrentbranch"
-            android:textColorHint="@color/colorPrimary"/>
 
-    </LinearLayout>
-    <LinearLayout
+    <android.support.v7.widget.ListViewCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/secTeacherProfile"
-        android:layout_below="@id/branchTeacherProfile"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="SECTION"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:id="@+id/Teachersection"
-            android:layout_weight="4"
-            android:paddingLeft="20dp"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text=""
-            android:hint="c"
-            android:paddingLeft="20dp"
-            android:textSize="18sp"
-            android:id="@+id/Teachercurrentsec"
-            android:textColorHint="@color/colorPrimary"/>
+        android:layout_height="200dp"
+        android:layout_below="@id/dividerProfileTeacher"
+        android:id="@+id/assignedClaassesListView"
+        android:scrollbars="vertical"
+        >
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/univrollnoTeacherProfile"
-        android:layout_below="@id/secTeacherProfile"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="UNIV ROLL NO."
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:id="@+id/Teacherrollno"
-            android:layout_weight="4"
-            android:paddingLeft="20dp"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_weight="1"
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text=""
-            android:hint="1402910128"
-            android:paddingLeft="20dp"
-            android:textSize="18sp"
-            android:id="@+id/Teachercurrentrollno"
-            android:textColorHint="@color/colorPrimary"/>
+    </android.support.v7.widget.ListViewCompat>
 
-    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:id="@+id/dividerTeacherProfile2"
-        android:layout_below="@id/univrollnoTeacherProfile"
+        android:id="@+id/dividerProfile2Teacher"
+        android:layout_below="@id/assignedClaassesListView"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
@@ -226,38 +82,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/dividerTeacherProfile2"
+        android:layout_below="@+id/dividerProfile2Teacher"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:layout_marginTop="40dp"
-        android:id="@+id/TeacherProfileButtons">
+        android:layout_marginTop="20dp">
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Change Password?"
             android:textSize="12sp"
-            android:id="@+id/Teacherchangepassword"
+            android:id="@+id/changepasswordTeacher"
             android:textColor="@color/colorAccent"
             android:background="@drawable/button_selector"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             android:onClick="jumptoChangePasswordDialogTeacher"
+            android:layout_gravity="center"
             />
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/Teachereditprofile"
+            android:layout_height="50dp"
+            android:id="@+id/editprofileTeacher"
             android:background="@drawable/button_selector"
             android:text="Edit Profile"
             android:textColor="@color/colorAccent"
             android:textSize="12sp"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:onClick="jumptoEditProfileTeacher"/>
+            android:layout_marginLeft="5dp"
+            android:onClick="jumptoEditProfileTeacher"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"/>
     </LinearLayout>
-
 
 </RelativeLayout>

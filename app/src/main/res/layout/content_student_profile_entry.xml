@@ -24,65 +24,66 @@ android:orientation="vertical"
     >
 
 </View>
-<EditText
-    android:id="@+id/univrollno"
+<Spinner
+    android:id="@+id/branchinput"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="University Rollno."
-    android:layout_marginBottom="30dp"
-    android:textColor="@color/colorPrimary"
+    android:layout_marginBottom="50dp"
     android:layout_marginTop="140dp"
-    android:textColorHint="@color/colorPrimary"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
+    android:textSize="16sp"
+    android:entries="@array/Branch2"
     />
 <LinearLayout
     android:id="@+id/twoedittext"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_below="@id/univrollno"
-    android:layout_marginBottom="30dp"
+    android:layout_below="@id/branchinput"
+    android:layout_marginBottom="40dp"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp">
-    <EditText
+    <Spinner
         android:id="@+id/sec"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:hint="Sec"
         android:layout_marginRight="10dp"
         android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"/>
+        android:entries="@array/Sec2"/>
 
 
-    <EditText
+    <Spinner
         android:id="@+id/sem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:hint="Sem"
         android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"/>
+        android:entries="@array/Sem2"/>
 </LinearLayout>
 <EditText
-    android:id="@+id/branchinput"
+    android:id="@+id/univrollno"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Branch"
     android:layout_below="@id/twoedittext"
-    android:layout_marginBottom="60dp"
+    android:layout_marginBottom="50dp"
     android:textColor="@color/colorPrimary"
-    android:textColorHint="@color/colorPrimary"
     android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"/>
+    android:layout_marginRight="12dp"
+    android:text=""
+    android:textSize="16sp"
+    android:textColorHint="#000000"
+    android:hint="Enter Univ Roll No"
+
+    />
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="UPDATE"
     android:textColor="@color/colorAccent"
     android:background="@drawable/button_selector"
-    android:layout_below="@id/branchinput"
+    android:layout_below="@id/univrollno"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
     android:paddingLeft="30dp"
