@@ -2,11 +2,14 @@ package com.rajul.cas;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -23,6 +26,7 @@ public class viewAttendance extends AppCompatActivity {
         setContentView(R.layout.activity_view_attendance);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //yourListView.setAdapter(customAdapter);
 
 
     }
@@ -37,9 +41,69 @@ public class viewAttendance extends AppCompatActivity {
     ListView yourListView = (ListView) findViewById(R.id.viewAttendanceListview);
 
     // get data from the table by the ListAdapter
-    ListAdapter customAdapter = new ListAdapter(this, R.layout.view_attendance_list_view, );
+    ListAdapter customAdapter = new ListAdapter() {
+        @Override
+        public void registerDataSetObserver(DataSetObserver observer) {
 
-    yourListView .setAdapter(customAdapter);
+        }
+
+        @Override
+        public void unregisterDataSetObserver(DataSetObserver observer) {
+
+        }
+
+        @Override
+        public int getCount() {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return false;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return null;
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return 0;
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return 0;
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return false;
+        }
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return false;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return false;
+        }
+    };
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
