@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="200dp"
+android:focusable="true"
+android:clickable="true"
+android:paddingTop="10dp"
+android:orientation="horizontal"
+android:id="@+id/assigned_classes_listview_teacher">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assigned Class"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/assignedclass"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/assignedClassLL1"
+        android:orientation="horizontal"
+        android:layout_below="@+id/assignedclass"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/assignedSem1"
+            android:text="Sem"
+            android:layout_weight="49"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:paddingLeft="80dp"/>
+        <view
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:hint="VI"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_weight="49"
+            android:paddingLeft="80dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/assignedClassLL2"
+        android:orientation="horizontal"
+        android:layout_below="@+id/assignedClassLL1"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/assidnedBranch1"
+            android:text="Branch"
+            android:layout_weight="49"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+           android:paddingLeft="80dp"/>
+        <view
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:hint="CSE"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_weight="49"
+            android:paddingLeft="80dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/assignedClassLL3"
+        android:orientation="horizontal"
+        android:layout_below="@+id/assignedClassLL2"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/assidnedSec1"
+            android:text="Sec"
+            android:layout_weight="49"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+           android:paddingLeft="80dp"/>
+        <view
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:hint="C"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_weight="49"
+            android:paddingLeft="80dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/assignedClassLL4"
+        android:orientation="horizontal"
+        android:layout_below="@+id/assignedClassLL3"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/assidnedSub1"
+            android:text="Sub"
+            android:layout_weight="49"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:paddingLeft="80dp"/>
+        <view
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:hint="Ncs-601"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_weight="49"
+            android:paddingLeft="80dp"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

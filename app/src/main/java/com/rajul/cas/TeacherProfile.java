@@ -1,8 +1,11 @@
 package com.rajul.cas;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,39 +14,25 @@ import android.view.View;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-
-public class HomeTeacher extends AppCompatActivity  {
-
+public class TeacherProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_teacher);
+        setContentView(R.layout.activity_teacher_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
     }
-    public void jumptoDialog1(View v){
-        final Dialog dialog = new Dialog(this); // Context, this, etc.
-        dialog.setContentView(R.layout.upload_attendance_dialog_box);
-        dialog.setTitle(R.string.dialog_upload_title1);
+    public void jumptoChangePasswordDialogTeacher(View v){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.change_password_teacher_dialog);
+        dialog.setTitle("Change Password");
         dialog.show();
     }
-    public void jumptoDialog2(View v){
-        final Dialog dialog = new Dialog(this); // Context, this, etc.
-        dialog.setContentView(R.layout.updateattendancedialogbox);
-        dialog.setTitle(R.string.dialog_upload_title2);
-        dialog.show();
-    }
-
-    public void jumptoattendanceUpload(View v){
-        Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
+    public void jumptoteacherprofileFromDialog(View v){
+        Intent intent = new Intent(getApplicationContext(),TeacherProfile.class);
         startActivity(intent);
-    }
-
-    public void jumptoattendanceUpdate(View v){
-        Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
-        startActivity(intent);
-
     }
 
     @Override
@@ -77,7 +66,6 @@ public class HomeTeacher extends AppCompatActivity  {
 
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));

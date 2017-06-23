@@ -46,8 +46,7 @@
         android:textSize="14sp"
         android:layout_marginRight="20dp"
         android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        />
+        android:paddingBottom="2dp"/>
 
     </LinearLayout>
     <View
