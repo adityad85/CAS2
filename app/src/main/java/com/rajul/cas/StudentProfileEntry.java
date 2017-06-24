@@ -40,6 +40,7 @@ public class StudentProfileEntry extends AppCompatActivity {
     }
 String branch1,section1,semester1,roll;
     public void jumptoStudentDashboard(View v){
+
         branch1=branch.getSelectedItem().toString();
         section1=section.getSelectedItem().toString();
         semester1=semester.getSelectedItem().toString();
