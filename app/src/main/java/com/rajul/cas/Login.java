@@ -104,8 +104,23 @@ public class Login extends AppCompatActivity {
                                 }
                             });
                         } else if (q == user.getBoolean("decide") && q == false) {
-                            Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
-                            startActivity(i);
+                            ParseQuery<ParseObject> a = new ParseQuery<ParseObject>("students");
+                            a.whereEqualTo("id", user.getUsername());
+                            a.findInBackground(new FindCallback<ParseObject>() {
+                                @Override
+                                public void done(List<ParseObject> objects, ParseException e) {
+                                    if (objects.size() > 0) {
+                                        Intent i = new Intent(getApplication(), StudentDashboard.class);
+                                        startActivity(i);
+                                    } else {
+                                        Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
+                                        startActivity(i);
+                                    }
+
+                                }
+                            });
+
+
                         }
                     } else if (e != null) {
                         e.printStackTrace();
