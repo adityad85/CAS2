@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -31,13 +32,14 @@ import java.util.TreeSet;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class HomeTeacher extends AppCompatActivity {
+public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ArrayAdapter<String> adaptersem, adapterbra, adaptersec, adaptersub;
     ArrayList<String> finalSem = new ArrayList<String>();
     ArrayList<String> finalBra = new ArrayList<String>();
     ArrayList<String> finalSec = new ArrayList<String>();
     ArrayList<String> finalSub = new ArrayList<String>();
     Spinner sem, branch, sec, sub, lec;
+    String semis, branchis, secis, subis, lecis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,70 @@ public class HomeTeacher extends AppCompatActivity {
         branch = (Spinner) dialog.findViewById(R.id.spinner2);
         sec = (Spinner) dialog.findViewById(R.id.spinner3);
         sub = (Spinner) dialog.findViewById(R.id.spinner4);
+        lec = (Spinner) dialog.findViewById(R.id.spinner5);
+        sem.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                semis = parent.getSelectedItem().toString();
+                Log.i("asd", semis);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        branch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                branchis = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        sec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                secis = parent.getSelectedItem().toString();
+                Log.i("asd", semis);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        sub.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                subis = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        lec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                lecis = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+   /*     sec.setOnItemSelectedListener(this);
+        sub.setOnItemSelectedListener(this);
+        lec.setOnItemSelectedListener(this);
+*/
         dialog.setTitle(R.string.dialog_upload_title1);
         clearr();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Teacher_sub");
@@ -138,7 +204,7 @@ public class HomeTeacher extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
         intent.putExtra("section", sec.getSelectedItem().toString());
         intent.putExtra("branch", branch.getSelectedItem().toString());
-        intent.putExtra("semester", sec.getSelectedItem().toString());
+        intent.putExtra("semester", sem.getSelectedItem().toString());
         intent.putExtra("lecture", lec.getSelectedItem().toString());
         intent.putExtra("subject", sub.getSelectedItem().toString());
         startActivity(intent);
@@ -185,5 +251,27 @@ public class HomeTeacher extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch ((int) id) {
+            case R.id.spinner1: {
+                semis = parent.getSelectedItem().toString();
+                Log.i("asdqwe", semis);
+                break;
+            }
+            case R.id.spinner2: {
+                branchis = parent.getSelectedItem().toString();
+                Log.i("asd", branchis);
+                break;
+            }
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
