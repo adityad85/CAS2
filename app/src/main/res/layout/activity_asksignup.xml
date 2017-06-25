@@ -6,34 +6,42 @@
     android:layout_height="match_parent"
     tools:context="com.rajul.cas.asksignup"
     android:orientation="vertical"
-    >
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:id="@+id/teacherstudentloginLLayout1">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
         android:id="@+id/cas4"
         android:text="COLLEGE ATTENDANCE SYSTEM"
-        android:layout_marginTop="110dp"
         android:textColor="@color/colorPrimary"
         android:layout_gravity="center"
         android:textSize="18sp"
-        android:layout_centerHorizontal="true"/>
+        android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:id="@+id/teacherstudentloginLLayout">
+        android:id="@+id/teacherstudentloginLLayout2"
+        android:gravity="center"
+        >
     <Button
         android:id="@+id/teacherasksignupbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-
         android:background="@drawable/button_selector"
         android:gravity="center"
         android:paddingBottom="20dp"
@@ -91,17 +99,20 @@
         android:text="STUDENT"
         android:textColor="@color/colorAccent"
         android:textSize="16sp" />
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="OR LOGIN?"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="110dp"
         android:textColor="@color/colorPrimary"
         android:id="@+id/orlogin"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:onClick="jumptoAskLoginScreen"/>
-        </LinearLayout>
+
+   </LinearLayout>
 
 </RelativeLayout>

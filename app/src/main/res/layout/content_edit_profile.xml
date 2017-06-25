@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter First Name"
+        android:hint="First Name"
         android:layout_weight="1"
         android:textColor="@color/colorPrimary"
         android:textColorHint="#000000"
@@ -45,7 +45,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:hint="Enter Last Name"
+            android:hint="Last Name"
             android:textColorHint="#000000"
             android:layout_weight="1"
             android:id="@+id/enterLastName"
@@ -58,7 +58,7 @@
         android:textColor="@color/colorPrimary"
         android:layout_marginBottom="30dp"
         android:id="@+id/enterBranch"
-        android:entries="@array/Branch2" />
+        android:entries="@array/Branch3" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
         android:text=""
         android:textColor="@color/colorPrimary"
         android:layout_weight="1"
-        android:entries="@array/Sem2"
+        android:entries="@array/Sem3"
         android:id="@+id/enterSemEditProfile"/>
         <Spinner
             android:layout_width="0dp"
@@ -81,7 +81,7 @@
             android:textColor="@color/colorPrimary"
             android:layout_weight="1"
             android:id="@+id/enterSecEditProfile"
-            android:entries="@array/Sec2"
+            android:entries="@array/Sec3"
             />
     </LinearLayout>
     <EditText
@@ -90,7 +90,7 @@
         android:id="@+id/enterUnivRollNo"
         android:text=""
         android:textColor="@color/colorPrimary"
-        android:hint="Enter Univ Roll No"
+        android:hint="University Roll Number"
         android:textColorHint="#000000"
         android:layout_below="@id/semsecEditProfile"
         android:layout_marginBottom="50dp"
