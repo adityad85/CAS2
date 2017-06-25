@@ -109,7 +109,7 @@ public class Login extends AppCompatActivity {
                             a.findInBackground(new FindCallback<ParseObject>() {
                                 @Override
                                 public void done(List<ParseObject> objects, ParseException e) {
-                                    if (objects.size() > 0) {
+                                    if (objects.get(0).get("sem") != null) {
                                         Intent i = new Intent(getApplication(), StudentDashboard.class);
                                         startActivity(i);
                                     } else {

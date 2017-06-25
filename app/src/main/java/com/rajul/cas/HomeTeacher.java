@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,9 +20,13 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -32,7 +37,7 @@ public class HomeTeacher extends AppCompatActivity {
     ArrayList<String> finalBra = new ArrayList<String>();
     ArrayList<String> finalSec = new ArrayList<String>();
     ArrayList<String> finalSub = new ArrayList<String>();
-    Spinner sem, branch, sec, sub;
+    Spinner sem, branch, sec, sub, lec;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,64 +52,67 @@ public class HomeTeacher extends AppCompatActivity {
         branch = (Spinner) findViewById(R.id.spinner2);
         sec = (Spinner) findViewById(R.id.spinner3);
         sub = (Spinner) findViewById(R.id.spinner4);
-        adaptersem = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, finalSem);
-        adaptersem.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        //sem.setAdapter(adaptersem);
-        adapterbra = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, finalBra);
-        adapterbra.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        //branch.setAdapter(adapterbra);
-        adaptersec = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, finalSec);
-        adaptersec.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        //sec.setAdapter(adaptersec);
-        adaptersub = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, finalSub);
-        adaptersub.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        //sub.setAdapter(adaptersub);
+        lec = (Spinner) findViewById(R.id.spinner5);
 
     }
+
+    final Dialog dialog = new Dialog(this);
     public void jumptoDialog1(View v){
-        final Dialog dialog = new Dialog(this); // Context, this, etc.
+        // Context, this, etc.
         dialog.setContentView(R.layout.upload_attendance_dialog_box);
         sem = (Spinner) dialog.findViewById(R.id.spinner1);
         branch = (Spinner) dialog.findViewById(R.id.spinner2);
         sec = (Spinner) dialog.findViewById(R.id.spinner3);
         sub = (Spinner) dialog.findViewById(R.id.spinner4);
-
         dialog.setTitle(R.string.dialog_upload_title1);
-
-        dialog.show();
+        clearr();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Teacher_sub");
         query.whereContains("id", ParseUser.getCurrentUser().getUsername());
         query.findInBackground(new FindCallback<ParseObject>() {
+            Set<String> reDu = new HashSet<String>();
+            Set<String> reDu1 = new HashSet<String>();
+            Set<String> reDu2 = new HashSet<String>();
+            Set<String> reDu3 = new HashSet<String>();
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 for (ParseObject obj : objects) {
-                    finalSub.add(obj.get("subject").toString());
-                    finalBra.add(obj.get("branch").toString());
-                    finalSec.add(obj.get("section").toString());
-                    finalSem.add(obj.get("sem").toString());
+                    reDu.add(obj.get("subject").toString());
+                    reDu1.add(obj.get("branch").toString());
+                    reDu2.add(obj.get("section").toString());
+                    reDu3.add(obj.get("sem").toString());
                 }
+                finalSub.addAll(sor(reDu));
+                finalSec.addAll(sor(reDu2));
+                finalSem.addAll(sor(reDu3));
+                finalBra.addAll(sor(reDu1));
             }
         });
-        /*
-        HashSet reDu=new HashSet();
-        reDu.add(finalSub);
-        finalSub.clear();
-        finalSub.addAll(reDu);*/
-        duplicates(finalSub);
-        duplicates(finalSec);
-        duplicates(finalSem);
-        duplicates(finalBra);
-        /*adaptersem = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, finalSem);
-        adaptersem.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        sem.setAdapter(adaptersem);
-        */
         setAdapter1(finalSub, adaptersub, sub);
         setAdapter1(finalSec, adaptersec, sec);
         setAdapter1(finalSem, adaptersem, sem);
         setAdapter1(finalBra, adapterbra, branch);
+        dialog.show();
 
     }
 
+    public ArrayList<String> sor(Set<String> s) {
+        ArrayList<String> asd = new ArrayList<String>(s);
+        Collections.sort(asd);
+        return asd;
+
+    }
+
+    public void clearr() {
+        finalBra.clear();
+        finalSub.clear();
+        finalSem.clear();
+        finalSec.clear();
+        finalSem.add("Sem");
+        finalBra.add("Branch");
+        finalSec.add("Sec");
+        finalSub.add("Sub");
+
+    }
     public void setAdapter1(ArrayList<String> a, ArrayAdapter<String> ad, Spinner s) {
         ad = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, a);
         ad.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -112,10 +120,10 @@ public class HomeTeacher extends AppCompatActivity {
     }
 
     public void duplicates(ArrayList<String> a) {
-        HashSet reDu = new HashSet();
-        reDu.add(a);
+        Set<String> reDu = new HashSet(a);
         a.clear();
         a.addAll(reDu);
+        //Log.i("aqw",a.get(1));
     }
     public void jumptoDialog2(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.
@@ -126,7 +134,13 @@ public class HomeTeacher extends AppCompatActivity {
     }
 
     public void jumptoattendanceUpload(View v){
+
         Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
+        intent.putExtra("section", sec.getSelectedItem().toString());
+        intent.putExtra("branch", branch.getSelectedItem().toString());
+        intent.putExtra("semester", sec.getSelectedItem().toString());
+        intent.putExtra("lecture", lec.getSelectedItem().toString());
+        intent.putExtra("subject", sub.getSelectedItem().toString());
         startActivity(intent);
     }
 

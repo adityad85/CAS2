@@ -36,7 +36,7 @@ public class AttendanceUpload extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
 
-
+    String sem, bra, sec, lec, sub;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,13 @@ public class AttendanceUpload extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(false);
         students = new ArrayList<>();
+        Intent i = getIntent();
+        sem = i.getExtras().getString("semester");
+        sec = i.getExtras().getString("section");
+        bra = i.getExtras().getString("branch");
+        sub = i.getExtras().getString("subject");
+        lec = i.getExtras().getString("lecture");
+
         //Method to get Data
         getData();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -98,6 +105,9 @@ public class AttendanceUpload extends AppCompatActivity {
 
     public void getData() {
   ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
+        query.whereContains("branch", bra);
+        query.whereContains("section", sec);
+        query.whereContains("sem", sem);
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
