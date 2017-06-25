@@ -56,9 +56,9 @@ public class HomeTeacher extends AppCompatActivity {
 
     }
 
-    final Dialog dialog = new Dialog(this);
+
     public void jumptoDialog1(View v){
-        // Context, this, etc.
+        final Dialog dialog = new Dialog(this);        // Context, this, etc.
         dialog.setContentView(R.layout.upload_attendance_dialog_box);
         sem = (Spinner) dialog.findViewById(R.id.spinner1);
         branch = (Spinner) dialog.findViewById(R.id.spinner2);
