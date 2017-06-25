@@ -9,6 +9,8 @@ android:paddingTop="10dp"
 android:orientation="horizontal"
 android:id="@+id/assigned_classes_listview_teacher">
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -162,7 +164,9 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:paddingLeft="80dp"
             />
 
-    </LinearLayout>
+
+</LinearLayout>
+
 
 
 
