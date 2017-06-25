@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.rajul.cas.Login"
-    android:orientation="vertical"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
@@ -16,15 +15,21 @@
         android:text="COLLEGE ATTENDANCE SYSTEM"
         android:layout_marginTop="155dp"
         android:textColor="@color/colorPrimary"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
         android:textSize="18sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/loginLayout">
 
     <EditText
         android:id="@+id/KietEmailIdlogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="KIET EMAIL-ID"
-        android:layout_marginTop="110dp"
         android:textColorHint="@color/colorPrimary"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -63,5 +68,6 @@
         android:layout_marginTop="95dp"
         android:onClick="dashboard"
         />
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

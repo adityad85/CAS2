@@ -10,12 +10,19 @@
     tools:context="com.rajul.cas.StudentProfile"
     tools:showIn="@layout/activity_student_profile">
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/studentprofileLLayout" >
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/firstlastnameProfile"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+
         >
         <TextView
             android:layout_width="0dp"
@@ -258,6 +265,7 @@
             android:onClick="jumptoEditProfile"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"/>
+    </LinearLayout>
     </LinearLayout>
 1
 </RelativeLayout>
