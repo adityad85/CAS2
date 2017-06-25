@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -35,7 +36,7 @@ public class AttendanceUpload extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
-
+    TextView subhint, sechint, lechint;
     String sem, bra, sec, lec, sub;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,12 @@ public class AttendanceUpload extends AppCompatActivity {
         bra = i.getExtras().getString("branch");
         sub = i.getExtras().getString("subject");
         lec = i.getExtras().getString("lecture");
+        subhint = (TextView) findViewById(R.id.subhint);
+        sechint = (TextView) findViewById(R.id.secselecthint);
+        lechint = (TextView) findViewById(R.id.lecturehint);
+        subhint.setText(sub);
+        sechint.setText(sec);
+        lechint.setText(lec);
 
         //Method to get Data
         getData();
@@ -108,13 +115,22 @@ public class AttendanceUpload extends AppCompatActivity {
         query.whereContains("branch", bra);
         query.whereContains("section", sec);
         query.whereContains("sem", sem);
+        //1Log.i("Semm",sem);
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
+
                 if (e == null) {
-                    if (objects.size() > 0)
+                    if (objects.size() > 0) {
+                        Log.i("aa", "asaaa");
                         parseData(objects);
+                    } else {
+                        Log.i("as", "haja");
+                    }
+                } else {
+                    e.printStackTrace();
+                    Log.i("asasas", "qwewq");
                 }
             }
         });
@@ -123,7 +139,7 @@ public class AttendanceUpload extends AppCompatActivity {
 
     private void parseData(List<ParseObject> obj) {
         for (ParseObject stu : obj) {
-            Log.i("out", stu.get("student_id").toString());
+            Log.i("out", stu.getString("student_id"));
             Students studInfo = new Students();
             try {
                 studInfo.setRollno(stu.getString("student_id"));
