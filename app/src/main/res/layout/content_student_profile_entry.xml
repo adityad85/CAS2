@@ -20,8 +20,7 @@ android:orientation="vertical"
 <View
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
-    >
+    android:background="@drawable/back">
 
 </View>
     <LinearLayout
@@ -40,7 +39,7 @@ android:orientation="vertical"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
     android:textSize="16sp"
-    android:entries="@array/Branch2"
+    android:entries="@array/Branch3"
     />
 <LinearLayout
     android:id="@+id/twoedittext"
@@ -56,9 +55,9 @@ android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="5dp"
         android:textColor="@color/colorPrimary"
-        android:entries="@array/Sec2"/>
+        android:entries="@array/Sec3"/>
 
 
     <Spinner
@@ -67,7 +66,8 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:textColor="@color/colorPrimary"
-        android:entries="@array/Sem2" />
+        android:entries="@array/Sem3"
+        android:layout_marginLeft="5dp"/>
 </LinearLayout>
 <EditText
     android:id="@+id/univrollno"
@@ -76,8 +76,8 @@ android:orientation="vertical"
     android:layout_below="@id/twoedittext"
     android:layout_marginBottom="50dp"
     android:textColor="@color/colorPrimary"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
     android:text=""
     android:textSize="16sp"
     android:textColorHint="#000000"

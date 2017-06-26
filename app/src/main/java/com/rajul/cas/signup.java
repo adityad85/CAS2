@@ -36,10 +36,11 @@ public class signup extends AppCompatActivity {
         fName.setAlpha(.75f);
         lName = (EditText) findViewById(R.id.lastname);
         lName.setAlpha(.75f);
+        EditText confirmpassword =(EditText)findViewById(R.id.confirmPasswordsignup);
+        confirmpassword.setAlpha(.75f);
         Intent intent = getIntent();
         q = intent.getExtras().getBoolean("represent");
         Log.i("here", q.toString());
-
     }
 
     Boolean cancel = false;

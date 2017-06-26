@@ -112,4 +112,48 @@
         <item>EN</item>
         <item>EI</item>
     </string-array>
+    <string-array name="Branch3">
+        <item>Branch</item>
+        <item>CS</item>
+        <item>IT</item>
+        <item>ME</item>
+        <item>CIVIL</item>
+        <item>ECE</item>
+        <item>EN</item>
+        <item>EI</item>
+    </string-array>
+    <string-array name="Sem3">
+        <item>Sem</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="Lec3">
+        <item>Lec no</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="Sec3">
+        <item>Section</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+    <string-array name="Sub3">
+        <item>Subject</item>
+        <item>NCS-601</item>
+        <item>NCS-602</item>
+        <item>NCS-603</item>
+    </string-array>
 </resources>
