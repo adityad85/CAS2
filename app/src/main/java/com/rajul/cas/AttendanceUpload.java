@@ -125,6 +125,7 @@ public class AttendanceUpload extends AppCompatActivity {
         p.setIdt(ParseUser.getCurrentUser().getUsername());
         p.setSec(sec);
         p.setSem(sem);
+        p.setSubject(sub);
         //d.setData(p);
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
