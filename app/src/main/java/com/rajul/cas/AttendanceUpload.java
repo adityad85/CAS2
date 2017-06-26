@@ -23,6 +23,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,9 @@ public class AttendanceUpload extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     TextView subhint, sechint, lechint;
     String sem, bra, sec, lec, sub;
+    Packet p = new Packet();
+
+    //DataHolder d=new DataHolder();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,7 +119,13 @@ public class AttendanceUpload extends AppCompatActivity {
         query.whereContains("branch", bra);
         query.whereContains("section", sec);
         query.whereContains("sem", sem);
-        //1Log.i("Semm",sem);
+        //11Log.i("Semm",sem);
+        p.setBranch(bra);
+        p.setLecture(lec);
+        p.setIdt(ParseUser.getCurrentUser().getUsername());
+        p.setSec(sec);
+        p.setSem(sem);
+        //d.setData(p);
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
