@@ -29,9 +29,12 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.AttendanceUploadAdapter.ViewHolder> {
     List<Students> students;
     private Context context;
+    public Packet packet = new Packet();
+
 
     public AttendanceUploadAdapter(List<Students> students, Context context) {
         super();
+
         this.students = students;
         this.context = context;
     }
@@ -40,8 +43,10 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context)
                 .inflate(R.layout.attendance_row_upload, parent, false);
+
         ViewHolder viewHolder = new ViewHolder(v);
         Log.i("haha", "yeag");
+
         return viewHolder;
     }
 
@@ -61,22 +66,57 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewRollNo;
         public ToggleButton toggleButtonAttend;
-
+        public ParseObject obj;
         public ViewHolder(View itemView) {
             super(itemView);
             textViewRollNo = (TextView) itemView.findViewById(R.id.rollno);
             toggleButtonAttend = (ToggleButton) itemView.findViewById(R.id.attend);
+            ParseQuery<ParseObject> query1 = ParseQuery.getQuery("attendance_1");
+            query1.whereEqualTo("student_id", textViewRollNo.getText().toString());
+            query1.whereContains("Lecture_id", packet.getLecture());
+            query1.whereContains("subject", packet.getSubject());
+            query1.whereContains("section", packet.getSec());
+            query1.whereContains("branch", packet.getBranch());
+            // query1.whereContains("date",packet.getDate());
+            query1.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+
+                    if (objects.size() > 0) {
+                        toggleButtonAttend.setChecked(objects.get(0).getBoolean("present"));
+                        obj = objects.get(0);
+                    } else {
+                        obj = new ParseObject("attendance_1");
+                    }
+                }
+            });
+
             toggleButtonAttend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(final CompoundButton buttonView, boolean isChecked) {
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("attendance_1");
+                    /*ParseQuery<ParseObject> query = ParseQuery.getQuery("attendance_1");
                     query.whereEqualTo("student_id", textViewRollNo.getText().toString());
+                    query.whereContains("Lecture_id",packet.getLecture());
+                    query.whereContains("subject",packet.getSubject());
+                    query.whereContains("section",packet.getSec());
+                    query.whereContains("branch",packet.getBranch());
+                    query.whereContains("date",packet.getDate());
+                    //Log.i("yeesss",packet.getLecture());
                     query.findInBackground(new FindCallback<ParseObject>() {
                         @Override
                         public void done(List<ParseObject> objects, ParseException e) {
-                            ParseObject obj = objects.get(0);
+                            ParseObject obj;
+                            if(objects.size()>0)
+                             obj = objects.get(0);
+                            else
+                                obj=new ParseObject("attendance_1");*/
                             obj.put("student_id", textViewRollNo.getText().toString());
                             obj.put("present", buttonView.isChecked());
+                    obj.put("Lecture_id", packet.getLecture());
+                    obj.put("subject", packet.getSubject());
+                    obj.put("section", packet.getSec());
+                    obj.put("branch", packet.getBranch());
+                    //               obj.put("date",packet.getDate());
                             obj.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
@@ -86,9 +126,9 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                                     }
 
                                 }
-                            });
+                            });/*
                         }
-                    });
+                    });*/
                   /*  ParseObject obj = new ParseObject("attendance_1");
                     obj.put("student_id", textViewRollNo.getText().toString());
                     obj.put("present", buttonView.isChecked());
