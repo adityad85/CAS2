@@ -11,17 +11,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class TeacherProfile extends AppCompatActivity {
-
+    TextView fName, lName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        fName = (TextView) findViewById(R.id.firstnameprofileTeacher);
+        lName = (TextView) findViewById(R.id.lastnameprofileTeacher);
 
     }
     public void jumptoChangePasswordDialogTeacher(View v){
