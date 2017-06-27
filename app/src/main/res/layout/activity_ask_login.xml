@@ -110,9 +110,11 @@
         android:gravity="center"
         android:textColor="@color/colorPrimary"
         android:id="@+id/orsignup"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:onClick="jumptoAskSignupScreen"/>
+        android:onClick="jumptoAskSignupScreen"
+        android:paddingBottom="10dp"
+        />
         </LinearLayout>
 
 

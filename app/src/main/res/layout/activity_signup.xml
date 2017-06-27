@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_signup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.rajul.cas.Login"
     android:orientation="vertical"
     android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+
+    >
 
 
     <LinearLayout
@@ -35,66 +38,120 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/firstlastname">
-        <EditText
-            android:id="@+id/firstname"
+        android:id="@+id/firstlastname"
+        >
+        <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:hint="FIRST NAME"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"/>
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:id="@+id/firstnameWrapper"
+            android:alpha=".75">
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:hint="FIRST NAME"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:alpha=".75"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:id="@+id/lastnameWrapper"
+            android:alpha=".75">
+
         <EditText
             android:id="@+id/lastname"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:hint="LAST NAME"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:alpha=".75"/>
+        </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 
 
+       <android.support.design.widget.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/ietemailidWrapper"
+           android:alpha=".75"
+           android:textColorHint="@color/colorPrimaryDark">
     <EditText
         android:id="@+id/KietEmailIdsignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="KIET EMAIL-ID"
         android:layout_marginTop="20dp"
-        android:textColorHint="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimaryDark"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:inputType="textEmailAddress"
+        android:alpha=".75"
         />
-    <EditText
-        android:id="@+id/createPasswordsignup"
+       </android.support.design.widget.TextInputLayout>
+       <android.support.design.widget.TextInputLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:passwordToggleContentDescription="Create Password"
+           app:passwordToggleEnabled="true"
+           app:passwordToggleTint="@color/colorPrimaryDark"
+           android:textColorHint="@color/colorPrimaryDark"
+           android:id="@+id/createPasswordsignupWrapper"
+           android:alpha=".75"
+           >
+    <android.support.design.widget.TextInputEditText
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="CREATE PASSWORD"
-        android:layout_marginTop="20dp"
-        android:textColorHint="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimaryDark"
         android:textColor="@color/colorPrimary"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="textPassword"
+        android:alpha=".75"
         />
-       <EditText
-           android:id="@+id/confirmPasswordsignup"
+       </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:hint="CONFIRM PASSWORD"
-           android:layout_marginTop="20dp"
-           android:textColorHint="@color/colorPrimary"
-           android:textColor="@color/colorPrimary"
-           android:layout_marginLeft="20dp"
-           android:layout_marginRight="20dp"
-           android:inputType="textPassword"
-           />
+           app:passwordToggleTint="@color/colorPrimaryDark"
+            app:passwordToggleContentDescription="Confirm Password"
+            app:passwordToggleEnabled="true"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:id="@+id/confirmpasswordWrapper"
+            android:alpha=".75"
+           >
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="CONFIRM PASSWORD"
+               android:textColorHint="@color/colorPrimaryDark"
+               android:inputType="textPassword"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="20dp"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="18sp"
+               android:alpha=".75"/>
+       </android.support.design.widget.TextInputLayout>
    </LinearLayout>
     <Button
         android:layout_width="match_parent"

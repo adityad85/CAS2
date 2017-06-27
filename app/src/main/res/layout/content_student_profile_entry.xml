@@ -69,21 +69,30 @@ android:orientation="vertical"
         android:entries="@array/Sem3"
         android:layout_marginLeft="5dp"/>
 </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleTint="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:id="@+id/univrollnoWrapperWrapper"
+            android:alpha=".75"
+            android:layout_marginBottom="50dp">
 <EditText
     android:id="@+id/univrollno"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_below="@id/twoedittext"
-    android:layout_marginBottom="50dp"
-    android:textColor="@color/colorPrimary"
+    android:textColor="@color/colorPrimaryDark"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:text=""
     android:textSize="16sp"
     android:textColorHint="#000000"
     android:hint="Enter Univ Roll No"
-
+    android:alpha=".75"
     />
+        </android.support.design.widget.TextInputLayout>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
