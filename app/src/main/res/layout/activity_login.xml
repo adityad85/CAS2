@@ -36,8 +36,7 @@
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorPrimaryDark"
             android:alpha=".75"
-            >
-
+            android:layout_marginBottom="20dp">
             <EditText
                 android:id="@+id/KietEmailIdlogin"
                 android:layout_width="match_parent"
