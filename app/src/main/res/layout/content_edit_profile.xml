@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/doneEditProfile"
         android:text="Done"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/White"
         android:background="@drawable/button_selector"
         android:layout_below="@id/enterUnivRollNo"
         android:layout_centerHorizontal="true"
