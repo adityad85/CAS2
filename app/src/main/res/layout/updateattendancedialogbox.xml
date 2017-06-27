@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="345dp"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,11 +12,24 @@
         android:id="@+id/LL1"
         android:layout_marginBottom="17dp"
         android:layout_marginTop="10dp">
-        <Spinner
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/choosesemDialog"
+            android:textColor="@color/colorPrimary"
+            android:text="Choose Sem"
+            android:layout_weight="3"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
             android:id="@+id/spinner1"
-            android:entries="@array/Sem2"
+            android:entries="@array/Sem"
             android:gravity="left">
 
         </Spinner>
@@ -34,13 +42,25 @@
         android:id="@+id/LL2"
         android:layout_below="@id/LL1"
         android:layout_marginBottom="17dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chooseBranchDialog"
+            android:textColor="@color/colorPrimary"
+            android:text="Choose Branch"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:layout_weight="3"
+            />
         <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:id="@+id/spinner4"
-            android:entries="@array/Branch2"
-            ></Spinner>
+            android:entries="@array/Branch"
+            android:layout_weight="2"></Spinner>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,13 +70,26 @@
         android:id="@+id/LL3"
         android:layout_below="@id/LL2"
         android:layout_marginBottom="17dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/choosesecDialog"
+            android:textColor="@color/colorPrimary"
+            android:text="Choose Sec"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:layout_weight="3"
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"
 
+            />
         <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:id="@+id/spinner2"
-            android:entries="@array/Sec2"
+            android:entries="@array/Sec"
             android:layout_weight="2">
 
         </Spinner>
@@ -69,13 +102,26 @@
         android:id="@+id/LL4"
         android:layout_below="@id/LL3"
         android:layout_marginBottom="17dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/choosesubDialog"
+            android:textColor="@color/colorPrimary"
+            android:text="Choose Sub"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"
+            android:layout_weight="3"
 
+            />
         <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:id="@+id/spinner3"
-            android:entries="@array/Sub2"
+            android:entries="@array/Sub"
             android:layout_weight="2">
 
         </Spinner>
@@ -88,13 +134,26 @@
         android:id="@+id/LL5"
         android:layout_below="@id/LL4"
         android:layout_marginBottom="7dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chooselectureDialog"
+            android:textColor="@color/colorPrimary"
+            android:text="Choose lec no"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"
+            android:layout_weight="3"
 
+            />
         <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:id="@+id/spinner5"
-            android:entries="@array/Lec2"
+            android:entries="@array/Lec"
             android:layout_weight="2"
             >
 
@@ -109,25 +168,32 @@
         android:id="@+id/LL6"
         android:layout_below="@id/LL5"
         android:layout_marginBottom="15dp">
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:alpha=".75"
-            android:id="@+id/LL6Wrapper"
-            >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/selectdate"
-            android:hint="Select Date (xx-yy-zzzz)"
-            android:textColorHint="#000000"
+            android:id="@+id/choosedateDialog"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:paddingLeft="10dp"
-            android:alpha=".85"
+            android:text="Select Date"
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:gravity="left"
             />
-         </android.support.design.widget.TextInputLayout>
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:id="@+id/putdate"
+          android:hint="xx/yy/zzzz"
+          android:textColorHint="@color/colorPrimary"
+          android:layout_weight="2"
+          android:gravity="left"
+          android:textSize="16sp"
+          android:focusable="false"
+          android:layout_marginLeft="10dp"
+          />
+
+
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
@@ -139,7 +205,6 @@
         android:textSize="18sp"
         android:id="@+id/updatedialog"
         android:onClick="jumptoattendanceUpdate"/>
-    </LinearLayout>
 
 
 </RelativeLayout>

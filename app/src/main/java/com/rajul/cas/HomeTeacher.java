@@ -1,4 +1,6 @@
 package com.rajul.cas;
+
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.parse.FindCallback;
@@ -21,6 +25,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -46,15 +51,16 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         setContentView(R.layout.activity_home_teacher);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        finalSem.add("Sem");
-        finalBra.add("Branch");
-        finalSec.add("Sec");
-        finalSub.add("Sub");
+        finalSem.add("Select Sem");
+        finalBra.add("Select Branch");
+        finalSec.add("Select Section");
+        finalSub.add("Select Subject");
         sem = (Spinner) findViewById(R.id.spinner1);
         branch = (Spinner) findViewById(R.id.spinner2);
         sec = (Spinner) findViewById(R.id.spinner3);
         sub = (Spinner) findViewById(R.id.spinner4);
         lec = (Spinner) findViewById(R.id.spinner5);
+        //sem2=(Spinner)findViewById(R.id.spi)
 
     }
 
@@ -185,22 +191,43 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         s.setAdapter(ad);
     }
 
-    public void duplicates(ArrayList<String> a) {
-        Set<String> reDu = new HashSet(a);
-        a.clear();
-        a.addAll(reDu);
-        //Log.i("aqw",a.get(1));
-    }
+    EditText daate;
+    DatePickerDialog datePickerDialog;
     public void jumptoDialog2(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.
         dialog.setContentView(R.layout.updateattendancedialogbox);
         dialog.setTitle(R.string.dialog_upload_title2);
+        daate = (EditText) dialog.findViewById(R.id.putdate);
+        daate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+                datePickerDialog = new DatePickerDialog(HomeTeacher.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                daate.setText(/*dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                                Log.i("dad", daate.getText().toString());
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
 
         dialog.show();
     }
 
     public void jumptoattendanceUpload(View v){
-
+        //Either You've already made it or check the lecture nuumber or youre not authorised
         Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
         intent.putExtra("section", sec.getSelectedItem().toString());
         intent.putExtra("branch", branch.getSelectedItem().toString());

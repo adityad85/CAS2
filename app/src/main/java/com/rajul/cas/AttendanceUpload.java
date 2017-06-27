@@ -25,7 +25,13 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -37,7 +43,7 @@ public class AttendanceUpload extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
-    TextView subhint, sechint, lechint;
+    TextView subhint, sechint, lechint, datehint;
     String sem, bra, sec, lec, sub;
     Packet p = new Packet();
 
@@ -60,9 +66,13 @@ public class AttendanceUpload extends AppCompatActivity {
         subhint = (TextView) findViewById(R.id.subhint);
         sechint = (TextView) findViewById(R.id.secselecthint);
         lechint = (TextView) findViewById(R.id.lecturehint);
+        datehint = (TextView) findViewById(R.id.date);
         subhint.setText(sub);
         sechint.setText(sec);
         lechint.setText(lec);
+        LocalDate d = new LocalDate();
+        String aa = d.toString();
+        datehint.setText(aa);
 
         //Method to get Data
         getData();
@@ -125,6 +135,11 @@ public class AttendanceUpload extends AppCompatActivity {
         p.setIdt(ParseUser.getCurrentUser().getUsername());
         p.setSec(sec);
         p.setSem(sem);
+        p.setSubject(sub);
+
+        LocalDate a = new LocalDate();
+        Log.i("date", a.toString());
+        p.setDate(a);
         //d.setData(p);
         query.addAscendingOrder("student_id");
         query.findInBackground(new FindCallback<ParseObject>() {
