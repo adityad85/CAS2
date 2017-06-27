@@ -2,6 +2,7 @@ package com.rajul.cas;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,19 +29,10 @@ public class signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        email = (EditText) findViewById(R.id.KietEmailIdsignup);
-        email.setAlpha(.75f);
-        password = (EditText) findViewById(R.id.createPasswordsignup);
-        password.setAlpha(.75f);
-        fName = (EditText) findViewById(R.id.firstname);
-        fName.setAlpha(.75f);
-        lName = (EditText) findViewById(R.id.lastname);
-        lName.setAlpha(.75f);
-        EditText confirmpassword =(EditText)findViewById(R.id.confirmPasswordsignup);
-        confirmpassword.setAlpha(.75f);
         Intent intent = getIntent();
         q = intent.getExtras().getBoolean("represent");
         Log.i("here", q.toString());
+
     }
 
     Boolean cancel = false;

@@ -59,6 +59,7 @@ public class StudentProfile extends AppCompatActivity {
         });
     }
     public void jumptoChangePasswordDialog(View v){
+
         final Dialog dialog = new Dialog(this); // Context, this, etc.
         dialog.setContentView(R.layout.change_password_dialog);
         dialog.setTitle(R.string.dialog_changepassword);
