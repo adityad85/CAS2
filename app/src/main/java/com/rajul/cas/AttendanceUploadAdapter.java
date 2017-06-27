@@ -82,11 +82,14 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                     query.whereContains("subject", packet.getSubject());
                     query.whereContains("section", packet.getSec());
                     query.whereContains("branch", packet.getBranch());
-                    //query.whereContains("date",packet.getDate());
+                    query.whereGreaterThanOrEqualTo("date", packet.getDate().toString());
                     //Log.i("yeesss",packet.getLecture());
                     query.findInBackground(new FindCallback<ParseObject>() {
                         @Override
                         public void done(List<ParseObject> objects, ParseException e) {
+                            if (e != null) {
+                                e.printStackTrace();
+                            } else {
                             ParseObject obj;
                             if (objects.size() > 0)
                                 obj = objects.get(0);
@@ -98,7 +101,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                             obj.put("subject", packet.getSubject());
                             obj.put("section", packet.getSec());
                             obj.put("branch", packet.getBranch());
-                            //               obj.put("date",packet.getDate());
+                                obj.put("date", packet.getDate().toString());
                             obj.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
@@ -109,6 +112,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
 
                                 }
                             });
+                            }
                         }
                     });
                 }

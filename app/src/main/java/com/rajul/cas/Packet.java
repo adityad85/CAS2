@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.joda.time.LocalDate;
+
+import java.util.Date;
+
 /**
  * Created by Aditya on 6/26/2017.
  */
 
 public class Packet extends Activity {
-    public static String branch, lecture, sem, sec, idt, date, sub;
-
+    public static String branch, lecture, sem, sec, idt, sub;
+    public static LocalDate date;
     public Packet() {
 
     }
@@ -36,7 +40,7 @@ public class Packet extends Activity {
         return idt;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -60,6 +64,9 @@ public class Packet extends Activity {
         this.idt = idt;
     }
 
+    public void setDate(LocalDate a) {
+        this.date = a;
+    }
 
     public void setSubject(String Sub) {
         this.sub = Sub;
