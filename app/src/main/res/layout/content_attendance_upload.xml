@@ -16,60 +16,67 @@
         android:orientation="vertical"
         android:id="@+id/attendanceUploadLinearLayout"
         >
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/secondarytoolbar"
         android:layout_weight="2"
         android:background="#5877A1"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="10dp"
+        android:orientation="horizontal">
 
       <TextView
-          android:layout_width="wrap_content"
+          android:layout_width="0dp"
           android:layout_height="wrap_content"
+          android:layout_weight="2"
           android:text=""
           android:hint="17-Jun-2017"
-          android:textColor="@color/colorAccent"
+          android:textColor="@color/White"
           android:textSize="12sp"
-          android:layout_centerVertical="true"
-          android:textColorHint="@color/colorAccent"
-          android:id="@+id/date"/>
+          android:layout_gravity="center_vertical"
+          android:textColorHint="@color/White"
+          android:id="@+id/date"
+          android:gravity="center"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text=""
-            android:textColorHint="@color/colorAccent"
+            android:textColorHint="@color/White"
             android:hint="Sec-A"
             android:id="@+id/secselecthint"
-            android:textColor="@color/colorAccent"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/date"
+            android:textColor="@color/White"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="25dp"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:gravity="center"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Lec-7"
             android:id="@+id/lecturehint"
-            android:textColor="@color/colorAccent"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/secselecthint"
+            android:textColor="@color/White"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="25dp"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:gravity="center"
+            />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="Sub- Ncs-601"
-            android:textColor="@color/colorAccent"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/lecturehint"
+            android:textColor="@color/White"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="40dp"
             android:id="@+id/subhint"
-            android:textSize="12sp"/>
-    </RelativeLayout>
+            android:textSize="12sp"
+            android:gravity="center"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -118,7 +125,7 @@
         android:layout_height="0dp"
         android:background="@drawable/back2"
         android:text="UPLOAD"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/White"
         android:layout_gravity="bottom"
         android:textSize="18sp"
         android:paddingTop="15dp"

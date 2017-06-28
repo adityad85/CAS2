@@ -18,11 +18,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:id="@+id/firstlastnameProfile"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+
 
         >
         <TextView
@@ -58,13 +59,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="8">
+            android:layout_weight="13.3">
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorPrimary"
         android:layout_below="@id/firstlastnameProfile"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="25dp"
         android:id="@+id/dividerProfile"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp" />
@@ -99,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text=""
+            android:textColor="@color/colorPrimary"
             android:hint="VII"
             android:paddingLeft="20dp"
             android:textSize="18sp"
@@ -137,6 +139,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:textColor="@color/colorPrimary"
             android:text=""
             android:hint="CSE"
             android:paddingLeft="20dp"
@@ -177,6 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text=""
+            android:textColor="@color/colorPrimary"
             android:hint="c"
             android:paddingLeft="20dp"
             android:textSize="18sp"
@@ -216,6 +220,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:text=""
+            android:textColor="@color/colorPrimary"
             android:hint="1402910128"
             android:paddingLeft="20dp"
             android:textSize="18sp"
@@ -223,25 +228,26 @@
             android:textColorHint="@color/colorPrimary"/>
 
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:id="@+id/dividerProfile2"
-        android:layout_below="@id/univrollnoProfile"
-        android:background="@color/colorPrimary"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="30dp"/>
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:id="@+id/dividerProfile2"
+       android:layout_marginLeft="16dp"
+       android:layout_marginRight="16dp"
+       android:layout_marginTop="20dp"
+       android:background="@color/colorPrimary" />
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:layout_marginTop="20dp"
+        android:layout_weight="3.2"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
         android:layout_below="@+id/dividerProfile2"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         >
         <Button
             android:layout_width="0dp"
@@ -249,7 +255,7 @@
             android:text="Change Password?"
             android:textSize="12sp"
             android:id="@+id/changepassword"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/White"
             android:background="@drawable/button_selector"
             android:layout_weight="1"
             android:gravity="center"
@@ -264,7 +270,7 @@
             android:id="@+id/editprofile"
             android:background="@drawable/button_selector"
             android:text="Edit Profile"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/White"
             android:textSize="12sp"
             android:layout_weight="1"
             android:gravity="center"
