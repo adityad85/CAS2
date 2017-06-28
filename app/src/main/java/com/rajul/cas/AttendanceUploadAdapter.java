@@ -52,6 +52,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
         return viewHolder;
     }
 
+    public String qw;
     Students students1;
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
@@ -59,7 +60,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
         holder.textViewRollNo.setText(students1.getRollno());
         holder.toggleButtonAttend.setSelected(students1.getAttendState());
         Log.i("got", "in");
-        ParseQuery<ParseObject> a = new ParseQuery<ParseObject>("attendance_1");
+        ParseQuery<ParseObject> a = new ParseQuery<ParseObject>("attendance_" + packet.getYear());
         a.whereContains("Lecture_id", packet.getLecture());
         a.whereContains("subject", packet.getSubject());
         a.whereContains("section", packet.getSec());
@@ -75,7 +76,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                     holder.toggleButtonAttend.setChecked(objects.get(0).getBoolean("present"));
                 } else {
                     Log.i("asd", "asd");
-                    obj = new ParseObject("attendance_1");
+                    obj = new ParseObject("attendance_" + packet.getYear());
                     obj.put("student_id", students1.getRollno());
                     obj.put("present", holder.toggleButtonAttend.isChecked());
                     obj.put("Lecture_id", packet.getLecture());
@@ -119,7 +120,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
             toggleButtonAttend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(final CompoundButton buttonView, boolean isChecked) {
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("attendance_1");
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("attendance_" + packet.getYear());
                     query.whereEqualTo("student_id", textViewRollNo.getText().toString());
                     query.whereContains("Lecture_id", packet.getLecture());
                     query.whereContains("subject", packet.getSubject());
@@ -137,7 +138,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                                 if (objects.size() > 0)
                                 obj = objects.get(0);
                             else
-                                obj = new ParseObject("attendance_1");
+                                    obj = new ParseObject("attendance_" + packet.getYear());
                             obj.put("student_id", textViewRollNo.getText().toString());
                             obj.put("present", buttonView.isChecked());
                             obj.put("Lecture_id", packet.getLecture());
