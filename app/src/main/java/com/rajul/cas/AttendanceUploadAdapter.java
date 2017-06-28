@@ -70,8 +70,11 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (objects.size() > 0) {
-                    holder.toggleButtonAttend.setSelected(objects.get(0).getBoolean("present"));
+                    Log.i("cec", "qwqw");
+                    Log.i("output", String.valueOf(objects.get(0).getBoolean("present")));
+                    holder.toggleButtonAttend.setChecked(objects.get(0).getBoolean("present"));
                 } else {
+                    Log.i("asd", "asd");
                     obj = new ParseObject("attendance_1");
                     obj.put("student_id", students1.getRollno());
                     obj.put("present", holder.toggleButtonAttend.isChecked());
