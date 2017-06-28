@@ -24,6 +24,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import org.joda.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -44,7 +46,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
     ArrayList<String> finalSec = new ArrayList<String>();
     ArrayList<String> finalSub = new ArrayList<String>();
     Spinner sem, branch, sec, sub, lec;
-    String semis, branchis, secis, subis, lecis;
+    String semis, branchis, secis, subis, lecis, dateis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -179,10 +181,10 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         finalSub.clear();
         finalSem.clear();
         finalSec.clear();
-        finalSem.add("Sem");
-        finalBra.add("Branch");
-        finalSec.add("Sec");
-        finalSub.add("Sub");
+        finalSem.add("Select Sem");
+        finalBra.add("Select Branch");
+        finalSec.add("Select Section");
+        finalSub.add("Select Subject");
 
     }
     public void setAdapter1(ArrayList<String> a, ArrayAdapter<String> ad, Spinner s) {
@@ -196,7 +198,101 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
     public void jumptoDialog2(View v){
         final Dialog dialog = new Dialog(this); // Context, this, etc.
         dialog.setContentView(R.layout.updateattendancedialogbox);
+        sem = (Spinner) dialog.findViewById(R.id.spinner1);
+        branch = (Spinner) dialog.findViewById(R.id.spinner2);
+        sec = (Spinner) dialog.findViewById(R.id.spinner3);
+        sub = (Spinner) dialog.findViewById(R.id.spinner4);
+        lec = (Spinner) dialog.findViewById(R.id.spinner5);
+        sem.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                semis = parent.getSelectedItem().toString();
+                Log.i("asd", semis);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        branch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                branchis = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        sec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                secis = parent.getSelectedItem().toString();
+                Log.i("asd", semis);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        sub.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                subis = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        lec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                lecis = parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
         dialog.setTitle(R.string.dialog_upload_title2);
+        clearr();
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Teacher_sub");
+        query.whereContains("id", ParseUser.getCurrentUser().getUsername());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            Set<String> reDu = new HashSet<String>();
+            Set<String> reDu1 = new HashSet<String>();
+            Set<String> reDu2 = new HashSet<String>();
+            Set<String> reDu3 = new HashSet<String>();
+
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                for (ParseObject obj : objects) {
+                    reDu.add(obj.get("subject").toString());
+                    reDu1.add(obj.get("branch").toString());
+                    reDu2.add(obj.get("section").toString());
+                    reDu3.add(obj.get("sem").toString());
+                }
+                finalSub.addAll(sor(reDu));
+                finalSec.addAll(sor(reDu2));
+                finalSem.addAll(sor(reDu3));
+                finalBra.addAll(sor(reDu1));
+            }
+        });
+        setAdapter1(finalSub, adaptersub, sub);
+        setAdapter1(finalSec, adaptersec, sec);
+        setAdapter1(finalSem, adaptersem, sem);
+        setAdapter1(finalBra, adapterbra, branch);
+
         daate = (EditText) dialog.findViewById(R.id.putdate);
         daate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -216,7 +312,8 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
                                 // set day of month , month and year value in the edit text
                                 daate.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                                Log.i("dad", daate.getText().toString());
+                                dateis = daate.getText().toString();
+
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -234,11 +331,19 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         intent.putExtra("semester", sem.getSelectedItem().toString());
         intent.putExtra("lecture", lec.getSelectedItem().toString());
         intent.putExtra("subject", sub.getSelectedItem().toString());
+        LocalDate m = new LocalDate();
+        intent.putExtra("date", m.toString());
         startActivity(intent);
     }
 
     public void jumptoattendanceUpdate(View v){
         Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
+        intent.putExtra("section", sec.getSelectedItem().toString());
+        intent.putExtra("branch", branch.getSelectedItem().toString());
+        intent.putExtra("semester", sem.getSelectedItem().toString());
+        intent.putExtra("lecture", lec.getSelectedItem().toString());
+        intent.putExtra("subject", sub.getSelectedItem().toString());
+        intent.putExtra("date", dateis);
         startActivity(intent);
 
     }

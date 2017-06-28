@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -51,12 +52,50 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
         return viewHolder;
     }
 
+    Students students1;
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Students students1 = students.get(position);
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        students1 = students.get(position);
         holder.textViewRollNo.setText(students1.getRollno());
         holder.toggleButtonAttend.setSelected(students1.getAttendState());
         Log.i("got", "in");
+        ParseQuery<ParseObject> a = new ParseQuery<ParseObject>("attendance_1");
+        a.whereContains("Lecture_id", packet.getLecture());
+        a.whereContains("subject", packet.getSubject());
+        a.whereContains("section", packet.getSec());
+        a.whereContains("branch", packet.getBranch());
+        a.whereEqualTo("date", packet.getDate().toString());
+        a.whereEqualTo("student_id", students1.getRollno());
+        a.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (objects.size() > 0) {
+                    holder.toggleButtonAttend.setSelected(objects.get(0).getBoolean("present"));
+                } else {
+                    obj = new ParseObject("attendance_1");
+                    obj.put("student_id", students1.getRollno());
+                    obj.put("present", holder.toggleButtonAttend.isChecked());
+                    obj.put("Lecture_id", packet.getLecture());
+                    obj.put("subject", packet.getSubject());
+                    obj.put("section", packet.getSec());
+                    obj.put("branch", packet.getBranch());
+                    obj.put("date", packet.getDate().toString());
+                    obj.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e != null) {
+                                Log.i("ee", "dds");
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+
+                }
+            }
+        });
+
+
         id = students1.getRollno();
     }
 
@@ -65,10 +104,11 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
         return students.size();
     }
 
+    public ParseObject obj;
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewRollNo;
         public ToggleButton toggleButtonAttend;
-        public ParseObject obj;
+
         public ViewHolder(View itemView) {
             super(itemView);
             textViewRollNo = (TextView) itemView.findViewById(R.id.rollno);
@@ -90,8 +130,8 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                             if (e != null) {
                                 e.printStackTrace();
                             } else {
-                            ParseObject obj;
-                            if (objects.size() > 0)
+
+                                if (objects.size() > 0)
                                 obj = objects.get(0);
                             else
                                 obj = new ParseObject("attendance_1");
@@ -117,7 +157,6 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                     });
                 }
             });
-
 
         }
     }
