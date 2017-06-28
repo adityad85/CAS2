@@ -28,15 +28,14 @@
         android:paddingLeft="20dp"
         android:textColorHint="@color/colorPrimary"
         android:gravity="center_vertical"
-        fontPath="fonts/NovaCut.ttf"/>
+        fontPath="fonts/NovaCut.ttf"
+        android:alpha=".90"/>
 
 
     <ToggleButton
         android:id="@+id/attend"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         tools:ignore="RelativeOverlap"
         android:layout_weight="2"
         android:textOff="Absent"

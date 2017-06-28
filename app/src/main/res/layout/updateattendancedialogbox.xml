@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="345dp"
+    android:layout_height="wrap_content"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
@@ -72,6 +72,7 @@
           android:focusable="false"
           android:layout_marginLeft="10dp"
           android:textColor="@color/colorPrimary"
+          android:layout_marginBottom="15dp"
           />
 
     <Button
