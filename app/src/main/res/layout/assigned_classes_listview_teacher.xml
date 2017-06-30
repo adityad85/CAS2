@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="200dp"
-android:focusable="true"
-android:clickable="true"
-android:paddingTop="10dp"
-android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:clickable="true"
+    android:paddingTop="10dp"
+    tools:ignore="MissingPrefix"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
 android:id="@+id/assigned_classes_listview_teacher">
-
 
 
     <TextView
@@ -37,7 +38,8 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:paddingLeft="80dp"/>
-        <view
+
+        <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/colorPrimary"
@@ -45,16 +47,17 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:layout_weight="2"
             android:layout_gravity="center"
             />
+
         <TextView
+            android:id="@+id/sem1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="49"
+            android:hint="VI"
+            android:paddingLeft="80dp"
             android:text=""
             android:textColor="@color/colorPrimary"
-            android:hint="VI"
-            android:textColorHint="@color/colorPrimary"
-            android:layout_weight="49"
-            android:paddingLeft="80dp"
-            />
+            android:textColorHint="@color/colorPrimary" />
 
     </LinearLayout>
     <LinearLayout
@@ -73,7 +76,8 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
            android:paddingLeft="80dp"/>
-        <view
+
+        <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/colorPrimary"
@@ -81,16 +85,17 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:layout_weight="2"
             android:layout_gravity="center"
             />
+
         <TextView
+            android:id="@+id/bra1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="49"
+            android:hint="CSE"
+            android:paddingLeft="80dp"
             android:text=""
             android:textColor="@color/colorPrimary"
-            android:hint="CSE"
-            android:textColorHint="@color/colorPrimary"
-            android:layout_weight="49"
-            android:paddingLeft="80dp"
-            />
+            android:textColorHint="@color/colorPrimary" />
 
     </LinearLayout>
     <LinearLayout
@@ -109,7 +114,8 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
            android:paddingLeft="80dp"/>
-        <view
+
+        <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/colorPrimary"
@@ -117,16 +123,17 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:layout_weight="2"
             android:layout_gravity="center"
             />
+
         <TextView
+            android:id="@+id/sec1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="49"
+            android:hint="C"
+            android:paddingLeft="80dp"
             android:text=""
             android:textColor="@color/colorPrimary"
-            android:hint="C"
-            android:textColorHint="@color/colorPrimary"
-            android:layout_weight="49"
-            android:paddingLeft="80dp"
-            />
+            android:textColorHint="@color/colorPrimary" />
 
     </LinearLayout>
     <LinearLayout
@@ -145,7 +152,8 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:paddingLeft="80dp"/>
-        <view
+
+        <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/colorPrimary"
@@ -153,16 +161,17 @@ android:id="@+id/assigned_classes_listview_teacher">
             android:layout_weight="2"
             android:layout_gravity="center"
             />
+
         <TextView
+            android:id="@+id/sub1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="49"
+            android:hint="Ncs-601"
+            android:paddingLeft="80dp"
             android:text=""
             android:textColor="@color/colorPrimary"
-            android:hint="Ncs-601"
-            android:textColorHint="@color/colorPrimary"
-            android:layout_weight="49"
-            android:paddingLeft="80dp"
-            />
+            android:textColorHint="@color/colorPrimary" />
 
 
 </LinearLayout>

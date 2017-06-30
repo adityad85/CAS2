@@ -177,7 +177,6 @@ public class AttendanceUpload extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
     }
 
     @Override

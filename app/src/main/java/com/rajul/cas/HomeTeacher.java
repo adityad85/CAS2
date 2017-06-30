@@ -47,6 +47,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
     ArrayList<String> finalSub = new ArrayList<String>();
     Spinner sem, branch, sec, sub, lec;
     String semis, branchis, secis, subis, lecis, dateis;
+    Packet p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         sub = (Spinner) findViewById(R.id.spinner4);
         lec = (Spinner) findViewById(R.id.spinner5);
         //sem2=(Spinner)findViewById(R.id.spi)
+
 
     }
 
@@ -368,6 +370,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             startActivity(intent);
         }
         if (id == R.id.action_profile) {
+
             Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
             startActivity(intent);
         }
