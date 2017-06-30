@@ -66,15 +66,15 @@
         android:layout_marginRight="16dp" />
 
 
-    <android.support.v7.widget.ListViewCompat
+        <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+            android:layout_height="220dp"
         android:layout_below="@id/dividerProfileTeacher"
         android:id="@+id/assignedClaassesListView"
         android:scrollbars="vertical"
         >
 
-    </android.support.v7.widget.ListViewCompat>
+        </android.support.v7.widget.RecyclerView>
 
     <View
         android:layout_width="match_parent"

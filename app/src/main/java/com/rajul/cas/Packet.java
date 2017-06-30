@@ -13,7 +13,7 @@ import java.util.Date;
  */
 
 public class Packet extends Activity {
-    public static String branch, lecture, sem, sec, idt, sub;
+    public static String branch, lecture, sem, sec, idt, sub, year;
     public static LocalDate date;
     public Packet() {
 
@@ -73,6 +73,18 @@ public class Packet extends Activity {
 
     }
 
+    public String getYear() {
+        if (sem == "1" || sem == "2") {
+            return "1";
+        } else if (sem == "3" || sem == "4") {
+            return "2";
+        } else if (sem == "5" || sem == "6") {
+            return "3";
+        } else if (sem == "7" || sem == "8") {
+            return "4";
+        }
+        return "1";
+    }
     public String getSubject() {
         return sub;
     }

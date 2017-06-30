@@ -44,7 +44,7 @@ public class AttendanceUpload extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
     TextView subhint, sechint, lechint, datehint;
-    String sem, bra, sec, lec, sub;
+    String sem, bra, sec, lec, sub, aa;
     Packet p = new Packet();
 
     //DataHolder d=new DataHolder();
@@ -63,6 +63,7 @@ public class AttendanceUpload extends AppCompatActivity {
         bra = i.getExtras().getString("branch");
         sub = i.getExtras().getString("subject");
         lec = i.getExtras().getString("lecture");
+        aa = i.getExtras().getString("date");
         subhint = (TextView) findViewById(R.id.subhint);
         sechint = (TextView) findViewById(R.id.secselecthint);
         lechint = (TextView) findViewById(R.id.lecturehint);
@@ -70,8 +71,6 @@ public class AttendanceUpload extends AppCompatActivity {
         subhint.setText(sub);
         sechint.setText(sec);
         lechint.setText(lec);
-        LocalDate d = new LocalDate();
-        String aa = d.toString();
         datehint.setText(aa);
 
         //Method to get Data
@@ -137,7 +136,7 @@ public class AttendanceUpload extends AppCompatActivity {
         p.setSem(sem);
         p.setSubject(sub);
 
-        LocalDate a = new LocalDate();
+        LocalDate a = new LocalDate(aa);
         Log.i("date", a.toString());
         p.setDate(a);
         //d.setData(p);
@@ -178,7 +177,6 @@ public class AttendanceUpload extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
     }
 
     @Override
