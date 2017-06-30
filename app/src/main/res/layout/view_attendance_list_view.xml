@@ -31,13 +31,70 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColorHint="@color/colorPrimary"
-                android:textColor="@color/colorPrimary"
-                android:hint="L-20   P-12   A-8"
-                android:paddingLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:id="@+id/lecpreabsentLLayout">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="L - "
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="right"
+                    android:id="@+id/lectureCountText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    android:hint="20"
+                    android:textColorHint="@color/colorPrimary"
+                    android:gravity="left"
+                    android:id="@+id/lectureCountValue"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textColor="@color/colorPrimary"
+                    android:text="P - "
+                    android:gravity="right"
+                    android:id="@+id/presentCountText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    android:hint="12"
+                    android:textColorHint="@color/colorPrimary"
+                    android:gravity="left"
+                    android:id="@+id/presentCountValue"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textColor="@color/colorPrimary"
+                    android:text="A - "
+                    android:gravity="right"
+                    android:id="@+id/absentCountText"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    android:hint="8"
+                    android:textColorHint="@color/colorPrimary"
+                    android:gravity="left"
+                    android:id="@+id/absentCountValue"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"/>
+
+            </LinearLayout>
 
         </LinearLayout>
        <TextView

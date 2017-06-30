@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -38,6 +41,8 @@ public class Login extends AppCompatActivity {
         i = getIntent();
         q = i.getExtras().getBoolean("represent");
     }
+
+
 
     boolean cancel = false;
     View focusView = null;
