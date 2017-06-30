@@ -24,6 +24,7 @@ public class AskLogin extends AppCompatActivity implements View.OnClickListener 
     public void jumptoAskSignupScreen(View v){
         Intent intent = new Intent(getApplicationContext(), asksignup.class);
         startActivity(intent);
+        overridePendingTransition( R.anim.slide_in_down, R.anim.slide_out_down );
     }
 
     /*public void jumptoLoginScreen(View v){
@@ -38,12 +39,14 @@ public class AskLogin extends AppCompatActivity implements View.OnClickListener 
             case R.id.teacheraskloginbutton:
                 intent = new Intent(getApplicationContext(), Login.class);
                 intent.putExtra("represent", true);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 startActivity(intent);
                 break;
             case R.id.studentaskloginbutton:
                 intent = new Intent(getApplicationContext(), Login.class);
                 intent.putExtra("represent", false);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                 break;
             default:
                 break;
