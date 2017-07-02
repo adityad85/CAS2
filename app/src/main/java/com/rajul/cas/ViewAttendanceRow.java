@@ -1,5 +1,6 @@
 package com.rajul.cas;
 
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,7 +9,8 @@ import android.os.Parcelable;
  */
 
 public class ViewAttendanceRow implements Parcelable {
-    String name, lec, pre, abs;
+    String name;
+    Integer lec, pre, abs;
 
     public ViewAttendanceRow() {
 
@@ -17,24 +19,24 @@ public class ViewAttendanceRow implements Parcelable {
     public ViewAttendanceRow(Parcel in) {
 
         name = in.readString();
-        lec = in.readString();
-        pre = in.readString();
-        abs = in.readString();
+        lec = in.readInt();
+        pre = in.readInt();
+        abs = in.readInt();
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setLec(String lec) {
+    public void setLec(Integer lec) {
         this.lec = lec;
     }
 
-    public void setPre(String pre) {
+    public void setPre(Integer pre) {
         this.pre = pre;
     }
 
-    public void setAbs(String abs) {
+    public void setAbs(Integer abs) {
         this.abs = abs;
     }
 
@@ -42,15 +44,15 @@ public class ViewAttendanceRow implements Parcelable {
         return name;
     }
 
-    public String getLec() {
+    public Integer getLec() {
         return lec;
     }
 
-    public String getPre() {
+    public Integer getPre() {
         return pre;
     }
 
-    public String getAbs() {
+    public Integer getAbs() {
         return abs;
     }
 
@@ -74,9 +76,9 @@ public class ViewAttendanceRow implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
-        dest.writeString(lec);
-        dest.writeString(pre);
-        dest.writeString(abs);
+        dest.writeInt(lec);
+        dest.writeInt(pre);
+        dest.writeInt(abs);
     }
 
 }

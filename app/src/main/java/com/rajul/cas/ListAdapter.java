@@ -39,6 +39,7 @@ public class ListAdapter extends RecyclerView.Adapter<com.rajul.cas.ListAdapter.
     @Override
     public void onBindViewHolder(ListAdapter.ViewHolder holder, int position) {
         infoitem = info.get(position);
+        holder.name1.setText(infoitem.getName());
 
     }
 
@@ -52,7 +53,7 @@ public class ListAdapter extends RecyclerView.Adapter<com.rajul.cas.ListAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-
+            name1 = (TextView) itemView.findViewById(R.id.sname);
         }
     }
 }

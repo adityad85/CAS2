@@ -13,13 +13,15 @@ import java.util.Date;
  */
 
 public class Packet extends Activity {
-    public static String branch, lecture, sem, sec, idt, sub, year;
+    public static String branch, lecture, sem, sec, idt, sub, year, ids;
     public static LocalDate date;
     public Packet() {
 
     }
 
-
+    public String getIds() {
+        return ids;
+    }
     public String getBranch() {
         return branch;
     }
@@ -73,6 +75,9 @@ public class Packet extends Activity {
 
     }
 
+    public void setIds(String ids) {
+        this.ids = ids;
+    }
     public String getYear() {
         if (sem == "1" || sem == "2") {
             return "1";
