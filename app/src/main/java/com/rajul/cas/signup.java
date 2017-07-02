@@ -121,6 +121,7 @@ public class signup extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), AskLogin.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
         }
     }
 

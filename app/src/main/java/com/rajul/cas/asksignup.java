@@ -58,7 +58,7 @@ public class asksignup extends AppCompatActivity implements View.OnClickListener
                 intent = new Intent(getApplicationContext(), signup.class);
                 intent.putExtra("represent", false);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
                 break;
             default:
                 break;

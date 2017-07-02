@@ -68,10 +68,13 @@ public class StudentProfile extends AppCompatActivity {
     public void jumptostudentprofileFromDialog(View v){
         Intent intent = new Intent(getApplicationContext(),StudentProfile.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
     }
     public void jumptoEditProfile(View v){
         Intent intent = new Intent(getApplicationContext(), EditProfile.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,14 +95,17 @@ public class StudentProfile extends AppCompatActivity {
         if (id == R.id.action_home) {
             Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_profile) {
             Intent intent = new Intent(getApplicationContext(),StudentProfile.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if(id == R.id.action_logout){
             Intent intent = new Intent(getApplicationContext(),Login.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
 

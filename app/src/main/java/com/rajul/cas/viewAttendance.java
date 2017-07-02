@@ -116,15 +116,18 @@ public class viewAttendance extends AppCompatActivity {
         if (id == R.id.action_home) {
             Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_profile) {
             Intent intent = new Intent(getApplicationContext(),StudentProfile.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id== R.id.action_logout){
             if(id == R.id.action_logout){
                 Intent intent = new Intent(getApplicationContext(),Login.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
             }
         }
 
