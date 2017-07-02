@@ -96,6 +96,7 @@ public class AttendanceUpload extends AppCompatActivity {
     public void jumptoHomeTeacher(View v){
         Intent intent = new Intent(getApplicationContext(),HomeTeacher.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_right);
     }
 
     @Override
@@ -109,14 +110,17 @@ public class AttendanceUpload extends AppCompatActivity {
         if (id == R.id.action_home) {
             Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_profile) {
             Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_logout) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
 

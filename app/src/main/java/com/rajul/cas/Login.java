@@ -94,9 +94,11 @@ public class Login extends AppCompatActivity {
                                                 if (objects.size() > 0) {
                                                     Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
                                                     startActivity(intent);
+                                                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                                 } else {
                                                     Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
                                                     startActivity(intent);
+                                                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                                 }
                                             }
                                         });
@@ -117,9 +119,11 @@ public class Login extends AppCompatActivity {
                                     if (objects.get(0).get("sem") != null) {
                                         Intent i = new Intent(getApplication(), StudentDashboard.class);
                                         startActivity(i);
+                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                     } else {
                                         Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
                                         startActivity(i);
+                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                     }
 
                                 }

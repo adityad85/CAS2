@@ -71,9 +71,10 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
                 @Override
                 public void done(List<ParseObject> objects, ParseException e) {
                     if (objects.size() > 0) {
-                        Toast.makeText(getApplicationContext(), "Alr+eady Entered", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Already Entered", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                     } else {
                         ParseObject ob = new ParseObject("Teacher_sub");
                         ob.put("id", ParseUser.getCurrentUser().getUsername());
@@ -87,6 +88,7 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
                                 if (e == null) {
                                     Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                 } else
                                     e.printStackTrace();
                             }
@@ -112,6 +114,7 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
                 if (e == null) {
                     Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
                 }
             }
         });

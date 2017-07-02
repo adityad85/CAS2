@@ -120,6 +120,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
         startActivity(new Intent(WelcomeActivity.this, asksignup.class));
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
         finish();
     }
 
@@ -208,5 +209,6 @@ public class WelcomeActivity extends AppCompatActivity {
     public void jumptoAskSignupFromSplash(View v){
         Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
 }
