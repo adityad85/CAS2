@@ -65,12 +65,12 @@
           android:layout_height="wrap_content"
           android:id="@+id/putdate"
           android:hint="xx/yy/zzzz"
-          android:textColorHint="@color/colorPrimary"
+          android:textColorHint="@color/colorPrimaryDark"
           android:gravity="left"
           android:textSize="18sp"
           android:focusable="false"
           android:layout_marginLeft="10dp"
-          android:textColor="@color/colorPrimary"
+          android:textColor="@color/colorPrimaryDark"
           android:layout_marginBottom="15dp"
           />
 

@@ -36,14 +36,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorPrimaryDark"
-            android:alpha=".75"
             android:layout_weight="1">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="First Name"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="#000000"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
         android:id="@+id/enterFirstName"
         android:textSize="16sp"
         /></android.support.design.widget.TextInputLayout>
@@ -51,14 +50,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorPrimaryDark"
-            android:alpha=".75"
             android:layout_weight="1">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Last Name"
-            android:textColorHint="#000000"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
             android:id="@+id/enterLastName"
             android:textSize="16sp"/>
         </android.support.design.widget.TextInputLayout>
@@ -100,16 +99,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorPrimaryDark"
-            android:alpha=".75"
             android:layout_marginBottom="30dp">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/enterUnivRollNo"
         android:text=""
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:hint="University Roll Number"
-        android:textColorHint="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimaryDark"
         android:layout_below="@id/semsecEditProfile"
         android:textSize="16sp"
         />
