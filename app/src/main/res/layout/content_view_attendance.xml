@@ -25,13 +25,14 @@
         android:layout_weight="1">
 
     </Spinner>
-        <ListView
+
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="12"
             android:id="@+id/viewAttendanceListview">
 
-        </ListView>
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
 </RelativeLayout>

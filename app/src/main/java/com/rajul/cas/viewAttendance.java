@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,13 +17,26 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class viewAttendance extends AppCompatActivity {
-    private ArrayList<ViewAttendanceRow> ViewAttendanceRow;
-
+    private ArrayList<ViewAttendanceRow> viewAttendanceRow = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    public String date, id;
+    public Packet p = new Packet();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +44,14 @@ public class viewAttendance extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //yourListView.setAdapter(customAdapter);
+        recyclerView = (RecyclerView) findViewById(R.id.viewAttendanceListview);
+        recyclerView.setHasFixedSize(false);
+        Intent i = getIntent();
+        date = i.getExtras().getString("date");
+        id = p.getIds();
+        Log.i("asd", id);
+        getData();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
 
     }
@@ -38,71 +63,8 @@ public class viewAttendance extends AppCompatActivity {
     }
 
 
-    ListView yourListView = (ListView) findViewById(R.id.viewAttendanceListview);
 
     // get data from the table by the ListAdapter
-    ListAdapter customAdapter = new ListAdapter() {
-        @Override
-        public void registerDataSetObserver(DataSetObserver observer) {
-
-        }
-
-        @Override
-        public void unregisterDataSetObserver(DataSetObserver observer) {
-
-        }
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return false;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return 0;
-        }
-
-        @Override
-        public int getViewTypeCount() {
-            return 0;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public boolean areAllItemsEnabled() {
-            return false;
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            return false;
-        }
-    };
-
 
 
     @Override
@@ -135,5 +97,65 @@ public class viewAttendance extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    public void getData() {
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_1");
+        query.whereContains("date", date);
+        query.whereContains("student_id", id);
+        query.addAscendingOrder("subject");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (objects.size() > 0) {
+                    Log.i("jjj", "kk");
+                    parseData(objects);
+                }
+            }
+        });
+    }
+
+    public HashMap<String, Map<String, Integer>> a = new HashMap<>();
+    public HashMap<String, Integer> innerMap = new HashMap<>();
+
+    private void parseData(List<ParseObject> objects) {
+        for (ParseObject o : objects) {
+            //ViewAttendanceRow vee=new ViewAttendanceRow();
+            String sub = o.getString("subject");
+            if (a.containsKey(sub)) {
+                Integer i = 0;
+                if (o.getBoolean("present")) {
+                    i = a.get(sub).get("pre");
+                    innerMap.put("pre", i + 1);
+                } else {
+                    i = a.get(sub).get("abs");
+                    innerMap.put("abs", i + 1);
+                }
+            } else {
+                Integer i = 0;
+                if (o.getBoolean("present")) {
+                    innerMap.put("pre", 1);
+                    innerMap.put("abs", 0);
+                } else {
+                    innerMap.put("abs", 1);
+                    innerMap.put("pre", 0);
+                }
+            }
+            a.put(sub, innerMap);
+
+        }
+
+        for (HashMap.Entry<String, Map<String, Integer>> entry : a.entrySet()) {
+            ViewAttendanceRow vee = new ViewAttendanceRow();
+            vee.setAbs(entry.getValue().get("abs"));
+            vee.setPre(entry.getValue().get("pre"));
+            vee.setName(entry.getKey());
+            Log.i("asd", entry.getValue().get("pre").toString());
+            viewAttendanceRow.add(vee);
+        }
+        adapter = new com.rajul.cas.ListAdapter(viewAttendanceRow, getApplicationContext());
+        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 }
