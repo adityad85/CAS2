@@ -64,6 +64,7 @@ String branch1,section1,semester1,roll;
                             {
                                 Intent intent = new Intent(getApplicationContext(),StudentDashboard.class);
                                 startActivity(intent);
+                                overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
                             }
                         }
                     });

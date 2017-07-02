@@ -70,6 +70,7 @@ public class TeacherProfile extends AppCompatActivity {
     public void jumptoteacherprofileFromDialog(View v){
         Intent intent = new Intent(getApplicationContext(),TeacherProfile.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
 
     @Override
@@ -90,14 +91,17 @@ public class TeacherProfile extends AppCompatActivity {
         if (id == R.id.action_home) {
             Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_profile) {
             Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_logout) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
 

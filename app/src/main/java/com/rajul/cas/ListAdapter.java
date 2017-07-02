@@ -52,7 +52,7 @@ public class ListAdapter extends RecyclerView.Adapter<com.rajul.cas.ListAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            name1 = (TextView) itemView.findViewById(R.id.)
+
         }
     }
 }

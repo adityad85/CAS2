@@ -336,6 +336,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         LocalDate m = new LocalDate();
         intent.putExtra("date", m.toString());
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
 
     public void jumptoattendanceUpdate(View v){
@@ -347,6 +348,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         intent.putExtra("subject", sub.getSelectedItem().toString());
         intent.putExtra("date", dateis);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
 
     }
 
@@ -368,15 +370,18 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         if (id == R.id.action_home) {
             Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_profile) {
 
             Intent intent = new Intent(getApplicationContext(), TeacherProfile.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_logout) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
 
