@@ -161,7 +161,7 @@ public class viewAttendance extends AppCompatActivity {
             Log.i("asd", entry.getValue().get("pre").toString());
             viewAttendanceRow.add(vee);
         }
-        adapter = new com.rajul.cas.ListAdapter(viewAttendanceRow, getApplicationContext());
+        adapter = new ListAdapterStudent(viewAttendanceRow, getApplicationContext());
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
