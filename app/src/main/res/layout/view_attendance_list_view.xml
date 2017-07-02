@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/viewattendancelistview">
+
     <LinearLayout
+        android:id="@+id/subAndLectures"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/subAndLectures">
+        android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -28,85 +30,93 @@
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="20sp" />
+
             <LinearLayout
+                android:id="@+id/lecpreabsentLLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                android:id="@+id/lecpreabsentLLayout" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="L - "
-                    android:textColor="@color/colorPrimary"
-                    android:gravity="right"
-                    android:id="@+id/lectureCountText"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=""
-                    android:textColor="@color/colorPrimary"
-                    android:hint="20"
-                    android:textColorHint="@color/colorPrimary"
-                    android:gravity="left"
-                    android:id="@+id/lectureCountValue"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:textColor="@color/colorPrimary"
-                    android:text="P - "
-                    android:gravity="right"
-                    android:id="@+id/presentCountText"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=""
-                    android:textColor="@color/colorPrimary"
-                    android:hint="12"
-                    android:textColorHint="@color/colorPrimary"
-                    android:gravity="left"
-                    android:id="@+id/presentCountValue"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:textColor="@color/colorPrimary"
-                    android:text="A - "
-                    android:gravity="right"
-                    android:id="@+id/absentCountText"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=""
-                    android:textColor="@color/colorPrimary"
-                    android:hint="8"
-                    android:textColorHint="@color/colorPrimary"
-                    android:gravity="left"
-                    android:id="@+id/absentCountValue"/>
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="6"/>
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/lectureCountText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="L - "
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/lectureCountValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:hint="20"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/presentCountText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="P - "
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/presentCountValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:hint="12"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/absentCountText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="A - "
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/absentCountValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:hint="8"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6" />
 
 
         </LinearLayout>
-       <TextView
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:textColor="@color/colorPrimary"
-           android:textColorHint="@color/colorPrimary"
-           android:text=""
-           android:hint="60%"
-           android:textSize="24sp"
-           android:layout_weight="1"
-           android:gravity="center"
-           />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="60%"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="24sp" />
 
     </LinearLayout>
     <View

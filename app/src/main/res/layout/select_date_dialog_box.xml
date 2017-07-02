@@ -25,19 +25,19 @@
             />
 
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_weight="3"
-                android:layout_height="0dp"
-                android:textSize="16sp"
-                android:background="@drawable/button_selector"
-                android:text="Done"
-                android:textColor="@color/White"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:onClick="jumptoViewAttendance"
+        <Button
+            android:id="@+id/viewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="3"
+            android:background="@drawable/button_selector"
+            android:onClick="jumptoViewAttendance"
+            android:text="Done"
+            android:textColor="@color/White"
 
-                />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </RelativeLayout>

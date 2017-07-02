@@ -36,7 +36,7 @@ public class viewAttendance extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     public String date, id;
-    public Packet p = new Packet();
+    public Packet packet = new Packet();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +47,7 @@ public class viewAttendance extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.viewAttendanceListview);
         recyclerView.setHasFixedSize(false);
         Intent i = getIntent();
-        date = i.getExtras().getString("date");
-        id = p.getIds();
-        Log.i("asd", id);
+        date = i.getStringExtra("date");
         getData();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
@@ -103,9 +101,12 @@ public class viewAttendance extends AppCompatActivity {
     }
 
     public void getData() {
+        id = packet.getIds();
+        Log.i("jjk", id);
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_1");
-        query.whereContains("date", date);
-        query.whereContains("student_id", id);
+        Log.i("sdas0", date);
+        query.whereEqualTo("date", date);
+        query.whereEqualTo("student_id", id);
         query.addAscendingOrder("subject");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -113,7 +114,11 @@ public class viewAttendance extends AppCompatActivity {
                 if (objects.size() > 0) {
                     Log.i("jjj", "kk");
                     parseData(objects);
+                } else {
+                    Log.i("jjlj", "kk");
                 }
+                if (e != null)
+                    e.printStackTrace();
             }
         });
     }
