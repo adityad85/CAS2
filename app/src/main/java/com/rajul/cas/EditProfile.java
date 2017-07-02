@@ -25,9 +25,7 @@ public class EditProfile extends AppCompatActivity {
         EditText e1 = (EditText)findViewById(R.id.enterFirstName);
         EditText e2 = (EditText)findViewById(R.id.enterLastName);
         EditText e3 = (EditText)findViewById(R.id.enterUnivRollNo);
-        e1.setAlpha(.75f);
-        e2.setAlpha(.75f);
-        e3.setAlpha(.75f);
+
 
 
 
