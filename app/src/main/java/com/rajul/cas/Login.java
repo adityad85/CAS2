@@ -35,9 +35,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         username = (EditText) findViewById(R.id.KietEmailIdlogin);
-        username.setAlpha(.75f);
         password = (EditText) findViewById(R.id.LognPassword);
-        password.setAlpha(.75f);
         i = getIntent();
         q = i.getExtras().getBoolean("represent");
     }
@@ -123,7 +121,7 @@ public class Login extends AppCompatActivity {
                                     } else {
                                         Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
                                         startActivity(i);
-                                        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+
                                     }
 
                                 }
