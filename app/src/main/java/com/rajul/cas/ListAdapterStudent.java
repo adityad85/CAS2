@@ -42,6 +42,10 @@ class ListAdapterStudent extends RecyclerView.Adapter<com.rajul.cas.ListAdapterS
     public void onBindViewHolder(ViewHolder holder, int position) {
         infoitem = info.get(position);
         holder.name1.setText(infoitem.getName());
+        holder.abs.setText(infoitem.getAbs().toString());
+        holder.pre.setText(infoitem.getPre().toString());
+        holder.lec.setText(infoitem.getLec().toString());
+        holder.per.setText(infoitem.getPer().toString() + '%');
         Log.i("kk", infoitem.getName());
 
     }
@@ -52,11 +56,15 @@ class ListAdapterStudent extends RecyclerView.Adapter<com.rajul.cas.ListAdapterS
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView name1, lec, pre, abs;
+        public TextView name1, lec, pre, abs, per;
 
         public ViewHolder(View itemView) {
             super(itemView);
             name1 = (TextView) itemView.findViewById(R.id.sname);
+            lec = (TextView) itemView.findViewById(R.id.lectureCountValue);
+            pre = (TextView) itemView.findViewById(R.id.presentCountValue);
+            abs = (TextView) itemView.findViewById(R.id.absentCountValue);
+            per = (TextView) itemView.findViewById(R.id.percentHere);
         }
     }
 }

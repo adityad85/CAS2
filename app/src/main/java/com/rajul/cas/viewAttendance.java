@@ -158,6 +158,8 @@ public class viewAttendance extends AppCompatActivity {
             vee.setAbs(entry.getValue().get("abs"));
             vee.setPre(entry.getValue().get("pre"));
             vee.setName(entry.getKey());
+            vee.setLec();
+            vee.setPer();
             Log.i("asd", entry.getValue().get("pre").toString());
             viewAttendanceRow.add(vee);
         }

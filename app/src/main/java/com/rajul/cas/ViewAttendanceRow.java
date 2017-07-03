@@ -10,7 +10,7 @@ import android.os.Parcelable;
 
 public class ViewAttendanceRow implements Parcelable {
     String name;
-    Integer lec, pre, abs;
+    Integer lec, pre, abs, per;
 
     public ViewAttendanceRow() {
 
@@ -28,8 +28,12 @@ public class ViewAttendanceRow implements Parcelable {
         this.name = name;
     }
 
-    public void setLec(Integer lec) {
-        this.lec = lec;
+    public void setPer() {
+        this.per = (pre / lec) * 100;
+    }
+
+    public void setLec() {
+        this.lec = abs + pre;
     }
 
     public void setPre(Integer pre) {
@@ -68,6 +72,9 @@ public class ViewAttendanceRow implements Parcelable {
         }
     };
 
+    public Integer getPer() {
+        return per;
+    }
     @Override
     public int describeContents() {
         return 0;
