@@ -46,7 +46,7 @@ class ListAdapterStudent extends RecyclerView.Adapter<com.rajul.cas.ListAdapterS
         holder.pre.setText(infoitem.getPre().toString());
         holder.lec.setText(infoitem.getLec().toString());
         holder.per.setText(infoitem.getPer().toString() + '%');
-        Log.i("kk", infoitem.getName());
+        Log.i("kk", infoitem.getPer().toString());
 
     }
 

@@ -29,7 +29,7 @@ public class ViewAttendanceRow implements Parcelable {
     }
 
     public void setPer() {
-        this.per = (pre / lec) * 100;
+        this.per = ((pre * 100) / lec);
     }
 
     public void setLec() {

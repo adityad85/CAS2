@@ -122,31 +122,34 @@ public class StudentDashboard extends AppCompatActivity {
         });
 
         Log.i("aaqa", String.valueOf(v.getId()));
-
+        String i = "0";
         switch (v.getId()) {
+            case R.id.overallbutton:
+                i = "1";
             case R.id.dailybutton: {
                 LocalDate date = new LocalDate();
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
                 intent.putExtra("date", date.toString());
-                Log.i("vx", "nmmb");
+                intent.putExtra("ch", i);
                 startActivity(intent);
                 break;
             }
             case R.id.viewDate: {
-
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
                 intent.putExtra("date", dateis1);
-                Log.i("zx", "cvc");
+                intent.putExtra("ch", i);
+                Log.i("zx", ii);
                 startActivity(intent);
                 break;
             }
-            case R.id.overallbutton: {
-                LocalDate date = new LocalDate();
+            /*case R.id.overallbutton: {
+                //LocalDate date = new LocalDate();
+                Log.i("fyfjf","dry1");
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
-                intent.putExtra("date", date.toString());
+                intent.putExtra("date","11");
                 startActivity(intent);
                 break;
-            }
+            }*/
         }
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
