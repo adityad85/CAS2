@@ -47,6 +47,26 @@ public class StudentDashboard extends AppCompatActivity {
         final Dialog dialog1 = new Dialog(this);
         dialog1.setContentView(R.layout.select_date_dialog_box);
         daate1 = (EditText) dialog1.findViewById(R.id.dateSelectEdittext);
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
+        query.whereContains("id", ParseUser.getCurrentUser().getUsername());
+        Log.i("vjh", ParseUser.getCurrentUser().getUsername());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (objects.size() > 0) {
+                    Log.i("gg", "jj");
+                    ii = objects.get(0).get("student_id").toString();
+                    packet.setIds(ii);
+                    //  ii=ob.getString("student_id");
+                    Log.i("Asd", ii);
+                }
+                if (e != null)
+                    e.printStackTrace();
+            }
+        });
+
+
+
         daate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +83,11 @@ public class StudentDashboard extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
+                                if (monthOfYear <= 8)
                                 daate1.setText(/*dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + */year + "-0" + (monthOfYear + 1) + "-" + dayOfMonth);
+                                else
+                                    daate1.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                 dateis1 = daate1.getText().toString();
 
@@ -73,7 +97,6 @@ public class StudentDashboard extends AppCompatActivity {
             }
         });
         dialog1.show();
-
 
     }
 
@@ -98,29 +121,36 @@ public class StudentDashboard extends AppCompatActivity {
             }
         });
 
-
+        Log.i("aaqa", String.valueOf(v.getId()));
+        String i = "0";
         switch (v.getId()) {
+            case R.id.overallbutton:
+                i = "1";
             case R.id.dailybutton: {
                 LocalDate date = new LocalDate();
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
                 intent.putExtra("date", date.toString());
+                intent.putExtra("ch", i);
                 startActivity(intent);
+                break;
             }
-            case R.id.selectdatebutton: {
-                LocalDate date = new LocalDate();
+            case R.id.viewDate: {
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
-                intent.putExtra("date", date.toString());
+                intent.putExtra("date", dateis1);
+                intent.putExtra("ch", i);
+                Log.i("zx", ii);
                 startActivity(intent);
+                break;
             }
-            case R.id.overallbutton: {
-                LocalDate date = new LocalDate();
+            /*case R.id.overallbutton: {
+                //LocalDate date = new LocalDate();
+                Log.i("fyfjf","dry1");
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
-                intent.putExtra("date", date.toString());
+                intent.putExtra("date","11");
                 startActivity(intent);
-            }
+                break;
+            }*/
         }
-        Intent intent =  new Intent(getApplicationContext(),viewAttendance.class);
-        startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
 
