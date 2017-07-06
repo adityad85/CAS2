@@ -107,7 +107,6 @@
            app:passwordToggleEnabled="true"
            app:passwordToggleTint="@color/colorPrimaryDark"
            android:textColorHint="@color/colorPrimaryDark"
-           android:id="@+id/createPasswordsignupWrapper"
            >
     <android.support.design.widget.TextInputEditText
 
@@ -119,6 +118,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="textPassword"
+        android:id="@+id/createPasswordsignupWrapper"
         />
        </android.support.design.widget.TextInputLayout>
 

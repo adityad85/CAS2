@@ -21,6 +21,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.RequestPasswordResetCallback;
 
 import java.util.List;
 
@@ -62,6 +63,15 @@ public class Login extends AppCompatActivity {
 
         }
 
+    }
+    public void check2(View v){
+        //r a valid email address.
+        if (TextUtils.isEmpty(username.getText().toString())) {
+            username.setError("Can't Be Empty");
+            focusView = username;
+            cancel = true;
+
+        }
     }
     public void dashboard(View v){
         check(v);
@@ -146,4 +156,25 @@ public class Login extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
+    public void forgotcheck(View view) {
+        check2(view);
+        if(cancel){
+            focusView.requestFocus();
+            Toast.makeText(getApplicationContext(),"Please Enter an Email",Toast.LENGTH_LONG).show();
+        }else{
+            ParseUser.requestPasswordResetInBackground(username.getText().toString(), new RequestPasswordResetCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e==null){
+                        Toast.makeText(getApplicationContext(),"Password reset email sent",Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"You're not registered with this email",Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            });
+        }
+    }
 }
