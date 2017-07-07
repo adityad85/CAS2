@@ -138,8 +138,12 @@ public class Login extends AppCompatActivity {
                             });
 
 
+                        }else if(q==false){
+                            Toast.makeText(getApplicationContext(),"You are a teacher, Go back",Toast.LENGTH_LONG).show();
+                        }else if(q==true){
+                            Toast.makeText(getApplicationContext(),"You are a student, Go back",Toast.LENGTH_LONG).show();
                         }
-                    } else if (e != null) {
+                    }else if (e != null) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Invalid Email/Password BC-Dekh K Daal", Toast.LENGTH_LONG).show();
                     } else

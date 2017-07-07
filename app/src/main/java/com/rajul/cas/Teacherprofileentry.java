@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -52,6 +54,29 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
         sub.setAdapter(adapter);
 
        }
+       Boolean ans=false;
+       View focusView=null;
+       public void check(View v){
+           if(sub.equals("Select Subject")){
+               ((TextView)sub.getSelectedView()).setError("Write Your Roll Here");
+               focusView=sub;
+               ans=true;
+           }else
+           if(branch.equals("Select Branch"))
+           {   ((TextView)branch.getSelectedView()).setError("Enter Branch");
+               focusView=branch;
+               ans=true;
+           }else if(sec.equals("Select Section")){
+               ((TextView)sec.getSelectedView()).setError("");
+               focusView=sec;
+               ans=true;
+           }else if(sem.equals("Select Sem")){
+               ((TextView)sem.getSelectedView()).setError("");
+               focusView=sem;
+               ans = true;
+           }else
+               ans=false;
+       }
 
     public void jumpToTeacherDashboard(View v){
         String branch1, sections, sems;
@@ -60,6 +85,11 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
         sections = sec.getSelectedItem().toString();
         sems = sem.getSelectedItem().toString();
         Log.i("hey", branch1 + sections + sems);
+        check(v);
+        if(ans){
+        focusView.requestFocus();
+        }else
+        {
         if (!(branch1.contains("Select Branch") && sections.contains("Select Section") && sems.contains("Select Sem"))) {
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Teacher_sub");
             query.whereEqualTo("id", ParseUser.getCurrentUser().getUsername());
@@ -99,6 +129,7 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
 
         } else
             Toast.makeText(getApplicationContext(), "Please select properly,baar baar ni kahenge,bc", Toast.LENGTH_LONG).show();
+    }
     }
     public void jumpToTeacherProfileEntry(View v){
 
