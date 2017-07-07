@@ -71,13 +71,16 @@
        />
 
         </android.support.design.widget.TextInputLayout>
+
         <TextView
+            android:id="@+id/forgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:text="Forgot Password?"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="40dp"
+            android:onClick="forgotcheck"
+            android:text="Forgot Password?"
+            android:textColor="@color/colorPrimary" />
     </LinearLayout>
 
     <Button

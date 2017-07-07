@@ -203,6 +203,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                 LocalDate date = new LocalDate();
                 Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
                 intent.putExtra("date", date.toString());
+                intent.putExtra("ch","0");
                 Log.i("vx", "nmmb");
                 startActivity(intent);
                 break;
@@ -245,6 +246,12 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
 
             }
             case "Overall": {
+                Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
+                intent.putExtra("date", dateis1);
+                intent.putExtra("ch","1");
+                Log.i("zx", "cvc");
+                startActivity(intent);
+
 
             }
 
@@ -254,6 +261,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     public void jumptoViewAttendance(View v) {
         Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
         intent.putExtra("date", dateis1);
+        intent.putExtra("ch","0");
         Log.i("zx", "cvc");
         startActivity(intent);
     }

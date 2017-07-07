@@ -102,7 +102,7 @@ public class StudentDashboard extends AppCompatActivity {
 
     ParseObject ob;
     String ii;
-    public void jumptoViewAttendance(View v){
+    public void jumptoViewAttendance(final View v){
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
         query.whereContains("id", ParseUser.getCurrentUser().getUsername());
         Log.i("vjh", ParseUser.getCurrentUser().getUsername());
@@ -114,6 +114,7 @@ public class StudentDashboard extends AppCompatActivity {
                     ii = objects.get(0).get("student_id").toString();
                     packet.setIds(ii);
                     //  ii=ob.getString("student_id");
+                    transit(v);
                     Log.i("Asd", ii);
                 }
                 if (e != null)
@@ -121,27 +122,31 @@ public class StudentDashboard extends AppCompatActivity {
             }
         });
 
-        Log.i("aaqa", String.valueOf(v.getId()));
-        String i = "0";
-        switch (v.getId()) {
-            case R.id.overallbutton:
-                i = "1";
-            case R.id.dailybutton: {
-                LocalDate date = new LocalDate();
-                Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
-                intent.putExtra("date", date.toString());
-                intent.putExtra("ch", i);
-                startActivity(intent);
-                break;
-            }
-            case R.id.viewDate: {
-                Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
-                intent.putExtra("date", dateis1);
-                intent.putExtra("ch", i);
-                Log.i("zx", ii);
-                startActivity(intent);
-                break;
-            }
+
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+    }
+public void transit(View v){
+    Log.i("aaqa", String.valueOf(v.getId()));
+    String i = "0";
+    switch (v.getId()) {
+        case R.id.overallbutton:
+            i = "1";
+        case R.id.dailybutton: {
+            LocalDate date = new LocalDate();
+            Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
+            intent.putExtra("date", date.toString());
+            intent.putExtra("ch", i);
+            startActivity(intent);
+            break;
+        }
+        case R.id.viewDate: {
+            Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
+            intent.putExtra("date", dateis1);
+            intent.putExtra("ch", i);
+            Log.i("zx", ii);
+            startActivity(intent);
+            break;
+        }
             /*case R.id.overallbutton: {
                 //LocalDate date = new LocalDate();
                 Log.i("fyfjf","dry1");
@@ -150,10 +155,8 @@ public class StudentDashboard extends AppCompatActivity {
                 startActivity(intent);
                 break;
             }*/
-        }
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
-
+}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

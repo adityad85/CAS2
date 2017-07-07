@@ -24,7 +24,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class signup extends AppCompatActivity {
     Boolean q;
     String emailis, passwordis, lNameis, fNameis, userna;
-    EditText email, password, fName, lName;
+    EditText email, fName, lName,password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,11 @@ public class signup extends AppCompatActivity {
         Intent intent = getIntent();
         q = intent.getExtras().getBoolean("represent");
         Log.i("here", q.toString());
+        email=(EditText)findViewById(R.id.KietEmailIdsignup);
+        password=(EditText) findViewById(R.id.createPasswordsignupWrapper);
+        fName=(EditText)findViewById(R.id.firstname);
+        lName=(EditText)findViewById(R.id.lastname);
+
 
     }
 
