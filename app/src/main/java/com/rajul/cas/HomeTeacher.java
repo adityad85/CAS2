@@ -194,7 +194,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         ad.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         s.setAdapter(ad);
     }
-
+    Boolean ans=true;
     EditText daate;
     DatePickerDialog datePickerDialog;
     public void jumptoDialog2(View v){
@@ -210,22 +210,24 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 semis = parent.getSelectedItem().toString();
                 Log.i("asd", semis);
+                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                ans=false;
             }
         });
         branch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 branchis = parent.getSelectedItem().toString();
+                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                ans=false;
             }
         });
         sec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -233,22 +235,24 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 secis = parent.getSelectedItem().toString();
                 Log.i("asd", semis);
+                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+               ans=false;
             }
         });
         sub.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 subis = parent.getSelectedItem().toString();
+                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+             ans=false;
             }
         });
 
@@ -256,11 +260,12 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 lecis = parent.getSelectedItem().toString();
+                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+             ans=false;
             }
         });
 
@@ -325,31 +330,86 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         dialog.show();
     }
 
-    public void jumptoattendanceUpload(View v){
-        //Either You've already made it or check the lecture nuumber or youre not authorised
-        Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
-        intent.putExtra("section", sec.getSelectedItem().toString());
-        intent.putExtra("branch", branch.getSelectedItem().toString());
-        intent.putExtra("semester", sem.getSelectedItem().toString());
-        intent.putExtra("lecture", lec.getSelectedItem().toString());
-        intent.putExtra("subject", sub.getSelectedItem().toString());
-        LocalDate m = new LocalDate();
-        intent.putExtra("date", m.toString());
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+    public void jumptoattendanceUpload(View v) {
+        if (ans) {
+            //Either You've already made it or check the lecture nuumber or youre not authorised
+            ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
+            query.whereEqualTo("subject",sub.getSelectedItem().toString());
+            query.whereEqualTo("sem",sem.getSelectedItem().toString());
+            query.whereEqualTo("section",sec.getSelectedItem().toString());
+            query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
+            query.whereEqualTo("branch",branch.getSelectedItem().toString());
+            query.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if(objects.size()>0){
+                        ans=false;
+                    }else{
+                        Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
+                        intent.putExtra("section", sec.getSelectedItem().toString());
+                        intent.putExtra("branch", branch.getSelectedItem().toString());
+                        intent.putExtra("semester", sem.getSelectedItem().toString());
+                        intent.putExtra("lecture", lec.getSelectedItem().toString());
+                        intent.putExtra("subject", sub.getSelectedItem().toString());
+                        LocalDate m = new LocalDate();
+                        intent.putExtra("date", m.toString());
+                        startActivity(intent);
+
+                    }
+                }
+            });
+            /*
+            Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
+            intent.putExtra("section", sec.getSelectedItem().toString());
+            intent.putExtra("branch", branch.getSelectedItem().toString());
+            intent.putExtra("semester", sem.getSelectedItem().toString());
+            intent.putExtra("lecture", lec.getSelectedItem().toString());
+            intent.putExtra("subject", sub.getSelectedItem().toString());
+            LocalDate m = new LocalDate();
+            intent.putExtra("date", m.toString());
+            startActivity(intent);*/
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+        }
     }
 
-    public void jumptoattendanceUpdate(View v){
-        Intent intent = new Intent(getApplicationContext(),AttendanceUpload.class);
+    public void jumptoattendanceUpdate(View v) {
+        if (ans) {
+            //Either You've already made it or check the lecture nuumber or youre not authorised
+            ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
+            query.whereEqualTo("subject",sub.getSelectedItem().toString());
+            query.whereEqualTo("sem",sem.getSelectedItem().toString());
+            query.whereEqualTo("section",sec.getSelectedItem().toString());
+            query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
+            query.whereEqualTo("branch",branch.getSelectedItem().toString());
+            query.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if(objects.size()>0){
+                        ans=false;
+                    }else{
+                        Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
+                        intent.putExtra("section", sec.getSelectedItem().toString());
+                        intent.putExtra("branch", branch.getSelectedItem().toString());
+                        intent.putExtra("semester", sem.getSelectedItem().toString());
+                        intent.putExtra("lecture", lec.getSelectedItem().toString());
+                        intent.putExtra("subject", sub.getSelectedItem().toString());
+                        intent.putExtra("date", dateis);
+                        startActivity(intent);
+
+                    }
+                }
+            });
+
+/*            Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
         intent.putExtra("section", sec.getSelectedItem().toString());
         intent.putExtra("branch", branch.getSelectedItem().toString());
         intent.putExtra("semester", sem.getSelectedItem().toString());
         intent.putExtra("lecture", lec.getSelectedItem().toString());
         intent.putExtra("subject", sub.getSelectedItem().toString());
         intent.putExtra("date", dateis);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
-
+        startActivity(intent);*/
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
+    }
     }
 
     @Override

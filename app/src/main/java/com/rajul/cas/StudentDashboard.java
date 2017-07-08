@@ -40,6 +40,7 @@ public class StudentDashboard extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
     }
+    Boolean ans=false;
     EditText daate1;
     String dateis1;
     DatePickerDialog datePickerDialog;
@@ -90,7 +91,7 @@ public class StudentDashboard extends AppCompatActivity {
                                     daate1.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                 dateis1 = daate1.getText().toString();
-
+                             ans=true;
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -140,12 +141,13 @@ public void transit(View v){
             break;
         }
         case R.id.viewDate: {
+            if(ans){
             Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
             intent.putExtra("date", dateis1);
             intent.putExtra("ch", i);
             Log.i("zx", ii);
             startActivity(intent);
-            break;
+            break;}
         }
             /*case R.id.overallbutton: {
                 //LocalDate date = new LocalDate();
