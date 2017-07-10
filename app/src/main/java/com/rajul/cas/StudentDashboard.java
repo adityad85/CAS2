@@ -59,6 +59,7 @@ public class StudentDashboard extends AppCompatActivity {
                     Log.i("gg", "jj");
                     ii = objects.get(0).get("student_id").toString();
                     packet.setIds(ii);
+                    packet.setSem(objects.get(0).get("sem").toString());
                     //  ii=ob.getString("student_id");
                     Log.i("Asd", ii);
                 }
@@ -115,6 +116,7 @@ public class StudentDashboard extends AppCompatActivity {
                     Log.i("gg", "jj");
                     ii = objects.get(0).get("student_id").toString();
                     packet.setIds(ii);
+                    packet.setSem(objects.get(0).get("sem").toString());
                     //  ii=ob.getString("student_id");
                     transit(v);
                     Log.i("Asd", ii);
