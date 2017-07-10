@@ -19,9 +19,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
@@ -48,12 +50,17 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     public String date, id;
     public Packet packet = new Packet();
     public Spinner spi;
+    private LinearLayout headerProgress ;
+    LinearLayout dim_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_attendance);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        headerProgress = (LinearLayout)findViewById(R.id.lHeaderProgress);
+        dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
         //yourListView.setAdapter(customAdapter);
         recyclerView = (RecyclerView) findViewById(R.id.viewAttendanceListview);
         recyclerView.setHasFixedSize(false);
@@ -130,6 +137,8 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData() {
+        headerProgress.setVisibility(View.VISIBLE);
+        dim_layout.setVisibility(View.VISIBLE);
         id = packet.getIds();
         Log.i("jjk", id);
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_1");
@@ -144,7 +153,11 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     Log.i("jjj", "kk");
                     parseData(objects);
                 } else {
-                    Log.i("jjlj", "kk");
+                    Toast.makeText(getApplicationContext(), "No Attendance Stored for this Day", Toast.LENGTH_SHORT).show();
+                    headerProgress.setVisibility(View.INVISIBLE);
+                    dim_layout.setVisibility(View.INVISIBLE);
+                    Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
+                    startActivity(i);
                 }
                 if (e != null)
                     e.printStackTrace();
@@ -195,6 +208,8 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         adapter = new ListAdapterStudent(viewAttendanceRow, getApplicationContext());
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
+        headerProgress.setVisibility(View.INVISIBLE);
+        dim_layout.setVisibility(View.INVISIBLE);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
@@ -279,6 +294,8 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData2() {
+        headerProgress.setVisibility(View.VISIBLE);
+        dim_layout.setVisibility(View.VISIBLE);
         id = packet.getIds();
         Log.i("jjk", id);
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_1");
@@ -293,7 +310,12 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     Log.i("jjj", "kk");
                     parseData(objects);
                 } else {
-                    Log.i("jjlj", "kk");
+                    Toast.makeText(getApplicationContext(), "No Attendance Stored for this Day", Toast.LENGTH_SHORT).show();
+                    headerProgress.setVisibility(View.INVISIBLE);
+                    dim_layout.setVisibility(View.INVISIBLE);
+                    Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
+                    startActivity(i);
+
                 }
                 if (e != null)
                     e.printStackTrace();

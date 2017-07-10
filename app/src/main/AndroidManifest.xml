@@ -17,27 +17,27 @@
         <activity
             android:name=".HomeTeacher"
             android:label="Attendance Portal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AskLogin"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".asksignup"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".signup"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StudentDashboard"
             android:label="Student Attendance Portal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Teacherprofileentry"
             android:label="Teacher Profile Update"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AttendanceUpload"
             android:label="Attendance Upload"
@@ -45,19 +45,19 @@
         <activity
             android:name=".viewAttendance"
             android:label="View Attendance"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StudentProfileEntry"
             android:label="Student Profile Update"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StudentProfile"
             android:label="Student Profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditProfile"
             android:label="Edit Profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -66,13 +66,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".TeacherProfile"
             android:label="@string/title_activity_teacher_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Splash1"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".About"></activity>
     </application>
 
 </manifest>
