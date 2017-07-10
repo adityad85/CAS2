@@ -9,6 +9,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.parse.ParseUser;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -92,6 +96,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     private void addBottomDots(int currentPage) {
@@ -119,7 +124,23 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, asksignup.class));
+        ParseUser yo=ParseUser.getCurrentUser();
+        if(yo!=null){
+            if(yo.getBoolean("decide")){
+                Log.i("gggg","kaaaii2");
+                Intent i=new Intent(getApplicationContext(),HomeTeacher.class);
+                startActivity(i);
+            }
+            else{
+                Log.i("gggg","kaaaii");
+                Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
+                startActivity(i);
+
+            }
+        }else{
+
+            startActivity(new Intent(WelcomeActivity.this, asksignup.class));}
+
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
         finish();
     }

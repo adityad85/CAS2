@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
+import com.parse.LogOutCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -98,9 +99,16 @@ public class TeacherProfile extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
-        if (id == R.id.action_logout) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
+        if (id == R.id.action_logout) {ParseUser.logOutInBackground(new LogOutCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e==null) {
+                    Intent intent = new Intent(getApplicationContext(), AskLogin.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 

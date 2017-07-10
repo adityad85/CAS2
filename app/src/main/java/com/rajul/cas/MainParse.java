@@ -1,8 +1,11 @@
 package com.rajul.cas;
 
 import android.app.Application;
+import android.content.Intent;
+import android.util.Log;
 
 import com.parse.Parse;
+import com.parse.ParseUser;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -24,5 +27,5 @@ public class MainParse extends Application {
                 .setDefaultFontPath("fonts/NovaCut.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
-    }
+       }
 }

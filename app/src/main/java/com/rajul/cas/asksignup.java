@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.parse.ParseUser;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static android.R.anim.slide_in_left;
@@ -23,6 +26,7 @@ public class asksignup extends AppCompatActivity implements View.OnClickListener
         b1 = (Button) findViewById(R.id.studentasksignupbutton);
         b.setOnClickListener(this);
         b1.setOnClickListener(this);
+
     }
 
     /*public void signupScreen(View v){
