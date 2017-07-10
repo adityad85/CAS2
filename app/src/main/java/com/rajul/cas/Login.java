@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
 
 
         if (TextUtils.isEmpty(password.getText().toString()) || password.getText().toString().length() < 6) {
-            password.setError("Hey you,idiot ,who does that .fool");
+            password.setError("Please Type Correctly");
             focusView = password;
             cancel = true;
         }
@@ -80,14 +80,14 @@ public class Login extends AppCompatActivity {
         }
     }
     public void dashboard(View v){
-        headerProgress.setVisibility(View.VISIBLE);
-        dim_layout.setVisibility(View.VISIBLE);
         check(v);
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
         } else {
+            headerProgress.setVisibility(View.VISIBLE);
+            dim_layout.setVisibility(View.VISIBLE);
             ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
                 @Override
                 public void done(final ParseUser user, ParseException e) {

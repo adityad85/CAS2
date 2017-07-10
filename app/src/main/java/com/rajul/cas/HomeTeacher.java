@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
@@ -195,7 +198,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         ad.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         s.setAdapter(ad);
     }
-    Boolean ans=true;
+
     EditText daate;
     DatePickerDialog datePickerDialog;
     public void jumptoDialog2(View v){
@@ -211,24 +214,23 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 semis = parent.getSelectedItem().toString();
                 Log.i("asd", semis);
-                ans=true;
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                ans=false;
+
             }
         });
         branch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 branchis = parent.getSelectedItem().toString();
-                ans=true;
-            }
+                }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                ans=false;
+
             }
         });
         sec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -236,24 +238,22 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 secis = parent.getSelectedItem().toString();
                 Log.i("asd", semis);
-                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-               ans=false;
+
             }
         });
         sub.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 subis = parent.getSelectedItem().toString();
-                ans=true;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-             ans=false;
+
             }
         });
 
@@ -261,12 +261,11 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 lecis = parent.getSelectedItem().toString();
-                ans=true;
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-             ans=false;
             }
         });
 
@@ -331,8 +330,43 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         dialog.show();
     }
 
+    Boolean ans=false;
+    View focusView=null;
+    public void check(View v){
+        Log.i("aaa","kjkj");
+        if(branch.equals("Select Branch")){
+            ((TextView)branch.getSelectedView()).setError("Enter Branch");
+            focusView=branch;
+            ans=true;
+            Log.i("jjv","xyjc");
+        }else
+        if(sub.getSelectedItem().toString().equals("Select Subject"))
+        {   ((TextView)sub.getSelectedView()).setError("Enter Branch");
+            focusView=sub;
+            ans=true;
+            Log.i("jjv0","xyjc");
+        }else if(sem.getSelectedItem().toString().equals("Select Section")){
+            ((TextView)sem.getSelectedView()).setError("");
+            focusView=sem;
+            ans=true;Log.i("jjv1","xyjc");
+        }else if(sec.getSelectedItem().toString().equals("Select Sem")){
+            ((TextView)sec.getSelectedView()).setError("");
+            focusView=sec;
+            ans = true;Log.i("jjv2","xyjc");
+        }else if(lec.getSelectedItem().toString().equals("Select Lec no")){
+            ((TextView)lec.getSelectedView()).setError("");
+            focusView=lec;
+            ans = true;
+            Log.i("jjv3","xyjc");
+
+        }else
+            ans=false;
+    }
     public void jumptoattendanceUpload(View v) {
-        if (ans) {
+        check(v);
+        if (ans) {focusView.requestFocus();
+
+        }else{
             //Either You've already made it or check the lecture nuumber or youre not authorised
             ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
             query.whereEqualTo("subject",sub.getSelectedItem().toString());
@@ -372,9 +406,46 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         }
     }
+    public void check2(View v){
+        Log.i("aaa","kjkj");
+        if(branch.getSelectedItem().toString().equals("Select Branch")){
+            ((TextView)branch.getSelectedView()).setError("Enter Branch");
+            focusView=branch;
+            ans=true;
+            Log.i("jjv","xyjc");
+        }else
+        if(sub.getSelectedItem().toString().equals("Select Subject"))
+        {   ((TextView)sub.getSelectedView()).setError("Enter Branch");
+            focusView=sub;
+            ans=true;
+            Log.i("jjv0","xyjc");
+        }else if(sem.getSelectedItem().toString().equals("Select Section")){
+            ((TextView)sem.getSelectedView()).setError("");
+            focusView=sem;
+            ans=true;Log.i("jjv1","xyjc");
+        }else if(sec.getSelectedItem().toString().equals("Select Sem")){
+            ((TextView)sec.getSelectedView()).setError("");
+            focusView=sec;
+            ans = true;Log.i("jjv2","xyjc");
+        }else if(lec.getSelectedItem().toString().equals("Select Lec no")){
+            ((TextView)lec.getSelectedView()).setError("");
+            focusView=lec;
+            ans = true;
+            Log.i("jjv3","xyjc");
+
+        }else
+        if(dateis.equals("xx/yy/zzzz")){
+            focusView=daate;
+            ans=true;
+        }else
+            ans=false;
+    }
 
     public void jumptoattendanceUpdate(View v) {
+        check2(v);
         if (ans) {
+            focusView.requestFocus();
+        }else{
             //Either You've already made it or check the lecture nuumber or youre not authorised
             ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
             query.whereEqualTo("subject",sub.getSelectedItem().toString());

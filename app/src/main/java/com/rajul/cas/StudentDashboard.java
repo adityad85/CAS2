@@ -93,7 +93,7 @@ public class StudentDashboard extends AppCompatActivity {
                                     daate1.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                 dateis1 = daate1.getText().toString();
-                             ans=true;
+                               ans=true;
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -102,10 +102,15 @@ public class StudentDashboard extends AppCompatActivity {
         dialog1.show();
 
     }
-
+public void check(View v){
+    if(daate1.getText().toString().equals("XX/YY/ZZZZ")){
+        ans=true;
+    }
+}
     ParseObject ob;
     String ii;
     public void jumptoViewAttendance(final View v){
+
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
         query.whereContains("id", ParseUser.getCurrentUser().getUsername());
         Log.i("vjh", ParseUser.getCurrentUser().getUsername());

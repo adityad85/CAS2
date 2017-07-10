@@ -41,6 +41,7 @@ public class StudentProfile extends AppCompatActivity {
         cursem = (TextView) findViewById(R.id.currentsem);
         curbra = (TextView) findViewById(R.id.currentbranch);
         cursec = (TextView) findViewById(R.id.currentsec);
+        roll=(TextView)findViewById(R.id.currentrollno);
         ParseUser user = ParseUser.getCurrentUser();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
         query.whereEqualTo("id", user.getUsername());
@@ -54,6 +55,7 @@ public class StudentProfile extends AppCompatActivity {
                     cursem.setText(ob.get("sem").toString());
                     curbra.setText(ob.get("branch").toString());
                     cursec.setText(ob.get("section").toString());
+                    roll.setText(ob.get("student_id").toString());
                 } else
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
             }
@@ -112,6 +114,12 @@ public class StudentProfile extends AppCompatActivity {
                 }
             }
         });
+            if(id== R.id.action_about){
+                Intent intent = new Intent(getApplicationContext(), About.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+            }
+
 
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }

@@ -87,6 +87,11 @@ public class TeacherProfile extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if(id== R.id.action_about){
+            Intent intent = new Intent(getApplicationContext(), About.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+        }
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_home) {
