@@ -14,18 +14,16 @@
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:id="@+id/studentprofileLLayout" >
+        android:id="@+id/studentprofileLLayout"
+        android:paddingBottom="5dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="2"
         android:id="@+id/firstlastnameProfile"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="20dp"
-
-
-        >
+        android:layout_marginBottom="20dp">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -59,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="13.3">
+            android:layout_weight="17">
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -85,7 +83,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:id="@+id/semester"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:paddingLeft="20dp"
             />
         <TextView
@@ -125,7 +123,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:id="@+id/branch"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:paddingLeft="20dp"
             />
         <TextView
@@ -165,7 +163,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:id="@+id/section"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:paddingLeft="20dp"
             />
         <TextView
@@ -205,7 +203,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:id="@+id/rollno"
-            android:layout_weight="4"
+            android:layout_weight="5"
            android:paddingLeft="20dp"
             />
         <TextView
@@ -235,52 +233,7 @@
        android:layout_marginLeft="16dp"
        android:layout_marginRight="16dp"
        android:layout_marginTop="20dp"
-       android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary" />
         </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3.2"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/dividerProfile2"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        >
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:text="Change Password?"
-            android:textSize="12sp"
-            android:id="@+id/changepassword"
-            android:textColor="@color/White"
-            android:background="@drawable/button_selector"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_marginRight="5dp"
-            android:onClick="jumptoChangePasswordDialog"
-            android:layout_gravity="center"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:id="@+id/editprofile"
-            android:background="@drawable/button_selector"
-            android:text="Edit Profile"
-            android:textColor="@color/White"
-            android:textSize="12sp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:onClick="jumptoEditProfile"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"/>
     </LinearLayout>
-
-    </LinearLayout>
-1
 </RelativeLayout>

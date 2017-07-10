@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.rajul.cas.asksignup"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="16dp"
+    >
 
 
    <LinearLayout
