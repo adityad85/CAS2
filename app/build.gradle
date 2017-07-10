@@ -30,8 +30,10 @@ dependencies {
     compile 'com.parse:parse-android:1.15.7'
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
     compile 'joda-time:joda-time:2.9.4'
+    compile 'com.android.support.constraint:constraint-layout:+'
     testCompile 'junit:junit:4.12'
 }
+
 
 
 

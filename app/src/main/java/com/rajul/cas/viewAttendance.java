@@ -19,9 +19,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
@@ -48,19 +50,24 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     public String date, id;
     public Packet packet = new Packet();
     public Spinner spi;
+    private LinearLayout headerProgress ;
+    LinearLayout dim_layout;
+    String k;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_attendance);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        headerProgress = (LinearLayout)findViewById(R.id.lHeaderProgress);
+        dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
         //yourListView.setAdapter(customAdapter);
         recyclerView = (RecyclerView) findViewById(R.id.viewAttendanceListview);
         recyclerView.setHasFixedSize(false);
 
         Intent i = getIntent();
         date = i.getStringExtra("date");
-        String k = i.getExtras().getString("ch");
+        k = i.getExtras().getString("ch");
         Log.i("ll00", k);
         if (k.equals("1")) {
             Log.i("asssssa", "qqqqqqqq");
@@ -121,6 +128,12 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         }
 
 
+        if(id== R.id.action_about){
+            Intent intent = new Intent(getApplicationContext(), About.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -130,9 +143,13 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData() {
+        headerProgress.setVisibility(View.VISIBLE);
+        dim_layout.setVisibility(View.VISIBLE);
+        viewAttendanceRow.clear();
         id = packet.getIds();
         Log.i("jjk", id);
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_1");
+        String ye=packet.getYear();
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_"+ye);
         Log.i("sdas0", date);
         query.whereEqualTo("date", date);
         query.whereEqualTo("student_id", id);
@@ -144,7 +161,11 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     Log.i("jjj", "kk");
                     parseData(objects);
                 } else {
-                    Log.i("jjlj", "kk");
+                    Toast.makeText(getApplicationContext(), "No Attendance Stored for this Day", Toast.LENGTH_SHORT).show();
+                    headerProgress.setVisibility(View.INVISIBLE);
+                    dim_layout.setVisibility(View.INVISIBLE);
+                    Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
+                    startActivity(i);
                 }
                 if (e != null)
                     e.printStackTrace();
@@ -195,6 +216,8 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         adapter = new ListAdapterStudent(viewAttendanceRow, getApplicationContext());
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
+        headerProgress.setVisibility(View.INVISIBLE);
+        dim_layout.setVisibility(View.INVISIBLE);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
@@ -207,12 +230,15 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getSelectedItem().toString()) {
             case "Daily": {
-                LocalDate date = new LocalDate();
-                Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
+                LocalDate date2 = new LocalDate();
+              /*  Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
                 intent.putExtra("date", date.toString());
                 intent.putExtra("ch","0");
                 Log.i("vx", "nmmb");
-                startActivity(intent);
+                startActivity(intent);*/
+              date=date2.toString();
+                k="0";
+                getData();
                 break;
             }
             case "Select Date": {
@@ -253,12 +279,14 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
 
             }
             case "Overall": {
-                Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
+  /*              Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
                 intent.putExtra("date", dateis1);
                 intent.putExtra("ch","1");
                 Log.i("zx", "cvc");
                 startActivity(intent);
-
+*/              date=dateis1;
+                k="1";
+                getData2();
 
             }
 
@@ -266,11 +294,14 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void jumptoViewAttendance(View v) {
-        Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
+        /*Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
         intent.putExtra("date", dateis1);
         intent.putExtra("ch","0");
         Log.i("zx", "cvc");
-        startActivity(intent);
+        startActivity(intent);*/
+        date=dateis1;
+        k="0";
+        getData();
     }
 
     @Override
@@ -279,9 +310,13 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData2() {
+        headerProgress.setVisibility(View.VISIBLE);
+        dim_layout.setVisibility(View.VISIBLE);
         id = packet.getIds();
+        viewAttendanceRow.clear();
         Log.i("jjk", id);
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_1");
+        String ye=packet.getYear();
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_"+ye);
         //Log.i("sdas0", date);
         //query.whereEqualTo("date", date);
         query.whereEqualTo("student_id", id);
@@ -293,7 +328,12 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     Log.i("jjj", "kk");
                     parseData(objects);
                 } else {
-                    Log.i("jjlj", "kk");
+                    Toast.makeText(getApplicationContext(), "No Attendance Stored for this Day", Toast.LENGTH_SHORT).show();
+                    headerProgress.setVisibility(View.INVISIBLE);
+                    dim_layout.setVisibility(View.INVISIBLE);
+                    Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
+                    startActivity(i);
+
                 }
                 if (e != null)
                     e.printStackTrace();

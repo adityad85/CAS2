@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
@@ -47,6 +48,8 @@ public class AttendanceUpload extends AppCompatActivity {
     TextView subhint, sechint, lechint, datehint;
     String sem, bra, sec, lec, sub, aa;
     Packet p = new Packet();
+    private LinearLayout headerProgress ;
+    LinearLayout dim_layout;
 
     //DataHolder d=new DataHolder();
     @Override
@@ -59,6 +62,8 @@ public class AttendanceUpload extends AppCompatActivity {
         recyclerView.setHasFixedSize(false);
         students = new ArrayList<>();
         Intent i = getIntent();
+        headerProgress = (LinearLayout)findViewById(R.id.lHeaderProgress);
+        dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
         sem = i.getExtras().getString("semester");
         sec = i.getExtras().getString("section");
         bra = i.getExtras().getString("branch");
@@ -107,6 +112,12 @@ public class AttendanceUpload extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        if(id== R.id.action_about){
+            Intent intent = new Intent(getApplicationContext(), About.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+        }
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_home) {
             Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
@@ -136,7 +147,10 @@ public class AttendanceUpload extends AppCompatActivity {
     }
 
     public void getData() {
-  ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
+        headerProgress.setVisibility(View.VISIBLE);
+        dim_layout.setVisibility(View.VISIBLE);
+
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("students");
         query.whereContains("branch", bra);
         query.whereContains("section", sec);
         query.whereContains("sem", sem);
@@ -189,6 +203,8 @@ public class AttendanceUpload extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        headerProgress.setVisibility(View.INVISIBLE);
+        dim_layout.setVisibility(View.INVISIBLE);
     }
 
     @Override

@@ -16,6 +16,8 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
+    <string name="abou">This app Allows teacher and students to make the attendance uploading and viewing hassle free
+    All you\'ve to do is register and then you\'re ready to take attendance and see it in real time.</string>
     <string-array name="Sem">
         <item>1</item>
         <item>2</item>

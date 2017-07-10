@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class Login extends AppCompatActivity {
     EditText username, password;
     Intent i;
+    private LinearLayout headerProgress ;
+    LinearLayout dim_layout;
     Boolean q;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,11 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         username = (EditText) findViewById(R.id.KietEmailIdlogin);
         password = (EditText) findViewById(R.id.LognPassword);
+        headerProgress = (LinearLayout)findViewById(R.id.lHeaderProgress);
+        dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
         i = getIntent();
         q = i.getExtras().getBoolean("represent");
+
     }
 
 
@@ -74,6 +80,8 @@ public class Login extends AppCompatActivity {
         }
     }
     public void dashboard(View v){
+        headerProgress.setVisibility(View.VISIBLE);
+        dim_layout.setVisibility(View.VISIBLE);
         check(v);
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -84,6 +92,8 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void done(final ParseUser user, ParseException e) {
                     if (user != null) {
+                        headerProgress.setVisibility(View.INVISIBLE);
+                        dim_layout.setVisibility(View.INVISIBLE);
                         //ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("")
                         if (q == user.getBoolean("decide") && q == true) {
                             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("TEACHERS");
@@ -102,10 +112,12 @@ public class Login extends AppCompatActivity {
                                                 if (objects.size() > 0) {
                                                     Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
                                                     startActivity(intent);
+                                                    finish();
                                                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                                 } else {
                                                     Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
                                                     startActivity(intent);
+                                                    finish();
                                                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                                 }
                                             }
@@ -127,10 +139,12 @@ public class Login extends AppCompatActivity {
                                     if (objects.get(0).get("sem") != null) {
                                         Intent i = new Intent(getApplication(), StudentDashboard.class);
                                         startActivity(i);
+                                        finish();
                                         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
                                     } else {
                                         Intent i = new Intent(getApplicationContext(), StudentProfileEntry.class);
                                         startActivity(i);
+                                        finish();
 
                                     }
 

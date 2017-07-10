@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -25,6 +26,9 @@ public class signup extends AppCompatActivity {
     Boolean q;
     String emailis, passwordis, lNameis, fNameis, userna;
     EditText email, fName, lName,password;
+    private LinearLayout headerProgress ;
+    LinearLayout dim_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,9 @@ public class signup extends AppCompatActivity {
         password=(EditText) findViewById(R.id.createPasswordsignupWrapper);
         fName=(EditText)findViewById(R.id.firstname);
         lName=(EditText)findViewById(R.id.lastname);
+        headerProgress = (LinearLayout)findViewById(R.id.lHeaderProgress);
+        dim_layout = (LinearLayout) findViewById(R.id.dim_layout);
+
 
 
 
@@ -89,10 +96,14 @@ public class signup extends AppCompatActivity {
         passwordis = password.getText().toString();
         fNameis = fName.getText().toString();
         lNameis = lName.getText().toString();
+
         check(v);
         if (cancel) {
             focusView.requestFocus();
         } else {
+
+            headerProgress.setVisibility(View.VISIBLE);
+            dim_layout.setVisibility(View.VISIBLE);
         String se;
         if (q == true)
             se = "TEACHERS";
@@ -124,8 +135,10 @@ public class signup extends AppCompatActivity {
             }
         });
 
+            headerProgress.setVisibility(View.INVISIBLE);
+            dim_layout.setVisibility(View.INVISIBLE);
 
-        Intent intent = new Intent(getApplicationContext(), AskLogin.class);
+            Intent intent = new Intent(getApplicationContext(), AskLogin.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
         }
