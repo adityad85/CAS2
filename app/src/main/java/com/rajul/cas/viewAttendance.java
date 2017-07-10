@@ -143,6 +143,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData() {
+        recyclerView.setAdapter(null);
         headerProgress.setVisibility(View.VISIBLE);
         dim_layout.setVisibility(View.VISIBLE);
         viewAttendanceRow.clear();
@@ -222,10 +223,10 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     DatePickerDialog datePickerDialog;
-
+    Boolean ans=false;
     EditText daate1;
     String dateis1;
-
+    Dialog dialog1;
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getSelectedItem().toString()) {
@@ -242,7 +243,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                 break;
             }
             case "Select Date": {
-                final Dialog dialog1 = new Dialog(this);
+                dialog1 = new Dialog(this);
                 dialog1.setContentView(R.layout.select_date_dialog_box);
                 daate1 = (EditText) dialog1.findViewById(R.id.dateSelectEdittext);
                 daate1.setOnClickListener(new View.OnClickListener() {
@@ -268,7 +269,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                                             daate1.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                         dateis1 = daate1.getText().toString();
-
+                                       ans=true;
                                     }
                                 }, mYear, mMonth, mDay);
                         datePickerDialog.show();
@@ -299,9 +300,11 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         intent.putExtra("ch","0");
         Log.i("zx", "cvc");
         startActivity(intent);*/
+        if(ans){
+        dialog1.dismiss();
         date=dateis1;
         k="0";
-        getData();
+        getData();}
     }
 
     @Override
@@ -310,6 +313,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData2() {
+        recyclerView.setAdapter(null);
         headerProgress.setVisibility(View.VISIBLE);
         dim_layout.setVisibility(View.VISIBLE);
         id = packet.getIds();
