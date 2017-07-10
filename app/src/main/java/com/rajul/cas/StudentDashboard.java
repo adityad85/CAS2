@@ -17,6 +17,7 @@ import android.widget.EditText;
 import java.util.Calendar;
 
 import com.parse.FindCallback;
+import com.parse.LogOutCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -40,6 +41,7 @@ public class StudentDashboard extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
     }
+    Boolean ans=false;
     EditText daate1;
     String dateis1;
     DatePickerDialog datePickerDialog;
@@ -90,7 +92,7 @@ public class StudentDashboard extends AppCompatActivity {
                                     daate1.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                 dateis1 = daate1.getText().toString();
-
+                             ans=true;
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -140,12 +142,13 @@ public void transit(View v){
             break;
         }
         case R.id.viewDate: {
+            if(ans){
             Intent intent = new Intent(getApplicationContext(), viewAttendance.class);
             intent.putExtra("date", dateis1);
             intent.putExtra("ch", i);
             Log.i("zx", ii);
             startActivity(intent);
-            break;
+            break;}
         }
             /*case R.id.overallbutton: {
                 //LocalDate date = new LocalDate();
@@ -183,8 +186,14 @@ public void transit(View v){
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if(id == R.id.action_logout){
-            Intent intent = new Intent(getApplicationContext(),Login.class);
-            startActivity(intent);
+            ParseUser.logOutInBackground(new LogOutCallback() {
+                @Override
+                public void done(ParseException e) {
+                    Intent intent = new Intent(getApplicationContext(),AskLogin.class);
+                    startActivity(intent);
+
+                }
+            });
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
