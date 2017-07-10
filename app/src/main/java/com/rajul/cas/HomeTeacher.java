@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.parse.FindCallback;
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -439,8 +440,15 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
         if (id == R.id.action_logout) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
+            ParseUser.logOutInBackground(new LogOutCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e==null) {
+                        Intent intent = new Intent(getApplicationContext(), AskLogin.class);
+                        startActivity(intent);
+                    }
+                }
+            });
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
