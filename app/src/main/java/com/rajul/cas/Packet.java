@@ -79,13 +79,13 @@ public class Packet extends Activity {
         this.ids = ids;
     }
     public String getYear() {
-        if (sem == "1" || sem == "2") {
+        if (sem.equals("1") || sem.equals("2")) {
             return "1";
-        } else if (sem == "3" || sem == "4") {
+        } else if (sem.equals("3") || sem.equals("4")) {
             return "2";
-        } else if (sem.equals("5") || sem == "6") {
+        } else if (sem.equals("5") || sem.equals("6")) {
             return "3";
-        } else if (sem == "7" || sem == "8") {
+        } else if (sem.equals("7") || sem.equals("8")) {
             return "4";
         }else
         return "1";

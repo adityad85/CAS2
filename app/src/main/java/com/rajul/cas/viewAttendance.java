@@ -68,7 +68,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         Intent i = getIntent();
         date = i.getStringExtra("date");
         k = i.getExtras().getString("ch");
-        Log.i("ll00", k);
+        Log.i("ll00",packet.getYear());
         if (k.equals("1")) {
             Log.i("asssssa", "qqqqqqqq");
             getData2();
