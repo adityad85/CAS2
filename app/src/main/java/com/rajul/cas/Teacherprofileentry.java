@@ -37,6 +37,10 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
     Spinner sem, branch, sec, sub;
     String subject;
 
+    public Spinner getSub() {
+        return sub;
+    }
+
     @Override
          protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -128,28 +132,61 @@ public class Teacherprofileentry extends AppCompatActivity implements AdapterVie
             });
 
         } else
-            Toast.makeText(getApplicationContext(), "Please select properly,baar baar ni kahenge,bc", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select properly", Toast.LENGTH_LONG).show();
     }
     }
     public void jumpToTeacherProfileEntry(View v){
 
-        ParseObject ob = new ParseObject("Teacher_sub");
-        ob.put("id", ParseUser.getCurrentUser().getUsername());
-        ob.put("subject", sub.getSelectedItem().toString());
-        ob.put("branch", branch.getSelectedItem().toString());
-        ob.put("section", sec.getSelectedItem().toString());
-        ob.put("sem", sem.getSelectedItem().toString());
-        ob.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
-                }
-            }
-        });
+         String branch1, sections, sems;
+        subject = sub.getSelectedItem().toString();
+        branch1 = branch.getSelectedItem().toString();
+        sections = sec.getSelectedItem().toString();
+        sems = sem.getSelectedItem().toString();
+        Log.i("hey", branch1 + sections + sems);
+        check(v);
+        if(ans){
+            focusView.requestFocus();
+        }else
+        {
+            if (!(branch1.contains("Select Branch") && sections.contains("Select Section") && sems.contains("Select Sem"))) {
+                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Teacher_sub");
+                query.whereEqualTo("id", ParseUser.getCurrentUser().getUsername());
+                query.whereEqualTo("subject", subject);
+                query.whereEqualTo("branch", branch.getSelectedItem().toString());
+                query.whereEqualTo("section", sec.getSelectedItem().toString());
+                query.whereEqualTo("sem", sem.getSelectedItem().toString());
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if (objects.size() > 0) {
+                            Toast.makeText(getApplicationContext(), "Already Entered", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), HomeTeacher.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
+                        } else {
+                            ParseObject ob = new ParseObject("Teacher_sub");
+                            ob.put("id", ParseUser.getCurrentUser().getUsername());
+                            ob.put("subject", sub.getSelectedItem().toString());
+                            ob.put("branch", branch.getSelectedItem().toString());
+                            ob.put("section", sec.getSelectedItem().toString());
+                            ob.put("sem", sem.getSelectedItem().toString());
+                            ob.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e == null) {
+                                        Intent intent = new Intent(getApplicationContext(), Teacherprofileentry.class);
+                                        startActivity(intent);
+                                        overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
 
+            } else
+                Toast.makeText(getApplicationContext(), "Please select properly", Toast.LENGTH_LONG).show();
+        }
 
     }
 
