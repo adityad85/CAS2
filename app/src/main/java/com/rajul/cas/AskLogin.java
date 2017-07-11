@@ -24,6 +24,7 @@ public class AskLogin extends AppCompatActivity implements View.OnClickListener 
     public void jumptoAskSignupScreen(View v){
         Intent intent = new Intent(getApplicationContext(), asksignup.class);
         startActivity(intent);
+        finish();
         overridePendingTransition( R.anim.slide_in_down, R.anim.slide_out_down );
     }
 

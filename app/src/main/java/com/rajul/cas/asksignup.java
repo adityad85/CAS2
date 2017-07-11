@@ -39,6 +39,7 @@ public class asksignup extends AppCompatActivity implements View.OnClickListener
         Intent intent = new Intent(getApplicationContext(), AskLogin.class);
         //intent.putExtra("represent",0);
         startActivity(intent);
+        finish();
         overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
 
     }

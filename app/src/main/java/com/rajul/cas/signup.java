@@ -56,18 +56,18 @@ public class signup extends AppCompatActivity {
             focusView = password;
             cancel = true;
 
-        }
+        }else
         if (TextUtils.isEmpty(fNameis)) {
             fName.setError("Can't Be Empty");
             focusView = fName;
             cancel = true;
-        }
+        }else
 
         if (TextUtils.isEmpty(lNameis)) {
             lName.setError("Can't Be Empty");
             focusView = lName;
             cancel = true;
-        }
+        }else
         if (TextUtils.isEmpty(emailis)) {
             email.setError("Can't Be Empty");
             focusView = email;

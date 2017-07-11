@@ -51,7 +51,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
     ArrayList<String> finalSub = new ArrayList<String>();
     Spinner sem, branch, sec, sub, lec;
     String semis, branchis, secis, subis, lecis, dateis;
-    Packet p;
+    Packet p=new Packet();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -198,7 +198,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         ad.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         s.setAdapter(ad);
     }
-
+    Boolean d=false;
     EditText daate;
     DatePickerDialog datePickerDialog;
     public void jumptoDialog2(View v){
@@ -320,7 +320,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
                                 daate.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                 dateis = daate.getText().toString();
-
+                              d=true;
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -367,8 +367,49 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         if (ans) {focusView.requestFocus();
 
         }else{
+            p.setSem(sem.getSelectedItem().toString());
+            ParseQuery<ParseObject> qw=new ParseQuery<ParseObject>("attendance_"+p.getYear());
+            qw.whereContains("sem",sem.getSelectedItem().toString());
+            qw.whereContains("section",secis);
+            qw.whereContains("branch",branchis);
+            qw.whereContains("Lecture_id",lecis);
+            LocalDate k=new LocalDate();
+            qw.whereContains("date",k.toString());
+            try {
+                if(qw.find().size()==0)
+                {Log.i("asas","vcvb");
+                    ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
+                query.whereEqualTo("subject",sub.getSelectedItem().toString());
+                query.whereEqualTo("sem",sem.getSelectedItem().toString());
+                query.whereEqualTo("section",sec.getSelectedItem().toString());
+                query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
+                query.whereEqualTo("branch",branch.getSelectedItem().toString());
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if(objects.size()>0){
+                            ans=false;
+                        }else{
+                            Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
+                            intent.putExtra("section", sec.getSelectedItem().toString());
+                            intent.putExtra("branch", branch.getSelectedItem().toString());
+                            intent.putExtra("semester", sem.getSelectedItem().toString());
+                            intent.putExtra("lecture", lec.getSelectedItem().toString());
+                            intent.putExtra("subject", sub.getSelectedItem().toString());
+                            LocalDate m = new LocalDate();
+                            intent.putExtra("date", m.toString());
+                            startActivity(intent);
+
+                        }
+                    }
+                });}else {
+                    Toast.makeText(getApplicationContext(),"Check your Lecture No. or may be go to the Update section",Toast.LENGTH_LONG).show();
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             //Either You've already made it or check the lecture nuumber or youre not authorised
-            ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
+            /*ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
             query.whereEqualTo("subject",sub.getSelectedItem().toString());
             query.whereEqualTo("sem",sem.getSelectedItem().toString());
             query.whereEqualTo("section",sec.getSelectedItem().toString());
@@ -392,7 +433,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
 
                     }
                 }
-            });
+            });*/
             /*
             Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
             intent.putExtra("section", sec.getSelectedItem().toString());
@@ -434,10 +475,6 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             Log.i("jjv3","xyjc");
 
         }else
-        if(dateis.equals("xx/yy/zzzz")){
-            focusView=daate;
-            ans=true;
-        }else
             ans=false;
     }
 
@@ -445,20 +482,25 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
         check2(v);
         if (ans) {
             focusView.requestFocus();
-        }else{
+        }else{if(d) {
             //Either You've already made it or check the lecture nuumber or youre not authorised
-            ParseQuery<ParseObject> query=new ParseQuery<ParseObject>("Teacher_Sub");
-            query.whereEqualTo("subject",sub.getSelectedItem().toString());
-            query.whereEqualTo("sem",sem.getSelectedItem().toString());
-            query.whereEqualTo("section",sec.getSelectedItem().toString());
-            query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
-            query.whereEqualTo("branch",branch.getSelectedItem().toString());
+            //ParseQuery<ParseObject> quer=new ParseQuery<ParseObject>("")
+            p.setSem(sem.getSelectedItem().toString());
+
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_" + p.getYear());
+            query.whereEqualTo("subject", sub.getSelectedItem().toString());
+            query.whereEqualTo("sem", sem.getSelectedItem().toString());
+            query.whereEqualTo("section", sec.getSelectedItem().toString());
+            //query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
+            query.whereEqualTo("branch", branch.getSelectedItem().toString());
+            query.whereEqualTo("Lecture_id", lec.getSelectedItem().toString());
+            query.whereContains("date", dateis);
             query.findInBackground(new FindCallback<ParseObject>() {
                 @Override
                 public void done(List<ParseObject> objects, ParseException e) {
-                    if(objects.size()>0){
-                        ans=false;
-                    }else{
+                    if (objects.size() > 0) {
+                        ans = false;
+                    } else {
                         Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
                         intent.putExtra("section", sec.getSelectedItem().toString());
                         intent.putExtra("branch", branch.getSelectedItem().toString());
@@ -471,7 +513,9 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
                     }
                 }
             });
-
+        }else {
+            Toast.makeText(getApplicationContext(),"Select Date",Toast.LENGTH_LONG).show();
+        }
 /*            Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
         intent.putExtra("section", sec.getSelectedItem().toString());
         intent.putExtra("branch", branch.getSelectedItem().toString());
