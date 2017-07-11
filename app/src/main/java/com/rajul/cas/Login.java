@@ -182,8 +182,9 @@ public class Login extends AppCompatActivity {
     public void forgotcheck(View view) {
         check2(view);
         if(cancel){
+            Toast.makeText(getApplicationContext(),"Please Enter Email",Toast.LENGTH_LONG).show();
             focusView.requestFocus();
-            Toast.makeText(getApplicationContext(),"Please Enter an Email",Toast.LENGTH_LONG).show();
+
         }else{
             ParseUser.requestPasswordResetInBackground(username.getText().toString(), new RequestPasswordResetCallback() {
                 @Override

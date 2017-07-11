@@ -76,10 +76,10 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         } else {
             getData();
         }
-        spi = (Spinner) findViewById(R.id.ViewAttendanceSpinner);
+       // spi = (Spinner) findViewById(R.id.ViewAttendanceSpinner);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        spi.setOnItemSelectedListener(this);
+//        spi.setOnItemSelectedListener(this);
 
 
     }
