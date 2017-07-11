@@ -83,11 +83,11 @@ public class Packet extends Activity {
             return "1";
         } else if (sem == "3" || sem == "4") {
             return "2";
-        } else if (sem == "5" || sem == "6") {
+        } else if (sem.equals("5") || sem == "6") {
             return "3";
         } else if (sem == "7" || sem == "8") {
             return "4";
-        }
+        }else
         return "1";
     }
     public String getSubject() {
