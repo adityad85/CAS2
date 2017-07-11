@@ -30,7 +30,8 @@
         android:textSize="18sp"
         android:gravity="center"
             android:layout_marginTop="40dp"
-            android:padding="15dp"/>
+            android:padding="15dp"
+            android:id="@+id/maintext"/>
     </LinearLayout>
 
 </RelativeLayout>

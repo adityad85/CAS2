@@ -204,7 +204,7 @@ public void transit(View v){
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
         }
 
-        if(id== R.id.action_about){
+        if(id == R.id.action_about){
             Intent intent = new Intent(getApplicationContext(), About.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);

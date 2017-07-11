@@ -61,7 +61,7 @@
                 android:id="@+id/KietEmailIdlogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="KIET EMAIL-ID"
+                android:hint="USER NAME"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:textColor="@color/colorPrimaryDark"
