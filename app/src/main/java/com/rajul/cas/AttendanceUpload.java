@@ -78,7 +78,8 @@ public class AttendanceUpload extends AppCompatActivity {
         sechint.setText(sec);
         lechint.setText(lec);
         datehint.setText(aa);
-
+        p.setSem(sem);
+        Log.i("year",p.getYear()+sem);
         //Method to get Data
         getData();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

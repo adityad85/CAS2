@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
             password.setError("Please Type Correctly");
             focusView = password;
             cancel = true;
-        }
+        }else
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(username.getText().toString())) {
@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
             focusView = username;
             cancel = true;
 
-        }
+        }else cancel=false;
 
     }
     public void check2(View v){
@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
             focusView = username;
             cancel = true;
 
-        }
+        }else cancel=false;
     }
     public void dashboard(View v){
         check(v);
@@ -124,9 +124,9 @@ public class Login extends AppCompatActivity {
                                         });
                                   /*  Intent i= new Intent(getApplicationContext(),HomeTeacher.class);
                                     startActivity(i);*/
-                                    } else
+                                    } else{
                                         Toast.makeText(getApplication(), "Get Verified By Contacting Admins", Toast.LENGTH_LONG
-                                        ).show();
+                                        ).show();}
 
                                 }
                             });
@@ -158,10 +158,15 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"You are a student, Go back",Toast.LENGTH_LONG).show();
                         }
                     }else if (e != null) {
+                        headerProgress.setVisibility(View.INVISIBLE);
+                        dim_layout.setVisibility(View.INVISIBLE);
                         e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Invalid Email/Password BC-Dekh K Daal", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Invalid Email/Password", Toast.LENGTH_LONG).show();
                     } else
-                        Toast.makeText(getApplicationContext(), "Verify Your Email First", Toast.LENGTH_LONG).show();
+                    {
+                        headerProgress.setVisibility(View.INVISIBLE);
+                        dim_layout.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getApplicationContext(), "Verify Your Email First", Toast.LENGTH_LONG).show();}
 
                 }
             });

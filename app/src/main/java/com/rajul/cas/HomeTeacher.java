@@ -334,7 +334,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
     View focusView=null;
     public void check(View v){
         Log.i("aaa","kjkj");
-        if(branch.equals("Select Branch")){
+        if(branch.getSelectedItem().toString().equals("Select Branch")){
             ((TextView)branch.getSelectedView()).setError("Enter Branch");
             focusView=branch;
             ans=true;
@@ -345,13 +345,13 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             focusView=sub;
             ans=true;
             Log.i("jjv0","xyjc");
-        }else if(sem.getSelectedItem().toString().equals("Select Section")){
-            ((TextView)sem.getSelectedView()).setError("");
-            focusView=sem;
-            ans=true;Log.i("jjv1","xyjc");
-        }else if(sec.getSelectedItem().toString().equals("Select Sem")){
+        }else if(sec.getSelectedItem().toString().equals("Select Section")){
             ((TextView)sec.getSelectedView()).setError("");
             focusView=sec;
+            ans=true;Log.i("jjv1","xyjc");
+        }else if(sem.getSelectedItem().toString().equals("Select Sem")){
+            ((TextView)sem.getSelectedView()).setError("");
+            focusView=sem;
             ans = true;Log.i("jjv2","xyjc");
         }else if(lec.getSelectedItem().toString().equals("Select Lec no")){
             ((TextView)lec.getSelectedView()).setError("");
@@ -419,13 +419,13 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             focusView=sub;
             ans=true;
             Log.i("jjv0","xyjc");
-        }else if(sem.getSelectedItem().toString().equals("Select Section")){
-            ((TextView)sem.getSelectedView()).setError("");
-            focusView=sem;
-            ans=true;Log.i("jjv1","xyjc");
-        }else if(sec.getSelectedItem().toString().equals("Select Sem")){
+        }else if(sec.getSelectedItem().toString().equals("Select Section")){
             ((TextView)sec.getSelectedView()).setError("");
             focusView=sec;
+            ans=true;Log.i("jjv1","xyjc");
+        }else if(sem.getSelectedItem().toString().equals("Select Sem")){
+            ((TextView)sem.getSelectedView()).setError("");
+            focusView=sem;
             ans = true;Log.i("jjv2","xyjc");
         }else if(lec.getSelectedItem().toString().equals("Select Lec no")){
             ((TextView)lec.getSelectedView()).setError("");

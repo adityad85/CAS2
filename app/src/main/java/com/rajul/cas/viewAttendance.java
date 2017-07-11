@@ -68,7 +68,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
         Intent i = getIntent();
         date = i.getStringExtra("date");
         k = i.getExtras().getString("ch");
-        Log.i("ll00", k);
+        Log.i("ll00",packet.getYear());
         if (k.equals("1")) {
             Log.i("asssssa", "qqqqqqqq");
             getData2();
@@ -144,10 +144,13 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData() {
-        recyclerView.setAdapter(null);
+        viewAttendanceRow.clear();
+        recyclerView.removeAllViews();adapter=new ListAdapterStudent(viewAttendanceRow,getApplicationContext());
+        adapter.notifyDataSetChanged();
+
         headerProgress.setVisibility(View.VISIBLE);
         dim_layout.setVisibility(View.VISIBLE);
-        viewAttendanceRow.clear();
+
         id = packet.getIds();
         Log.i("jjk", id);
         String ye=packet.getYear();
@@ -315,11 +318,12 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void getData2() {
-        recyclerView.setAdapter(null);
+        viewAttendanceRow.clear();
+        recyclerView.removeAllViews();
         headerProgress.setVisibility(View.VISIBLE);
         dim_layout.setVisibility(View.VISIBLE);
         id = packet.getIds();
-        viewAttendanceRow.clear();
+
         Log.i("jjk", id);
         String ye=packet.getYear();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_"+ye);

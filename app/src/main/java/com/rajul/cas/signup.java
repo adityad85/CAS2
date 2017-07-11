@@ -54,16 +54,17 @@ public class signup extends AppCompatActivity {
     public void check(View v) {
         if (TextUtils.isEmpty(passwordis) || passwordis.length() < 6) {
             focusView = password;
+            cancel = true;
 
         }
         if (TextUtils.isEmpty(fNameis)) {
-            fName.setError("Shameful");
+            fName.setError("Can't Be Empty");
             focusView = fName;
             cancel = true;
         }
 
         if (TextUtils.isEmpty(lNameis)) {
-            lName.setError("Shameful");
+            lName.setError("Can't Be Empty");
             focusView = lName;
             cancel = true;
         }
@@ -75,7 +76,7 @@ public class signup extends AppCompatActivity {
             email.setError("Not Valid");
             focusView = email;
             cancel = true;
-        }
+        }else cancel=false;
 
     }
 
@@ -125,21 +126,29 @@ public class signup extends AppCompatActivity {
                     final String title = "Account Created Successfully";
                     final String message = "Please verify your email before Login";
                     Toast.makeText(getApplicationContext(), title + message, Toast.LENGTH_LONG).show();
+
+                    headerProgress.setVisibility(View.INVISIBLE);
+                    dim_layout.setVisibility(View.INVISIBLE);
+                    Intent intent = new Intent(getApplicationContext(), AskLogin.class);
+                    startActivity(intent);
                     obj.saveInBackground();
                 } else {
                     if (e.toString() == "com.parse.ParseRequest$ParseRequestException: Account already exists for this username.")
                         Toast.makeText(getApplication(), "Account already exists for this username.", Toast.LENGTH_LONG).show();
+
+                    headerProgress.setVisibility(View.INVISIBLE);
+                    dim_layout.setVisibility(View.INVISIBLE);
+                    Intent intent = new Intent(getApplicationContext(), AskLogin.class);
+
+                    startActivity(intent);
                     e.printStackTrace();
                 }
 
             }
         });
 
-            headerProgress.setVisibility(View.INVISIBLE);
-            dim_layout.setVisibility(View.INVISIBLE);
 
-            Intent intent = new Intent(getApplicationContext(), AskLogin.class);
-            startActivity(intent);
+
             overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
         }
     }
