@@ -317,10 +317,18 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
-                                daate.setText(/*dayOfMonth + "/"
+                                //daate.setText(/*dayOfMonth + "/"
+                                  //      + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                                /*dateis = daate.getText().toString();*/
+                                if (monthOfYear <= 8)
+                                    daate.setText(/*dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + */year + "-0" + (monthOfYear + 1) + "-" + dayOfMonth);
+                                else
+                                    daate.setText(/*dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + */year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                                 dateis = daate.getText().toString();
-                              d=true;
+
+                                d=true;
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -368,6 +376,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
 
         }else{
             p.setSem(sem.getSelectedItem().toString());
+            p.setIdt(ParseUser.getCurrentUser().getUsername());
             ParseQuery<ParseObject> qw=new ParseQuery<ParseObject>("attendance_"+p.getYear());
             qw.whereContains("sem",sem.getSelectedItem().toString());
             qw.whereContains("section",secis);
@@ -382,7 +391,7 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
                 query.whereEqualTo("subject",sub.getSelectedItem().toString());
                 query.whereEqualTo("sem",sem.getSelectedItem().toString());
                 query.whereEqualTo("section",sec.getSelectedItem().toString());
-                query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
+                query.whereEqualTo("id",p.getIdt());
                 query.whereEqualTo("branch",branch.getSelectedItem().toString());
                 query.findInBackground(new FindCallback<ParseObject>() {
                     @Override
@@ -486,21 +495,20 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
             //Either You've already made it or check the lecture nuumber or youre not authorised
             //ParseQuery<ParseObject> quer=new ParseQuery<ParseObject>("")
             p.setSem(sem.getSelectedItem().toString());
-
-            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_" + p.getYear());
+            p.setIdt(ParseUser.getCurrentUser().getUsername());
+            Log.i("ssss",p.getYear());
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("attendance_"+p.getYear());
             query.whereEqualTo("subject", sub.getSelectedItem().toString());
             query.whereEqualTo("sem", sem.getSelectedItem().toString());
-            query.whereEqualTo("section", sec.getSelectedItem().toString());
-            //query.whereEqualTo("id",ParseUser.getCurrentUser().getUsername());
-            query.whereEqualTo("branch", branch.getSelectedItem().toString());
-            query.whereEqualTo("Lecture_id", lec.getSelectedItem().toString());
+            query.whereEqualTo("section",sec.getSelectedItem().toString());
+            query.whereEqualTo("id",p.getIdt());
+            query.whereEqualTo("branch",branch.getSelectedItem().toString());
+            query.whereEqualTo("Lecture_id",lec.getSelectedItem().toString());
             query.whereContains("date", dateis);
             query.findInBackground(new FindCallback<ParseObject>() {
                 @Override
                 public void done(List<ParseObject> objects, ParseException e) {
                     if (objects.size() > 0) {
-                        ans = false;
-                    } else {
                         Intent intent = new Intent(getApplicationContext(), AttendanceUpload.class);
                         intent.putExtra("section", sec.getSelectedItem().toString());
                         intent.putExtra("branch", branch.getSelectedItem().toString());
@@ -510,6 +518,8 @@ public class HomeTeacher extends AppCompatActivity implements AdapterView.OnItem
                         intent.putExtra("date", dateis);
                         startActivity(intent);
 
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Not authorized",Toast.LENGTH_LONG).show();
                     }
                 }
             });

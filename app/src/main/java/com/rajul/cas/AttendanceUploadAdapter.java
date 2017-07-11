@@ -85,6 +85,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                 obj.put("branch", packet.getBranch());
                 obj.put("date", packet.getDate().toString());
                 obj.put("sem",packet.getSem());
+                obj.put("id",packet.getIdt());
                 obj.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -183,6 +184,7 @@ public class AttendanceUploadAdapter extends RecyclerView.Adapter<com.rajul.cas.
                             obj.put("branch", packet.getBranch());
                                 obj.put("date", packet.getDate().toString());
                                 obj.put("sem",packet.getSem());
+                                obj.put("id",packet.getIdt());
                             obj.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
