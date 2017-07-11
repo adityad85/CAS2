@@ -120,6 +120,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     if(e==null) {
                         Intent intent = new Intent(getApplicationContext(), AskLogin.class);
                         startActivity(intent);
+                        finish();
                     }
                 }
             });
@@ -167,6 +168,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     dim_layout.setVisibility(View.INVISIBLE);
                     Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
                     startActivity(i);
+                    finish();
                 }
                 if (e != null)
                     e.printStackTrace();
@@ -337,6 +339,7 @@ public class viewAttendance extends AppCompatActivity implements AdapterView.OnI
                     dim_layout.setVisibility(View.INVISIBLE);
                     Intent i=new Intent(getApplicationContext(),StudentDashboard.class);
                     startActivity(i);
+                    finish();
 
                 }
                 if (e != null)
